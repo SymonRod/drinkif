@@ -7,7 +7,9 @@
     <input type="text" v-model="min" name="min" id="min">
     <input type="text" v-model="max" name="max" id="max">
   </div>
-
+  <div class="username">
+    <input type="text" v-model="username" name="username" id="username">
+  </div>
   <div class="buttons">
     <label for="doNotRepeat">
       <input type="checkbox" v-model="doNotRepeat" id="doNotRepeat">
@@ -42,6 +44,10 @@ export default {
     max: {
       get() { return this.$store.state.max },
       set(value) { this.$store.commit('updateMax', value) }
+    },
+    username: {
+      get() { return this.$store.state.username },
+      set(value) { this.$store.commit('updateUsername', value) }
     }
   },
 }

@@ -4,12 +4,13 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    doNotRepeat: false,
-    counter: null,
+    username: JSON.parse(localStorage.getItem('username')),
+    doNotRepeat: (JSON.parse(localStorage.getItem('doNotRepeat')) == null ? false : JSON.parse(localStorage.getItem('doNotRepeat'))),
+    counter: JSON.parse(localStorage.getItem('counter')),
     history: [],
-    available: [],
-    min: 0,
-    max: 100,
+    available: (JSON.parse(localStorage.getItem('min')) == null ? [] : JSON.parse(localStorage.getItem('available'))),
+    min: (JSON.parse(localStorage.getItem('min')) == null ?  0 : JSON.parse(localStorage.getItem('min'))),
+    max: (JSON.parse(localStorage.getItem('max')) == null ? 100 :  JSON.parse(localStorage.getItem('max'))),
   },
   mutations: {
     increaseCounter (state) {
@@ -23,6 +24,7 @@ export default createStore({
         state.history.push(state.counter)
       } 
       state.counter = payload
+      localStorage.setItem('counter', JSON.stringify(state.counter));
     },
     randomCounter(state) {
       if (state.doNotRepeat) {
@@ -35,6 +37,7 @@ export default createStore({
         if (index > -1) {
           state.available.splice(index, 1);
         }
+        localStorage.setItem('available', JSON.stringify(state.available));
       } else {
         let min = Math.ceil(state.min);
         let max = Math.floor(state.max);
@@ -45,6 +48,7 @@ export default createStore({
       let max = parseInt(payload);
       if (!isNaN(max)) {
         state.max = max
+        localStorage.setItem('max', JSON.stringify(max));
         this.commit("updateDoNotRepeat", state.doNotRepeat);
       }
       this.commit("setCounter",null);
@@ -53,23 +57,30 @@ export default createStore({
       let min = parseInt(payload);
       if (!isNaN(min)) {
         state.min = min
+        localStorage.setItem('min', JSON.stringify(min));
         this.commit("updateDoNotRepeat", state.doNotRepeat);
       }
       this.commit("setCounter", null);
     },
     updateDoNotRepeat(state, payload) {
       state.doNotRepeat = payload;
+      localStorage.setItem('doNotRepeat', JSON.stringify(payload));
       if (state.doNotRepeat) {
         state.available = [];
         let max = state.max;
         let min = state.min;
-
         for(let i = min; i <=max;i++) {
-
           state.available.push(i);
         }
+        localStorage.setItem('available', JSON.stringify(state.available));
       }
-    }
+    },
+    updateUsername(state, payload) {
+      if (payload != null) {
+        state.username = payload;
+        localStorage.setItem('username', JSON.stringify(payload));
+      }
+    },
   },
 
   actions: {
