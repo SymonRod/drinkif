@@ -1,36 +1,21 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <div class="counter">
-    {{ $store.state.counter }}
-  </div>
-  <div class="range">
-    <input type="text" v-model="min" name="min" id="min">
-    <input type="text" v-model="max" name="max" id="max">
-  </div>
-  <div class="username">
-    <input type="text" v-model="username" name="username" id="username">
-  </div>
-  <div class="buttons">
-    <label for="doNotRepeat">
-      <input type="checkbox" v-model="doNotRepeat" id="doNotRepeat">
-      Do not repeat 
-    </label>
-    <button @click="$store.dispatch('randomCounter')">Random</button>
-  </div>
-  <div class="info" v-if="doNotRepeat">
-    There are still available {{$store.state.available.length}} numbers
-  </div>
+<body>
+ <Navbar></Navbar>
+ <Home></Home>
+</body>
 </template>
 
 <script>
+import Home from './components/Home.vue'
+import Navbar from './components/Navbar.vue'
 
 export default {
   name: 'App',
   data() {
-    return {
-    }
-  },
-  methods: {
+    },
+  components: {
+    Navbar,
+    Home,
   },
   computed: {
     doNotRepeat: {
@@ -54,9 +39,12 @@ export default {
 </script>
 
 <style>
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+
 body {
  user-select: none;
-
+ background-color: #383838;
+ color: white;
 }
 
 body img {
@@ -68,8 +56,7 @@ body img {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: white;
 }
 
 .buttons button  {
