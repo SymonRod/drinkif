@@ -13,7 +13,8 @@
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vuex": "^4.0.0-0",
+    "webpack": "^4.46.0"
   },
   "devDependencies": {
     "@vizuaalog/bulmajs": "^0.12.1",
