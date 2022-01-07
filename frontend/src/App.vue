@@ -10,6 +10,10 @@ export default {
   name: 'App',
   components: {
     Navbar
+  },
+  mounted() {
+    this.$store.commit('updateUser',window.user);
+    this.$store.dispatch('getPhrases');
   }
 }
 </script>

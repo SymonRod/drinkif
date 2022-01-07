@@ -14,20 +14,12 @@
       </div>
       <div id="navbarMenu" class="navbar-menu">
         <div class="navbar-end">
-          <div class="navbar-item">
-            <router-link to="/about">About</router-link>
+          <div class="navbar-item" v-if="$store.state.user != null">
+            <router-link to="/phrases" >Yours phrases</router-link>
           </div>
-          <div class="navbar-item field">
-            <p class="control has-icons-right">
-              <input
-                class="input"
-                placeholder="Username"
-                type="text"
-                v-model="username"
-                name="username"
-                id="username"
-              />
-            </p>
+          <div class="navbar-item">
+            <router-link to="/login" v-if="$store.state.user == null">Login</router-link>
+            <a href="/logout" v-if="$store.state.user != null">Logout</a>
           </div>
         </div>
       </div>
@@ -40,14 +32,6 @@ export default {
   name: "Navbar",
   props: {},
   computed: {
-    username: {
-      get() {
-        return this.$store.state.username;
-      },
-      set(value) {
-        this.$store.commit("updateUsername", value);
-      },
-    },
   },
 };
 

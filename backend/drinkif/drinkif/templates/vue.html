@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        {% if user.is_authenticated %}
+        window.user = {
+            'id': {{ user.id }},
+            'username': '{{ user.username }}',
+            'email': '{{ user.email }}',
+            'is_authenticated': true
+        };
+        {% else %}
+        window.user = null;
+        {% endif %}
+    </script>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script type="text/javascript" src="{% static 'src/vue/dist/js/chunk-vendors.js' %}"></script>
+    <script type="text/javascript" src="{% static 'src/vue/dist/js/app.js' %}"></script>
+    <link href="{% static 'src/vue/dist/css/app.css' %}" rel=stylesheet>
+</body>
+
+</html>

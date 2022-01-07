@@ -8,7 +8,7 @@
           </figure>
         </div>
         <div class="title has-text-centered">
-          {{ $store.state.counter }}
+          {{ $store.state.current_phrase.phrase_text }}
         </div>
 
         <!-- <div class="range">
@@ -18,10 +18,10 @@
       </div>
       <div class="has-text-centered m-3">
         <button
-          @click="$store.dispatch('randomCounter')"
+          @click="$store.dispatch('random_phrase')"
           class="button is-primary is-outlined"
         >
-          New Number
+          New Phrase
         </button>
       </div>
       <div class="has-text-centered m-3">
@@ -34,7 +34,7 @@
       <article class="message is-primary" v-if="doNotRepeat">
         <div class="message-body" >
           <p>
-          There are still available <strong> {{ $store.state.available.length }} </strong> numbers
+          There are still available <strong> {{ $store.state.available.length }} </strong> phrases.
         </p>
         </div>
       </article>
@@ -46,6 +46,8 @@
 export default {
   name: "Home",
   props: {},
+  mounted: function() {
+  },
   computed: {
     doNotRepeat: {
       get() {

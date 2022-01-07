@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from drinkif import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.vue_test, name='index'), 
+    path('login', views.login_json, name='login'),
+    path('logout', views.logout_json, name='logout'),
+    path('register', views.register_json, name='register'),
+    path('get_phrases', views.get_phrases, name='get_phrases'),
+    path('add_phrases', views.add_phrases, name='add_phrases'),
+    path('delete_phrase', views.delete_phrase, name='delete_phrase'),
 ]
