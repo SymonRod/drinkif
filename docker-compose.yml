@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+  drinkif:
+    restart: always
+    build:
+      context: ./
+    ports:
+      - 8111:8000
+    volumes:
+      - ./backend:/backend
