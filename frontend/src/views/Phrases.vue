@@ -2,7 +2,7 @@
 <div>
   <div class="columns">
     <div id="phrases-view" class="column is-half is-offset-one-quarter">
-      <div class="card m-6 p-4">
+      <div class="card m-auto p-4">
         <h1 class="has-text-black title">Add phrases</h1>
         <p class="has-text-black">Add phrases here</p>
         <textarea class="textarea" placeholder="" v-model="phrases"></textarea>
@@ -13,6 +13,9 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="title has-text-white m-3 has-text-centered">
+    Yours sentences
   </div>
   <ul>
     <li v-for="phrase in $store.state.phrases" :key="phrase.id" class="">

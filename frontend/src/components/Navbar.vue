@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="container">
       <div class="navbar-brand">
-        <p class="title m-auto has-text-primary	">
+        <p class="title mt-3 mb-1 ml-2 has-text-primary	">
             <router-link to="/">DrinkIf</router-link>
           </p>
         <a class="navbar-item" href="#"> </a>
@@ -12,7 +12,7 @@
           <span></span>
         </span>
       </div>
-      <div id="navbarMenu" class="navbar-menu">
+      <div id="navbarMenu" class="navbar-menu has-background-dark">
         <div class="navbar-end">
           <div class="navbar-item" v-if="$store.state.user != null">
             <router-link to="/phrases" >Yours phrases</router-link>
