@@ -26,4 +26,5 @@ urlpatterns = [
     path('get_phrases', views.get_phrases, name='get_phrases'),
     path('add_phrases', views.add_phrases, name='add_phrases'),
     path('delete_phrase', views.delete_phrase, name='delete_phrase'),
+    path('manifest.json', views.manifest, name='manifest'),
 ]
