@@ -30,6 +30,8 @@ ALLOWED_HOSTS = ['drinkif.serod.tech','127.0.0.1','localhost']
 
 CSRF_TRUSTED_ORIGINS = ['https://*.serod.tech','https://*.127.0.0.1']
 
+CORS_ALLOW_CREDENTIALS = True
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -57,7 +59,7 @@ ROOT_URLCONF = 'drinkif.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'static')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -3,10 +3,10 @@ const path = require('path');
 
 module.exports = {
     // Should be STATIC_URL + path/to/build
-    publicPath: '/static/src/vue/dist/',
+    publicPath: '/static',
 
     // Output to a directory in STATICFILES_DIRS
-    outputDir: path.resolve(__dirname, '../backend/drinkif/static/src/vue/dist/'),
+    outputDir: path.resolve(__dirname, '../backend/drinkif/static'),
 
     // Django will hash file names, not webpack
     filenameHashing: true,
@@ -30,7 +30,7 @@ module.exports = {
         workboxPluginMode: 'InjectManifest',
         workboxOptions: {
             // swSrc is required in InjectManifest mode.
-            swSrc: 'src/registerServiceWorker.js',
+          swSrc: 'src/registerServiceWorker.js',
             // ...other Workbox options...
         }
     },

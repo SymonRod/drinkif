@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
+from django.views.decorators.csrf import csrf_exempt
+from django.middleware.csrf import get_token
 from django.views.decorators.cache import never_cache
 from django.http import JsonResponse
 from drinkif.models import *
@@ -27,8 +29,8 @@ def validate_password_strength(value):
 
 
 
-def vue_test(request):
-    return render(request, 'vue.html')
+def index(request):
+    return render(request, 'index.html')
 
 @never_cache
 def login_json(request):
@@ -96,3 +98,9 @@ def delete_phrase(request):
             return JsonResponse({'status': 'success'})
     else:
         return JsonResponse({'status': 'fail'}, status=403)
+
+@csrf_exempt
+def get_csrf(request):
+    response = JsonResponse({'detail': 'CSRF cookie set'})
+    response['X-CSRFToken'] = get_token(request)
+    return response
