@@ -14,12 +14,16 @@
       </div>
       <div id="navbarMenu" class="navbar-menu has-background-dark">
         <div class="navbar-end">
+          <div class="navbar-item">
+            {{$t("select-language")}} 
+            <SelectLocale />
+          </div>
           <div class="navbar-item" v-if="$store.state.user != null">
-            <router-link to="/phrases" >Yours phrases</router-link>
+            <router-link to="/phrases" >{{$t('navbar.sentences')}}</router-link>
           </div>
           <div class="navbar-item">
-            <router-link to="/login" v-if="$store.state.user == null">Login</router-link>
-            <a href="/logout" v-if="$store.state.user != null">Logout</a>
+            <router-link to="/login" v-if="$store.state.user == null">{{$t('navbar.login')}}</router-link>
+            <a href="/logout" v-if="$store.state.user != null">{{$t('navbar.logout')}}</a>
           </div>
         </div>
       </div>
@@ -28,10 +32,15 @@
 </template>
 
 <script>
+import SelectLocale from './SelectLocale.vue'
+
 export default {
   name: "Navbar",
   props: {},
   computed: {
+  },
+  components: {
+    SelectLocale
   },
 };
 

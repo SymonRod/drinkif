@@ -12,6 +12,7 @@ export default createStore({
     min: (JSON.parse(localStorage.getItem('min')) == null ? 0 : JSON.parse(localStorage.getItem('min'))),
     max: (JSON.parse(localStorage.getItem('max')) == null ? 100 : JSON.parse(localStorage.getItem('max'))),
     phrases: [],
+    locale: (JSON.parse(localStorage.getItem('locale')) == null ? 'en' : JSON.parse(localStorage.getItem('locale'))),
   },
   mutations: {
     increaseCounter(state) {
@@ -92,8 +93,12 @@ export default createStore({
 
     updatePhrases(state, payload) {
       state.phrases = payload;
-    }
+    },
 
+    updateLocale(state, payload) {
+      state.locale = payload;
+      localStorage.setItem('locale', JSON.stringify(payload));
+    }
 
     // End Mutations 
   },
