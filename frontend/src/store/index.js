@@ -140,6 +140,7 @@ export default createStore({
               username: response.data.username,
             };
             commit("updateUser", user);
+            this.dispatch("getPhrases");
           }
         })
       },
