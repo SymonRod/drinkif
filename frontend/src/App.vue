@@ -27,19 +27,17 @@ export default {
   },
   mounted() {
 
-    this.$store.commit('updateUser',window.user);
-    this.$store.dispatch('getPhrases');
-    console.log("Local storage locle",JSON.parse(localStorage.getItem('locale')));
-    this.$i18n.locale = this.$store.state.locale;
-    axios.post('csrf').then(response => {
-      console.log("response",response);
+    axios.post('csrf').then(() => {
+      this.$store.commit('updateUser',window.user);
+      this.$store.dispatch('getPhrases');
+      this.$i18n.locale = this.$store.state.locale;
+      this.$store.dispatch('getUser');
     });
   },
   watch: {
     '$i18n.locale': {
       handler(newLocale) {
         this.$store.commit('updateLocale', newLocale);
-        console.log(newLocale);
       },
       immediate: false
     }

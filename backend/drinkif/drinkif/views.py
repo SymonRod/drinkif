@@ -1,8 +1,9 @@
+import re
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.views.decorators.csrf import csrf_exempt
-from django.middleware.csrf import get_token
+from django.middleware.csrf import CSRF_SESSION_KEY, get_token
 from django.views.decorators.cache import never_cache
 from django.http import JsonResponse
 from drinkif.models import *
@@ -104,3 +105,13 @@ def get_csrf(request):
     response = JsonResponse({'detail': 'CSRF cookie set'})
     response['X-CSRFToken'] = get_token(request)
     return response
+
+
+@never_cache
+def get_user_info(request):
+    if request.user.is_authenticated:
+        data = {'username': request.user.username, 'id': request.user.id, 'is_authenticated': True}
+        return JsonResponse(data)
+    else:
+        return JsonResponse({'status': 'fail'}, status=403)
+

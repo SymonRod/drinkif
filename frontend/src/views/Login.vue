@@ -47,10 +47,10 @@ export default {
   methods: {
     login() {
       let csrftoken = getCookie('csrftoken');
-      console.log(csrftoken)
       axios.post('/login',{username: this.username, password: this.password},{headers:{"X-CSRFToken":csrftoken}}).then(response => {
           if(response.status === 200){
-              window.location.href = '/';
+              this.$store.commit('updateUser', response.data);
+              this.$router.push('/');
           }
       })
     },
