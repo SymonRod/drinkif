@@ -21,23 +21,24 @@
           @click="$store.dispatch('random_phrase')"
           class="button is-primary is-outlined"
         >
-          New Phrase
+          {{$t("new-sentence")}}
         </button>
       </div>
-      <div class="has-text-centered m-3">
-        <label for="doNotRepeat" class="has-text-white">
-          <input type="checkbox" v-model="doNotRepeat" id="doNotRepeat" />
-          Do not repeat
-        </label>
-      </div>
+      
 
       <article class="message is-primary" v-if="doNotRepeat">
         <div class="message-body" >
-          <p>
-          There are still available <strong> {{ $store.state.available.length }} </strong> phrases.
+          <p v-html="$t('sentence-available', {count:$store.state.available.length})">
         </p>
         </div>
       </article>
+
+      <div class="has-text-centered m-3">
+        <label for="doNotRepeat" class="has-text-white">
+          <input type="checkbox" v-model="doNotRepeat" id="doNotRepeat" />
+          {{$t("do-not-repeat")}}
+        </label>
+      </div>
     </div>
   </section>
 </template>

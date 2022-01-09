@@ -3,8 +3,8 @@
     <div class="columns">
       <div id="phrases-view" class="column is-half is-offset-one-quarter">
         <div class="card m-auto p-4">
-          <h1 class="has-text-black title">Add phrases</h1>
-          <p class="has-text-black">Add phrases here</p>
+          <h1 class="has-text-black title">{{$t('add-sentences')}}</h1>
+          <p class="has-text-black">{{$t('add-sentences-here')}}</p>
           <textarea
             class="textarea"
             placeholder=""
@@ -15,14 +15,14 @@
               class="button is-primary is-outlined"
               @click="add_phrases()"
             >
-              Add phrases
+      {{$t('add-phrases')}}
             </button>
           </div>
         </div>
       </div>
     </div>
     <div class="title has-text-white m-3 has-text-centered">
-      Yours sentences
+      {{$t('your-sentences')}}
     </div>
     <ul>
       <li
@@ -42,7 +42,7 @@
                   data-target="modal-confirm-delete"
                   @click="set_delete_id(phrase.id)"
                 >
-                  Delete
+                  {{$t('delete')}}
                 </button>
               </div>
             </div>
@@ -54,15 +54,15 @@
       <div class="modal-background"></div>
       <div class="modal-card">
         <header class="modal-card-head">
-          <p class="modal-card-title">Confirm deltion</p>
+          <p class="modal-card-title">{{$t('confirm-deletion')}}</p>
           <button class="delete" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
-          Are you sure you want to delete this phrase?
+          {{$t('confirm-deletion-text')}}
         </section>
         <footer class="modal-card-foot">
-          <button class="button is-danger" @click="confirm_delete">I am sure delete it!</button>
-          <button class="button">No way!</button>
+          <button class="button is-danger" @click="confirm_delete">{{$t("confirm-deletion-button-agree")}}</button>
+          <button class="button">{{$t("confirm-deletion-button-deny")}}</button>
         </footer>
       </div>
     </div>
@@ -98,7 +98,7 @@ export default {
         .then(() => {
           this.$store.dispatch("getPhrases");
           toast({
-            message: "Sentences deleted!",
+            message: this.$t("sentence-deleted"),
             type: "is-danger",
             dismissible: true,
             pauseOnHover: true,
@@ -158,9 +158,6 @@ export default {
     },
   },
   mounted() {
-    console.log("Phrases.vue mounted");
-
-
     // Functions to open and close a modal
     function openModal($el) {
       $el.classList.add("is-active");
