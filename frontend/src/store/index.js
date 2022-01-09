@@ -102,7 +102,7 @@ export default createStore({
     getPhrases({ commit }) {
       axios.get('/get_phrases')
         .then(response => {
-          console.log(response.data.phrases);
+          //console.log(response.data.phrases);
           commit('updatePhrases', response.data.phrases);
           commit('updateMax', response.data.phrases.length);
           commit('updateMin', 0);

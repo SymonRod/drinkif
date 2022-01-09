@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
+from django.views.decorators.cache import never_cache
 from django.http import JsonResponse
 from drinkif.models import *
-import json
+import json, os
 
 def validate_password_strength(value):
     """Validates that a password is as least 7 characters long and has at least
@@ -29,6 +30,7 @@ def validate_password_strength(value):
 def vue_test(request):
     return render(request, 'vue.html')
 
+@never_cache
 def login_json(request):
     data = json.loads(request.body)
     username = data['username']
@@ -40,10 +42,13 @@ def login_json(request):
     else:
         return JsonResponse({'status': 'fail'} , status=403)
 
+@never_cache
+
 def logout_json(request):
     logout(request)
     return redirect('/')
 
+@never_cache
 def register_json(request):
     data = json.loads(request.body)
     username = data['username']
@@ -56,6 +61,7 @@ def register_json(request):
         login(request, user)
         return JsonResponse({'status': 'success'})
 
+@never_cache
 def get_phrases(request):
     if request.user.is_authenticated:
         data = phrases.objects.filter(creator=request.user)
@@ -67,6 +73,7 @@ def get_phrases(request):
     else:
         return JsonResponse({'status': 'fail'}, status=403)
 
+@never_cache
 def add_phrases(request):
     if request.user.is_authenticated:
         data = json.loads(request.body)
@@ -78,6 +85,7 @@ def add_phrases(request):
     else:
         return JsonResponse({'status': 'fail'}, status=403)
 
+@never_cache
 def delete_phrase(request):
     if request.user.is_authenticated:
         data = json.loads(request.body)

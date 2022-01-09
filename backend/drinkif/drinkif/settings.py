@@ -30,8 +30,6 @@ ALLOWED_HOSTS = ['drinkif.serod.tech','127.0.0.1','localhost']
 
 CSRF_TRUSTED_ORIGINS = ['https://*.serod.tech','https://*.127.0.0.1']
 
-
-
 # Application definition
 
 INSTALLED_APPS = [

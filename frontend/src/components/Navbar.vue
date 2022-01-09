@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar">
+  <nav class="navbar  has-background-dark">
     <div class="container">
       <div class="navbar-brand">
         <p class="title mt-3 mb-1 ml-2 has-text-primary	">
