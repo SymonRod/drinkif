@@ -58,7 +58,7 @@
           <button class="delete" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
-          <!-- Content ... -->
+          Are you sure you want to delete this phrase?
         </section>
         <footer class="modal-card-foot">
           <button class="button is-danger" @click="confirm_delete">I am sure delete it!</button>
@@ -113,6 +113,12 @@ export default {
     set_delete_id(id) {
       //console.log(id);
       this.delete_id = id;
+
+      function openModal($el) {
+        $el.classList.add("is-active");
+      }
+
+      openModal(document.getElementById("modal-confirm-delete"));
     },
 
     add_phrases() {
@@ -152,6 +158,9 @@ export default {
     },
   },
   mounted() {
+    console.log("Phrases.vue mounted");
+
+
     // Functions to open and close a modal
     function openModal($el) {
       $el.classList.add("is-active");

@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "50406398cc6fd5d4d790",
+    "revision": "ecbb3f7cd7ba7f4e0437",
     "url": "/static/src/vue/dist/css/app.css"
   },
   {
@@ -12,7 +12,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/src/vue/dist/index.html"
   },
   {
-    "revision": "50406398cc6fd5d4d790",
+    "revision": "ecbb3f7cd7ba7f4e0437",
     "url": "/static/src/vue/dist/js/app.js"
   },
   {
