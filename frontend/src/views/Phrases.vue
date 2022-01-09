@@ -1,49 +1,72 @@
 <template>
-<div>
-  <div class="columns">
-    <div id="phrases-view" class="column is-half is-offset-one-quarter">
-      <div class="card m-auto p-4">
-        <h1 class="has-text-black title">Add phrases</h1>
-        <p class="has-text-black">Add phrases here</p>
-        <textarea class="textarea" placeholder="" v-model="phrases"></textarea>
-        <div class="m-1">
-          <button class="button is-primary is-outlined" @click="add_phrases()">
-            Add phrases
-          </button>
+  <div>
+    <div class="columns">
+      <div id="phrases-view" class="column is-half is-offset-one-quarter">
+        <div class="card m-auto p-4">
+          <h1 class="has-text-black title">Add phrases</h1>
+          <p class="has-text-black">Add phrases here</p>
+          <textarea
+            class="textarea"
+            placeholder=""
+            v-model="phrases"
+          ></textarea>
+          <div class="m-1">
+            <button
+              class="button is-primary is-outlined"
+              @click="add_phrases()"
+            >
+              Add phrases
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="title has-text-white m-3 has-text-centered">
-    Yours sentences
-  </div>
-  <ul>
-    <li v-for="phrase in $store.state.phrases" :key="phrase.id" class="">
-      <div class="columns">
-        <div
-          class="
-            column
-            is-one-third is-offset-one-third
-          "
-        >
-        <div class="card m-2 p-3">
-          <div class="columns">
-            <div class="column has-text-black">
-              {{ phrase.phrase_text }}
+    <div class="title has-text-white m-3 has-text-centered">
+      Yours sentences
+    </div>
+    <ul>
+      <li
+        v-for="phrase in $store.state.phrases.slice().reverse()"
+        :key="phrase.id"
+        class=""
+      >
+        <div class="columns">
+          <div class="column is-one-third is-offset-one-third">
+            <div class="card m-2 p-3">
+              <div class="columns">
+                <div class="column has-text-black">
+                  {{ phrase.phrase_text }}
+                </div>
+                <button
+                  class="button is-danger is-outlined m-2 js-modal-trigger"
+                  data-target="modal-confirm-delete"
+                  @click="set_delete_id(phrase.id)"
+                >
+                  Delete
+                </button>
+              </div>
             </div>
-            <button
-              class="button is-danger is-outlined m-2"
-              @click="delete_phrase(phrase.id)"
-            >
-              Delete
-            </button>
-          </div>
           </div>
         </div>
+      </li>
+    </ul>
+    <div id="modal-confirm-delete" class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Confirm deltion</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <!-- Content ... -->
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-danger" @click="confirm_delete">I am sure delete it!</button>
+          <button class="button">No way!</button>
+        </footer>
       </div>
-    </li>
-  </ul>
-</div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -54,22 +77,42 @@ function getCookie(name) {
 }
 
 import axios from "axios";
-import router from "../router";
+
+import { toast } from "bulma-toast";
 
 export default {
+  data: function () {
+    return {
+      delete_id: -1,
+    };
+  },
   methods: {
-    delete_phrase(id) {
-      
+    confirm_delete() {
       let csrftoken = getCookie("csrftoken");
       axios
-        .post(`/delete_phrase`,{ 'id': id },{ headers: { "X-CSRFToken": csrftoken } })
-        .then(response => {
-          console.log(response);
-          this.$store.dispatch('getPhrases');	
+        .post(
+          `/delete_phrase`,
+          { id: this.delete_id },
+          { headers: { "X-CSRFToken": csrftoken } }
+        )
+        .then(() => {
+          this.$store.dispatch("getPhrases");
+          toast({
+            message: "Sentences deleted!",
+            type: "is-danger",
+            dismissible: true,
+            pauseOnHover: true,
+            duration: 3000,
+            position: "top-right",
+          });
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
+    },
+    set_delete_id(id) {
+      //console.log(id);
+      this.delete_id = id;
     },
 
     add_phrases() {
@@ -85,8 +128,6 @@ export default {
         }
       }
 
-      console.log(list_phrases);
-
       let csrftoken = getCookie("csrftoken");
       axios
         .post(
@@ -96,10 +137,70 @@ export default {
         )
         .then((response) => {
           if (response.status === 200) {
-            router.push("/");
+            this.$store.dispatch("getPhrases");
+            this.phrases = "";
+            toast({
+              message: "Sentences added!",
+              type: "is-success",
+              dismissible: true,
+              pauseOnHover: true,
+              duration: 3000,
+              position: "top-right",
+            });
           }
         });
     },
+  },
+  mounted() {
+    // Functions to open and close a modal
+    function openModal($el) {
+      $el.classList.add("is-active");
+    }
+
+    function closeModal($el) {
+      $el.classList.remove("is-active");
+    }
+
+    function closeAllModals() {
+      (document.querySelectorAll(".modal") || []).forEach(($modal) => {
+        closeModal($modal);
+      });
+    }
+
+    // Add a click event on buttons to open a specific modal
+    (document.querySelectorAll(".js-modal-trigger") || []).forEach(
+      ($trigger) => {
+        const modal = $trigger.dataset.target;
+        //console.log("trigger dataset", $trigger.dataset);
+        const $target = document.getElementById(modal);
+        $trigger.addEventListener("click", () => {
+          openModal($target);
+        });
+      }
+    );
+
+    // Add a click event on various child elements to close the parent modal
+    (
+      document.querySelectorAll(
+        ".modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button"
+      ) || []
+    ).forEach(($close) => {
+      const $target = $close.closest(".modal");
+
+      $close.addEventListener("click", () => {
+        closeModal($target);
+      });
+    });
+
+    // Add a keyboard event to close all modals
+    document.addEventListener("keydown", (event) => {
+      const e = event || window.event;
+
+      if (e.keyCode === 27) {
+        // Escape key
+        closeAllModals();
+      }
+    });
   },
 };
 </script>

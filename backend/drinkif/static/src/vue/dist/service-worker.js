@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/static/src/vue/dist/precache-manifest.1f205d41d628f036dfd98d249995d5b7.js"
+  "/static/src/vue/dist/precache-manifest.5d018350048b1e4196944c573628cbff.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "drinkif"});

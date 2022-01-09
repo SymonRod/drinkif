@@ -96,16 +96,3 @@ def delete_phrase(request):
             return JsonResponse({'status': 'success'})
     else:
         return JsonResponse({'status': 'fail'}, status=403)
-
-def manifest(request):
-    a = os.path.dirname(__file__)
-
-    a = a[:-8]
-
-    print(a)
-
-
-
-    manifest = open(a+"/static/src/vue/dist/manifest.json", "r")
-
-    return JsonResponse(json.loads(manifest.read()))
