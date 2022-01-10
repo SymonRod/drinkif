@@ -8,6 +8,7 @@ import LoadScript from "vue-plugin-load-script";
 import i18n from './i18n'
 
 
+
 require('@/assets/main.scss');
 
 require('@/assets/js/modal.js');

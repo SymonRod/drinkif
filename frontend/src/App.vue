@@ -26,6 +26,7 @@ export default {
     Navbar
   },
   mounted() {
+    this.$i18n.locale = navigator.language;
 
     axios.post('csrf').then(() => {
       this.$store.commit('updateUser',window.user);

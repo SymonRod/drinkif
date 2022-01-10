@@ -7,7 +7,7 @@
     "navbar": {
         "sentences": "Frasi",
         "logout": "Esci",
-        "login": "Accedi",
+        "login": "Accedi"
     },
     "add-sentences": "Aggiungi frasi",
     "add-sentences-here": "Aggiungi frasi qui",
@@ -20,4 +20,12 @@
     "confirm-deletion-button-deny": "Nope!",
     "sentence-deleted": "Frase eliminata",
     "sentence-added": "Frase aggiunta",
+    "password-requirements": "La password deve contenere almeno 8 caratteri, una lettera maiuscola, una lettera minuscola e un numero",
+    "paginator": {
+        "previous": "Precedente",
+        "next": "Successiva",
+        "first": "Prima",
+        "last": "Ultima"
+    }
 }
+
