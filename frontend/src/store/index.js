@@ -139,8 +139,8 @@ export default createStore({
             let user = {
               username: response.data.username,
             };
-            commit("updateUser", user);
-            this.dispatch("getPhrases");
+            commit('updateUser', user);
+            this.dispatch("getPhrases", user);
           }
         })
       },

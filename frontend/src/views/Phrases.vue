@@ -11,10 +11,7 @@
             v-model="phrases"
           ></textarea>
           <div class="m-1">
-            <button
-              class="button is-primary is-outlined"
-              @click="add_phrases()"
-            >
+            <button class="button is-primary is-outlined" @click="add_phrases">
               {{ $t("add-phrases") }}
             </button>
           </div>
@@ -27,7 +24,7 @@
     </div>
 
     <div class="container">
-      <div class="columns is-centered">
+      <div class="columns is-centered is-mobile">
         <div class="column auto has-text-centered">
           <button class="button" @click="firstPage" :disabled="search != ''">
             {{ $t("paginator.first") }}
@@ -48,7 +45,9 @@
       </div>
     </div>
     <div lass="columns is-centered">
-      <div class="column auto has-text-centered is-one-third is-offset-one-third">
+      <div
+        class="column auto has-text-centered is-one-third is-offset-one-third"
+      >
         <input
           type="text"
           name=""
@@ -64,23 +63,67 @@
       <div class="columns">
         <div class="column is-one-third is-offset-one-third">
           <div class="card m-2 p-3">
-            <div class="has-text-black">
-              <strong>UID </strong> #{{ phrase.id }}
+            <div class="has-text-black columns is-flex is-vcentered m-0">
+              <strong> UUID </strong> #{{ phrase.id }}
+              <span
+                class="material-icons has-text-primary"
+                @click="share(phrase.id)"
+                style="position: absolute; right: 10px; top: 5px;"
+                >share</span
+              >
             </div>
             <div class="columns">
               <div class="column has-text-black">
                 {{ phrase.phrase_text }}
               </div>
+            </div>
+            <div>
               <button
                 class="button is-danger is-outlined m-2 js-modal-trigger"
                 data-target="modal-confirm-delete"
                 @click="set_delete_id(phrase.id)"
               >
-                {{ $t("delete") }}
+                <span class="material-icons">delete</span>
+              </button>
+              <button
+                class="button is-primary is-outlined m-2 js-modal-trigger"
+                @click="set_edit_id(phrase.id)"
+              >
+                <span class="material-icons" data-target="modal-edit"
+                  >edit</span
+                >
               </button>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div id="modal-edit" class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">{{ $t("modal-edit.title") }}</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <textarea
+            name=""
+            id=""
+            cols="30"
+            rows="3"
+            v-model="edit_text"
+            class="textarea"
+          />
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-danger" @click="confirm_save">
+            {{ $t("modal-edit.save") }}
+          </button>
+          <button class="button">
+            {{ $t("modal-edit.cancel") }}
+          </button>
+        </footer>
       </div>
     </div>
 
@@ -121,9 +164,15 @@ export default {
   data: function () {
     return {
       delete_id: -1,
+      edit_id: -1,
+      edit_text: "",
       itemPerPage: 5,
-      currentPage: 1,
+      currentPage:
+        localStorage.getItem("currentPage") == null
+          ? 1
+          : localStorage.getItem("currentPage"),
       search: "",
+      phrases: "",
     };
   },
   computed: {
@@ -132,7 +181,6 @@ export default {
         let page = [];
         if (this.search != "") {
           page = this.$store.state.phrases.filter((phrase) => {
-
             let sentence = phrase.phrase_text.toLowerCase();
             let search = this.search.toLowerCase();
 
@@ -209,7 +257,49 @@ export default {
       openModal(document.getElementById("modal-confirm-delete"));
     },
 
+    set_edit_id(id) {
+      //console.log(id);
+      this.edit_id = id;
+
+      this.edit_text = this.$store.state.phrases.find(
+        (phrase) => phrase.id == id
+      ).phrase_text;
+
+      function openModal($el) {
+        $el.classList.add("is-active");
+      }
+
+      openModal(document.getElementById("modal-edit"));
+    },
+
+    confirm_save() {
+      let csrftoken = getCookie("csrftoken");
+      axios
+        .post(
+          `/edit_phrase`,
+          {
+            id: this.edit_id,
+            text: this.edit_text,
+          },
+          { headers: { "X-CSRFToken": csrftoken } }
+        )
+        .then(() => {
+          this.$store.dispatch("getPhrases");
+          toast({
+            message: this.$t("sentence-edited"),
+            type: "is-success",
+            pauseOnHover: true,
+            duration: 3000,
+            position: "top-right",
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+
     add_phrases() {
+      console.log("add_phrases");
       var list_phrases = this.phrases.split(/\r?\n/);
 
       for (var i = 0; i < list_phrases.length; i++) {
@@ -244,7 +334,17 @@ export default {
           }
         });
     },
+    share(id) {
+      var getUrl = window.location;
+      var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+      navigator.share({
+        title: 'DrinkIf',
+        text: this.$t('share-text'),
+        url: baseUrl + '#/share/' + id,
+      })
+    }
   },
+
   mounted() {
     // Functions to open and close a modal
     function openModal($el) {
@@ -265,7 +365,7 @@ export default {
     (document.querySelectorAll(".js-modal-trigger") || []).forEach(
       ($trigger) => {
         const modal = $trigger.dataset.target;
-        //console.log("trigger dataset", $trigger.dataset);
+        console.log("trigger dataset", $trigger.dataset);
         const $target = document.getElementById(modal);
         $trigger.addEventListener("click", () => {
           openModal($target);
@@ -295,6 +395,12 @@ export default {
         closeAllModals();
       }
     });
+  },
+
+  watch: {
+    currentPage: function (newPage) {
+      localStorage.setItem("currentPage", newPage);
+    },
   },
 };
 </script>

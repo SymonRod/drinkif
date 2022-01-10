@@ -115,3 +115,26 @@ def get_user_info(request):
     else:
         return JsonResponse({'status': 'fail'}, status=403)
 
+
+@never_cache
+def edit_phrase(request):
+    if request.user.is_authenticated:
+        data = json.loads(request.body)
+        id = data['id']
+        phrase = phrases.objects.get(id=id)
+        if phrase.creator == request.user:
+            phrase.phrase_text = data['text']
+            phrase.save()
+            return JsonResponse({'status': 'success'})
+        else:
+            return JsonResponse({'status': 'fail'}, status=403)
+    else:
+        return JsonResponse({'status': 'fail'}, status=403)
+
+@never_cache
+@csrf_exempt
+def get_phrase_by_id(request):
+    data = json.loads(request.body)
+    id = data['id']
+    phrase = phrases.objects.get(id=id)
+    return JsonResponse({'sentence':{'id': phrase.id, 'text': phrase.phrase_text}})

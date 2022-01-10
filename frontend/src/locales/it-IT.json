@@ -22,10 +22,18 @@
     "sentence-added": "Frase aggiunta",
     "password-requirements": "La password deve contenere almeno 8 caratteri, una lettera maiuscola, una lettera minuscola e un numero",
     "paginator": {
-        "previous": "Precedente",
-        "next": "Successiva",
+        "previous": "Prec.",
+        "next": "Succ.",
         "first": "Prima",
-        "last": "Ultima"
-    }
+        "last": "Ultima",
+        "search": "Cerca"
+    },
+    "modal-edit": {
+        "title": "Modifica frase",
+        "save": "Salva",
+        "cancel": "Annulla"
+    },
+    "sentence-edited": "Frase modificata con successo",
+    "share-text": "Leggi questa frase"
 }
 

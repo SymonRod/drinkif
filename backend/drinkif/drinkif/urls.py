@@ -28,4 +28,6 @@ urlpatterns = [
     path('delete_phrase', views.delete_phrase, name='delete_phrase'),
     path('csrf', views.get_csrf, name='api-csrf'),
     path('get_user_info', views.get_user_info, name='get_user_info'),
+    path('edit_phrase', views.edit_phrase, name='edit_phrase'),
+    path('get_by_id', views.get_phrase_by_id, name='get_by_id'),
 ]
