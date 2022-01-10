@@ -21,4 +21,11 @@
   "sentence-deleted": "Sentence deleted",
   "sentence-added": "Sentence added",
   "password-requirements": "Password must be at least 8 characters long and contain at least one number and one letter",
+   "paginator": {
+    "previous": "Previous",
+    "next": "Next", 
+    "last": "Last",
+    "first": "First"
+  }
+  
 }
