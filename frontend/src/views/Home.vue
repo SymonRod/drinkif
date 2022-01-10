@@ -7,7 +7,7 @@
             v-html="
               this.$store.state.user != null
                 ? this.$t('home.welcome') +
-                  ' *-' +
+                  ' ' +
                   this.$store.state.user.username
                 : this.$t('home.need-login')
             "
