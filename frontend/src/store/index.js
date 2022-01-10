@@ -119,7 +119,32 @@ export default createStore({
     },
     random_phrase({ commit }) {
       commit('random_phrase');
-    }
+    },
+    getUser({ commit }) {
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+      }
+      let csrftoken = getCookie("csrftoken");
+
+      axios
+        .post(
+          "/get_user_info",
+          {},
+          { headers: { "X-CSRFToken": csrftoken } }
+        )
+        .then((response) => {
+          if (response.status === 200) {
+            let user = {
+              username: response.data.username,
+            };
+            commit("updateUser", user);
+            this.dispatch("getPhrases");
+          }
+        })
+      },
+
   },
   modules: {
   },

@@ -13,6 +13,11 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 
+try:
+    from .secrets import *
+except ImportError:
+    pass
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -29,6 +34,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['drinkif.serod.tech','127.0.0.1','localhost']
 
 CSRF_TRUSTED_ORIGINS = ['https://*.serod.tech','https://*.127.0.0.1']
+
+CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
@@ -57,7 +64,7 @@ ROOT_URLCONF = 'drinkif.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'static')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,12 +83,33 @@ WSGI_APPLICATION = 'drinkif.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if os.environ.get('environment') == "production":
+    print("Production environment detected")
+    DATABASES = {
+        'default': {
+
+            'ENGINE': 'django.db.backends.postgresql',
+
+            'NAME': db_postgres['NAME'],
+
+            'USER': db_postgres['USER'],
+
+            'PASSWORD': db_postgres['PASSWORD'],
+
+            'HOST': db_postgres['HOST'],
+
+            'PORT': db_postgres['PORT'],
+
+        }
     }
-}
+else:
+    print("Development environment detected")
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # Password validation

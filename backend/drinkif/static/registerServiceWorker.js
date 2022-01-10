@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 importScripts("/static/precache-manifest.9d1736ff4a8dcc08100d8feb89586762.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+=======
+<<<<<<<< HEAD:backend/drinkif/static/registerServiceWorker.js
+importScripts("/static/precache-manifest.544088cdf8cc41b45c5904f65737f48c.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+>>>>>>> origin/master
 
 /* eslint-disable no-console */
 
@@ -33,3 +38,8 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
+<<<<<<< HEAD
+=======
+========
+>>>>>>>> origin/master:backend/drinkif/static/src/vue/dist/registerServiceWorker.js
+>>>>>>> origin/master

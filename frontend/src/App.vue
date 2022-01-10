@@ -8,6 +8,7 @@
 <script>
 import Navbar from './components/Navbar.vue'
 import { useI18n } from 'vue-i18n'
+import axios from 'axios'
 
 export default {
   name: 'App',
@@ -26,6 +27,7 @@ export default {
   },
   mounted() {
     this.$i18n.locale = navigator.language;
+
     axios.post('csrf').then(() => {
       this.$store.commit('updateUser',window.user);
       this.$store.dispatch('getPhrases');
@@ -37,7 +39,6 @@ export default {
     '$i18n.locale': {
       handler(newLocale) {
         this.$store.commit('updateLocale', newLocale);
-        console.log(newLocale);
       },
       immediate: false
     }
