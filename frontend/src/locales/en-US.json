@@ -21,11 +21,18 @@
   "sentence-deleted": "Sentence deleted",
   "sentence-added": "Sentence added",
   "password-requirements": "Password must be at least 8 characters long and contain at least one number and one letter",
-   "paginator": {
+  "paginator": {
     "previous": "Previous",
-    "next": "Next", 
+    "next": "Next",
     "last": "Last",
-    "first": "First"
-  }
-  
+    "first": "First",
+    "search": "Search"
+  },
+  "modal-edit": {
+    "title": "Edit sentence",
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "sentence-edited": "Sentence edited successfully",
+  "share-text": "I shared this sentence"
 }

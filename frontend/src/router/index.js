@@ -4,6 +4,7 @@ import About from '../views/About.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Phrases from '../views/Phrases.vue'
+import Share from '../views/Share.vue'
 
 const routes = [
   {
@@ -30,6 +31,11 @@ const routes = [
     path: '/phrases',
     name: 'Phrases',
     component: Phrases
+  },
+  {
+    path: '/share/:id',
+    name: 'Share',
+    component: Share
   },
 ]
 
