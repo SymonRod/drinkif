@@ -7,21 +7,10 @@
 
 <script>
 import Navbar from './components/Navbar.vue'
-import { useI18n } from 'vue-i18n'
 import axios from 'axios'
 
 export default {
   name: 'App',
-  setup() {
-    const { t } = useI18n({
-      inheritLocale: true,
-      useScope: 'local'
-    })
-
-    // Something todo ..
-
-    return { t }
-  },
   components: {
     Navbar
   },
@@ -41,7 +30,7 @@ export default {
         this.$store.commit('updateLocale', newLocale);
       },
       immediate: false
-    }
+    },
   },
 }
 </script>

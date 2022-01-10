@@ -1,13 +1,17 @@
 {
   "navbar-title": "Drinkif",
   "select-language": "Select language",
-  "new-sentence": "New sentence",
+  "new-sentence": "Extract new sentence",
   "do-not-repeat": "Do not repeat",
   "sentence-available": "There are still available <strong> {count} </strong> sentences",
   "navbar": {
     "sentences": "Sentences",
     "logout": "Logout",
     "login": "Login"
+  },
+  "home": {
+    "welcome": "Welcome",
+    "need-login": "In order to use this app you have to <a href='#/login'>login</a> or <a href='#/register'>sign-up</a>"
   },
   "add-sentences": "Add sentences",
   "add-sentences-here": "Add sentences here",
@@ -32,6 +36,15 @@
     "title": "Edit sentence",
     "save": "Save",
     "cancel": "Cancel"
+  },
+  "sign-up": {
+    "button": "Sign-up",
+    "title": "Sign-up"
+  },
+  "login": {
+    "button": "Login",
+    "title": "Login",
+    "create-account": "You don't have an account?"
   },
   "sentence-edited": "Sentence edited successfully",
   "share-text": "I shared this sentence"
