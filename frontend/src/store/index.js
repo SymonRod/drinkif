@@ -1,5 +1,4 @@
 import { createStore } from 'vuex'
-
 import axios from 'axios'
 
 export default createStore({
@@ -13,6 +12,7 @@ export default createStore({
     max: (JSON.parse(localStorage.getItem('max')) == null ? 100 : JSON.parse(localStorage.getItem('max'))),
     phrases: [],
     locale: (JSON.parse(localStorage.getItem('locale')) == null ? 'en' : JSON.parse(localStorage.getItem('locale'))),
+    errors: [],
   },
   mutations: {
     increaseCounter(state) {
@@ -29,24 +29,29 @@ export default createStore({
       localStorage.setItem('current_phrase', JSON.stringify(state.current_phrase));
     },
     random_phrase(state) {
-      if (state.doNotRepeat) {
-        if (state.available.length <= 0) return
-        let min = Math.ceil(0);
-        let max = Math.floor(state.available.length - 1);
-        let newNumber = Math.floor(Math.random() * (max - min + 1) + min);
-        let index = state.available.indexOf(state.available.at(newNumber));
-        this.commit("set_phrase", state.available.at(newNumber));
-        if (index > -1) {
-          state.available.splice(index, 1);
-        }
-        localStorage.setItem('available', JSON.stringify(state.available));
-
+      if(state.phrases.length == 0) {
+        console.log('No phrases available')
+        state.errors.push('no-sentences-available');
       } else {
-        let min = Math.ceil(state.min);
-        let max = Math.floor(state.max);
+        if (state.doNotRepeat) {
+          if (state.available.length <= 0) return
+          let min = Math.ceil(0);
+          let max = Math.floor(state.available.length - 1);
+          let newNumber = Math.floor(Math.random() * (max - min + 1) + min);
+          let index = state.available.indexOf(state.available.at(newNumber));
+          this.commit("set_phrase", state.available.at(newNumber));
+          if (index > -1) {
+            state.available.splice(index, 1);
+          }
+          localStorage.setItem('available', JSON.stringify(state.available));
 
-        let newNumber = Math.floor(Math.random() * (max - min + 1) + min);
-        this.commit("set_phrase", state.phrases.at(newNumber));
+        } else {
+          let min = Math.ceil(state.min);
+          let max = Math.floor(state.max);
+
+          let newNumber = Math.floor(Math.random() * (max - min + 1) + min);
+          this.commit("set_phrase", state.phrases.at(newNumber));
+        }
       }
     },
     updateMax(state, payload) {
@@ -83,6 +88,10 @@ export default createStore({
         }
         localStorage.setItem('available', JSON.stringify(state.available));
       }
+    },
+
+    clear_errors(state) {
+      state.errors = [];
     },
 
     updateUser(state, payload) {

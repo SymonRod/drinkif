@@ -1,13 +1,17 @@
 {
     "navbar-title": "Bevise",
     "select-language": "Cambia lingua",
-    "new-sentence": "Nuova frase",
+    "new-sentence": "Estrai frase",
     "do-not-repeat": "Non ripetere",
     "sentence-available": "Sono ancora disponibili <strong> {count} </strong> frasi",
     "navbar": {
-        "sentences": "Frasi",
+        "sentences": "Le tue frasi",
         "logout": "Esci",
         "login": "Accedi"
+    },
+    "home": {
+        "welcome": "Benvenuto",
+        "need-login": "Per usare questa app devi <a href='#/login'>accedere</a> o <a href='#/register'>registrarti</a>"
     },
     "add-sentences": "Aggiungi frasi",
     "add-sentences-here": "Aggiungi frasi qui",
@@ -33,7 +37,17 @@
         "save": "Salva",
         "cancel": "Annulla"
     },
+    "sign-up": {
+        "button": "Registrati",
+        "title": "Registrati"
+    },
+    "login": {
+        "button": "Accedi",
+        "title": "Accedi",
+        "create-account": "Non hai un account?"
+    },
     "sentence-edited": "Frase modificata con successo",
-    "share-text": "Leggi questa frase"
+    "share-text": "Leggi questa frase",
+    "no-sentences-available": "Non ci sono frasi disponibili, per aggiungere vai nel menu e clicca su 'Le le tue frasi'"
 }
 

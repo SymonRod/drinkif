@@ -2,7 +2,7 @@
   <div class="columns">
     <div id="login-view" class="column is-half is-offset-one-quarter">
       <div class="card m-6 p-4">
-        <h1 class="has-text-black title">Login</h1>
+        <h1 class="has-text-black title">{{$t('login.title')}}</h1>
         <div class="field">
           <p class="control has-icons-left has-icons-right">
             <input class="input" type="username" placeholder="username" v-model="username"/>
@@ -23,9 +23,9 @@
           </p>
         </div>
         <div>
-        <button @click="login()" id="login-button" class="button">Login</button>  
+        <button @click="login()" id="login-button" class="button">{{$t('login.button')}}</button>  
+        <div class="button ml-2"><router-link to="/register">{{$t('login.create-account')}}</router-link></div>
         </div>
-        <div class="button"><router-link to="/register">Create account</router-link></div>
       </div>
     </div>
   </div>
