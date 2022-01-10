@@ -25,10 +25,13 @@ export default {
     Navbar
   },
   mounted() {
-    this.$store.commit('updateUser',window.user);
-    this.$store.dispatch('getPhrases');
-    console.log("Local storage locle",JSON.parse(localStorage.getItem('locale')));
-    this.$i18n.locale = this.$store.state.locale;
+    this.$i18n.locale = navigator.language;
+    axios.post('csrf').then(() => {
+      this.$store.commit('updateUser',window.user);
+      this.$store.dispatch('getPhrases');
+      this.$i18n.locale = this.$store.state.locale;
+      this.$store.dispatch('getUser');
+    });
   },
   watch: {
     '$i18n.locale': {

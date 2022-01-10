@@ -15,8 +15,9 @@
           </p>
         </div>
         <div class="field">
-          <p class="control has-icons-left">
-            <input class="input" type="password" placeholder="Password" v-model="password">
+          <p class="control has-icons-left has-text-black p-2" >
+            {{$t("password-requirements")}}
+            <input class="input mt-1" type="password" placeholder="Password" v-model="password">
             <span class="icon is-small is-left">
               <i class="fas fa-lock"></i>
             </span>

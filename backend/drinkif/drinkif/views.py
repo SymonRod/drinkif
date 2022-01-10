@@ -7,10 +7,10 @@ from drinkif.models import *
 import json, os
 
 def validate_password_strength(value):
-    """Validates that a password is as least 7 characters long and has at least
+    """Validates that a password is as least 8 characters long and has at least
     1 digit and 1 letter.
     """
-    min_length = 7
+    min_length = 8
 
     if len(value) < min_length:
         return False
