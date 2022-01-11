@@ -39,12 +39,20 @@
   },
   "sign-up": {
     "button": "Sign-up",
-    "title": "Sign-up"
+    "title": "Sign-up",
+    "errors": {
+      "password-requirements": "Password must be at least 8 characters long and contain at least one number and one letter",
+      "username-taken": "Username is already taken"
+    }
   },
   "login": {
     "button": "Login",
     "title": "Login",
-    "create-account": "You don't have an account?"
+    "create-account": "You don't have an account?",
+    "errors": {
+      "password-incorrect": "Password is incorrect",
+      "username-does-not-exits": "Username does not exists"
+    }
   },
   "sentence-edited": "Sentence edited successfully",
   "share-text": "I shared this sentence"

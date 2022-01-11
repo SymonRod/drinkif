@@ -38,12 +38,19 @@ def login_json(request):
     data = json.loads(request.body)
     username = data['username']
     password = data['password']
+    
+    user = User.objects.filter(username=username).first()
+
+    if not user:
+        return JsonResponse({'status': 'fail','description':'login.errors.username-does-not-exits'} , status=403)
+
     user = authenticate(username=username, password=password)
-    if user is not None:
+
+    if user:
         login(request, user)
         return JsonResponse({'status': 'success'})
     else:
-        return JsonResponse({'status': 'fail'} , status=403)
+        return JsonResponse({'status': 'fail','description':'login.errors.password-incorrect'} , status=403)
 
 @never_cache
 
@@ -56,8 +63,15 @@ def register_json(request):
     data = json.loads(request.body)
     username = data['username']
     password = data['password']
+    
+    # Check if username is already taken
+    if User.objects.filter(username=username).exists():
+        return JsonResponse({'status': 'fail','description':'sign-up.errors.username-taken'}, status=400)
+    
+    
     if not validate_password_strength(password):
-        return JsonResponse({'status': 'fail','description':'Password does not meet requirements'}, status=400)
+        return JsonResponse({'status': 'fail','description':'sign-up.errors.password-requirements'}, status=400)
+    
     if username is not None and password is not None:
         user = User.objects.create_user(username,'',password)
         user.save()
