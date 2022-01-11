@@ -4,6 +4,7 @@ import axios from 'axios'
 export default createStore({
   state: {
     user: null,
+    friends: [],
     doNotRepeat: (JSON.parse(localStorage.getItem('doNotRepeat')) == null ? false : JSON.parse(localStorage.getItem('doNotRepeat'))),
     current_phrase: (JSON.parse(localStorage.getItem('current_phrase')) == null ? { phrase_text: '', phrase_id: null } : JSON.parse(localStorage.getItem('current_phrase'))),
     history: [],
@@ -29,7 +30,7 @@ export default createStore({
       localStorage.setItem('current_phrase', JSON.stringify(state.current_phrase));
     },
     random_phrase(state) {
-      if(state.phrases.length == 0) {
+      if (state.phrases.length == 0) {
         console.log('No phrases available')
         state.errors.push('no-sentences-available');
       } else {
@@ -107,7 +108,10 @@ export default createStore({
     updateLocale(state, payload) {
       state.locale = payload;
       localStorage.setItem('locale', JSON.stringify(payload));
-    }
+    },
+    updateFriends(state, payload) {
+      state.friends = payload;
+    },
 
     // End Mutations 
   },
@@ -129,7 +133,7 @@ export default createStore({
     random_phrase({ commit }) {
       commit('random_phrase');
     },
-    getUser({ commit }) {
+    getUserData({ commit }) {
       function getCookie(name) {
         const value = `; ${document.cookie}`;
         const parts = value.split(`; ${name}=`);
@@ -137,6 +141,7 @@ export default createStore({
       }
       let csrftoken = getCookie("csrftoken");
 
+      // Get user info
       axios
         .post(
           "/get_user_info",
@@ -145,14 +150,28 @@ export default createStore({
         )
         .then((response) => {
           if (response.status === 200) {
-            let user = {
-              username: response.data.username,
-            };
-            commit('updateUser', user);
-            this.dispatch("getPhrases", user);
+            commit('updateUser', response.data);
+            this.dispatch("getPhrases");
+
+            // Get frineds  
+            axios.post(
+                "/get_friends",
+                {},
+                { headers: { "X-CSRFToken": csrftoken } }
+              )
+              .then((response) => {
+                if (response.status === 200) {
+                  commit('updateFriends', response.data.friends);
+                }
+              })
           }
         })
-      },
+
+
+
+
+    },
+
 
   },
   modules: {

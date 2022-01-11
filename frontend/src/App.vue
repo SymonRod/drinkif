@@ -21,7 +21,7 @@ export default {
       this.$store.commit('updateUser',window.user);
       this.$store.dispatch('getPhrases');
       this.$i18n.locale = this.$store.state.locale;
-      this.$store.dispatch('getUser');
+      this.$store.dispatch('getUserData');
     });
   },
   watch: {

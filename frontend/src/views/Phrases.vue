@@ -62,35 +62,39 @@
     <div v-for="phrase in page" :key="phrase.id" class="">
       <div class="columns">
         <div class="column is-one-third is-offset-one-third">
-          <div class="card m-2 p-3">
+          <div class="card m-2 p-3 has-text-black">
             <div class="has-text-black columns is-flex is-vcentered m-0">
               <strong> UUID </strong> #{{ phrase.id }}
-              <span
-                class="material-icons has-text-primary"
-                @click="share(phrase.id)"
-                style="position: absolute; right: 10px; top: 5px;"
-                >share</span
-              >
+              
             </div>
-            <div class="columns">
-              <div class="column has-text-black">
+            <div class="card-content">
+              <div class="content">
                 {{ phrase.phrase_text }}
               </div>
             </div>
-            <div>
+            <div class="card-footer">
               <button
-                class="button is-danger is-outlined m-2 js-modal-trigger"
+                class="button is-danger is-outlined m-2 js-modal-trigger card-footer-item"
                 data-target="modal-confirm-delete"
                 @click="set_delete_id(phrase.id)"
               >
                 <span class="material-icons">delete</span>
               </button>
               <button
-                class="button is-primary is-outlined m-2 js-modal-trigger"
+                class="button is-primary is-outlined m-2 js-modal-trigger card-footer-item"
                 @click="set_edit_id(phrase.id)"
               >
                 <span class="material-icons" data-target="modal-edit"
                   >edit</span
+                >
+              </button>
+              <button
+                class="button is-success is-outlined m-2 card-footer-item"
+                @click="share(phrase.id)"
+                v-if="shareEnabled"
+              >
+                <span class="material-icons"
+                  >share</span
                 >
               </button>
             </div>
@@ -176,6 +180,9 @@ export default {
     };
   },
   computed: {
+    shareEnabled: function () {
+      return navigator.share != undefined;
+    },
     page: {
       get() {
         let page = [];

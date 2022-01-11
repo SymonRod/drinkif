@@ -64,6 +64,10 @@ export default {
   methods: {
     login() {
       let csrftoken = getCookie("csrftoken");
+
+      //add class is-loading to login-button
+      document.getElementById("login-button").classList.add("is-loading");
+
       axios
         .post(
           "/login",
@@ -72,9 +76,12 @@ export default {
         )
         .then((response) => {
           if (response.status === 200) {
-            this.$store.dispatch("getUser");
+            this.$store.dispatch("getUserData");
             this.$router.push("/");
           }
+          document
+            .getElementById("login-button")
+            .classList.remove("is-loading");
         })
         .catch((error) => {
           if (error.response.status != 500) {
@@ -88,6 +95,9 @@ export default {
               duration: 10000,
             });
           }
+          document
+            .getElementById("login-button")
+            .classList.remove("is-loading");
         });
     },
   },

@@ -60,6 +60,9 @@ export default {
   methods: {
     register() {
       let csrftoken = getCookie("csrftoken");
+          document
+            .getElementById("register-button")
+            .classList.add("is-loading");
       axios
         .post(
           "/register",
@@ -77,6 +80,9 @@ export default {
             }
             window.location.href = "/";
           }
+          document
+            .getElementById("register-button")
+            .classList.remove("is-loading");
         })
         .catch((error) => {
           if (error.response.status != 500) {
@@ -90,6 +96,9 @@ export default {
               duration: 10000,
             });
           }
+          document
+            .getElementById("register-button")
+            .classList.remove("is-loading");
         });
     },
   },

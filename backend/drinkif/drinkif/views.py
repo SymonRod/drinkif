@@ -5,9 +5,9 @@ from django.contrib.auth import login, authenticate, logout
 from django.views.decorators.csrf import csrf_exempt
 from django.middleware.csrf import CSRF_SESSION_KEY, get_token
 from django.views.decorators.cache import never_cache
-from django.http import JsonResponse
+from django.http import JsonResponse, request
 from drinkif.models import *
-import json, os
+import json, os, random, string
 
 def validate_password_strength(value):
     """Validates that a password is as least 8 characters long and has at least
@@ -59,7 +59,7 @@ def logout_json(request):
     return redirect('/')
 
 @never_cache
-def register_json(request):
+def register_json(request: request):
     data = json.loads(request.body)
     username = data['username']
     password = data['password']
@@ -124,11 +124,83 @@ def get_csrf(request):
 @never_cache
 def get_user_info(request):
     if request.user.is_authenticated:
-        data = {'username': request.user.username, 'id': request.user.id, 'is_authenticated': True}
-        return JsonResponse(data)
+        if not ExtendedUser.objects.filter(user=request.user).exists():
+            extendedUser = ExtendedUser(user=request.user)
+            extendedUser.avatar_seed = ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(20))
+            extendedUser.save()
+
+        return JsonResponse(request.user.extendeduser.user_data())
     else:
         return JsonResponse({'status': 'fail'}, status=403)
 
+@never_cache
+def new_friendship_request(request):
+    if request.user.is_authenticated:
+        data = json.loads(request.body)
+        username = data['username']
+        friend = User.objects.filter(username=username).first()
+        if friend:
+            for friendship in Friendship.objects.filter(user=request.user):
+                if friendship.friend == friend:
+                    return JsonResponse({'status': 'fail', 'description': 'friendship.errors.already-friends'}, status=400)
+            if FriendshipRequest.objects.filter(sender=request.user, receiver=friend).first():
+                return JsonResponse({'status': 'fail', 'description': 'friendship.errors.already-requested'}, status=400)
+            friendshiprequest = FriendshipRequest(sender=request.user, receiver=friend)
+            friendshiprequest.save()
+            return JsonResponse({'status': 'success'})
+        else:
+            return JsonResponse({'status': 'fail', 'description': 'friendship.errors.user-does-not-exists'}, status=400)
+    else:
+        return JsonResponse({'status': 'fail'}, status=403)
+
+@never_cache
+def get_friendship_requests(request):
+    if request.user.is_authenticated:
+        requests = []
+        for request in  FriendshipRequest.objects.filter(receiver=request.user):
+            requests.append(request.sender.extendeduser.user_data())
+        return JsonResponse({'requests': requests})
+
+@never_cache
+def handle_friendship_requests(request):
+    if request.user.is_authenticated:
+        data = json.loads(request.body)
+        username = data['username']
+        accepted = data['accepted']
+
+        sender = User.objects.filter(username=username).first()
+        receiver = request.user
+
+        if FriendshipRequest.objects.filter(sender=sender, receiver=receiver).first():
+            if accepted:
+                friendship = Friendship(user=sender, friend=receiver)
+                friendship.save()
+                friendship = Friendship(user=receiver, friend=sender)
+                friendship.save()
+                FriendshipRequest.objects.filter(sender=sender, receiver=receiver).delete()
+                return JsonResponse({'status': 'success'})
+            else:
+                FriendshipRequest.objects.filter(sender=sender, receiver=receiver).first().delete()
+                return JsonResponse({'status': 'success'})
+        else:
+            return JsonResponse({'status': 'fail', 'description': 'friendship.errors.no-request-found'}, status=400)
+
+
+@never_cache
+def get_friends(request):
+    if request.user.is_authenticated:
+        friends = []
+        for friendship in Friendship.objects.filter(user=request.user):
+            if not ExtendedUser.objects.filter(user=friendship.friend).exists():
+                extendedUser = ExtendedUser(user=friendship.friend)
+                extendedUser.avatar_seed = ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(20))
+                extendedUser.save()
+            if friendship:
+                data = friendship.friend.extendeduser.user_data()
+                friends.append(data)
+        return JsonResponse({'friends': friends})
+    else:
+        return JsonResponse({'status': 'fail'}, status=403)
 
 @never_cache
 def edit_phrase(request):

@@ -85,6 +85,7 @@ WSGI_APPLICATION = 'drinkif.wsgi.application'
 
 if os.environ.get('environment') == "production":
     print("Production environment detected")
+    ADMIN_ENABLED: bool = False
     DATABASES = {
         'default': {
 
@@ -104,6 +105,7 @@ if os.environ.get('environment') == "production":
     }
 else:
     print("Development environment detected")
+    ADMIN_ENABLED: bool = True
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
