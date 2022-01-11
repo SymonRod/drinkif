@@ -39,15 +39,22 @@
     },
     "sign-up": {
         "button": "Registrati",
-        "title": "Registrati"
+        "title": "Registrati",
+        "errors": {
+            "password-requirements": "La password deve contenere almeno 8 caratteri, una lettera maiuscola, una lettera minuscola e un numero",
+            "username-taken": "Questo username è già in uso"
+        }
     },
     "login": {
         "button": "Accedi",
         "title": "Accedi",
-        "create-account": "Non hai un account?"
+        "create-account": "Non hai un account?",
+        "errors": {
+            "password-incorrect": "La password è sbagliata",
+            "username-does-not-exits": "Questo username non esiste"
+        }
     },
     "sentence-edited": "Frase modificata con successo",
     "share-text": "Leggi questa frase",
     "no-sentences-available": "Non ci sono frasi disponibili, per aggiungere vai nel menu e clicca su 'Le le tue frasi'"
 }
-
