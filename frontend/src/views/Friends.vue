@@ -17,21 +17,22 @@
               placeholder="username"
               v-model="searchFriend"
             />
-            <span class="icon material-icons has-text-primary is-left m-2">
-              person_add
+            <span class="icon is-left has-text-primary">
+              <i class="fas fa-user-plus"></i>
             </span>
           </p>
           <div class="control">
-            <a class="button is-primary" id="add-button" @click="sendFriendRequest">
-              <span class="material-icons">
-                add_circle_outline
-              </span>
+            <a
+              class="button is-primary"
+              id="add-button"
+              @click="sendFriendRequest"
+            >
+              <i class="fas fa-plus"></i>
             </a>
           </div>
         </div>
       </div>
     </div>
-
     <div class="columns">
       <div class="column">
         <div class="subtitle">
@@ -64,14 +65,21 @@
                 </div>
               </div>
               <footer class="card-footer">
-                <span style="cursor:pointer;" class="card-footer-item" @click="handle_friendship_request(request.username,true)"
+                <span
+                  style="cursor: pointer"
+                  class="card-footer-item"
+                  @click="handle_friendship_request(request.username, true)"
                   ><strong
                     ><span class="material-icons has-text-success"
                       >done</span
                     ></strong
                   ></span
                 >
-                <span style="cursor:pointer;" class="card-footer-item" @click="handle_friendship_request(request.username,false)"><strong
+                <span
+                  style="cursor: pointer"
+                  class="card-footer-item"
+                  @click="handle_friendship_request(request.username, false)"
+                  ><strong
                     ><span class="material-icons has-text-danger"
                       >close</span
                     ></strong
@@ -86,12 +94,12 @@
 
     <div class="has-text-white subtitle">{{ this.$t("friends.friend") }}</div>
     <div class="columns has-text-black">
-      <div class="column is-one-third" v-for="friend in this.$store.state.friends"
-          :key="friend.id">
-        <div
-          class="card has-text-black"
-          
-        >
+      <div
+        class="column is-one-third"
+        v-for="friend in this.$store.state.friends"
+        :key="friend.id"
+      >
+        <div class="card has-text-black">
           <div class="card-image">
             <!-- <figure class="image is-4by3">
               <img
@@ -113,21 +121,20 @@
               </div>
               <div class="media-content">
                 <p class="title">{{ friend.username }}</p>
-                <div>
-                  <p class="is-6 has-text-black">
-                    {{ this.$t("friends.avatar-seed") }}
-                  </p>
-                  <input
-                    type="text"
-                    class="input"
-                    disabled
-                    :value="friend.avatar.seed"
-                  />
-                </div>
+                <div></div>
               </div>
             </div>
 
             <div class="content">
+              <p class="is-6 has-text-black">
+                {{ this.$t("friends.avatar-seed") }}
+              </p>
+              <input
+                type="text"
+                class="input"
+                disabled
+                :value="friend.avatar.seed"
+              />
               <p>{{ this.$t("friends.description") }}</p>
               <p>{{ friend.description }}</p>
               <br />
@@ -138,13 +145,43 @@
                 </p>
               </div>
             </div>
+            <footer class="card-footer">
+              <div
+                class="card-footer-item has-text-danger"
+                style="cursor: pointer"
+                @click="confirmRemoveFriend(friend.username)"
+              >
+                {{ this.$t("friends.remove") }}
+                <i class="fas fa-user-slash"></i>
+              </div>
+            </footer>
           </div>
         </div>
       </div>
     </div>
+
+    <div id="modal-friends-remove" class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">{{ $t("friends-remove.title") }}</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          {{ $t("friends-remove.text", removeFriendUsername) }}
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-danger" @click="RemoveFriend">
+            {{ $t("friends-remove.button-agree") }}
+          </button>
+          <button class="button">
+            {{ $t("friends-remove.button-deny") }}
+          </button>
+        </footer>
+      </div>
+    </div>
   </div>
 </template>
-
 
 <script>
 import axios from "axios";
@@ -159,6 +196,7 @@ function getCookie(name) {
 export default {
   data: function () {
     return {
+      removeFriendUsername: "",
       searchFriend: "",
       friendRequestsReceived: [],
     };
@@ -175,6 +213,51 @@ export default {
       var date = new Date(data);
       return date.toLocaleDateString(navigator.language, options);
     },
+
+    RemoveFriend() {
+      var csrftoken = getCookie("csrftoken");
+
+      axios
+        .post(
+          "/remove_friend",
+          { username: this.removeFriendUsername },
+          { headers: { "X-CSRFToken": csrftoken } }
+        )
+        .then((response) => {
+          if (response.status === 200) {
+            this.getFriendshipRequests();
+            this.$store.dispatch("getUserData");
+            toast({
+              message: this.$t("friends.friend-removed"),
+              type: "is-success",
+              duration: 6000,
+            });
+          }
+        })
+        .catch((error) => {
+          if (error.response.status != 500) {
+            let description = error.response.data.description;
+            if (description == null) {
+              description = "Generic error";
+            }
+            toast({
+              message: this.$t(description),
+              type: "is-danger",
+              duration: 10000,
+            });
+          }
+        });
+    },
+
+    confirmRemoveFriend(username) {
+      this.removeFriendUsername = username;
+      // Functions to open and close a modal
+      function openModal($el) {
+        $el.classList.add("is-active");
+      }
+      openModal(document.getElementById("modal-friends-remove"));
+    },
+
     handle_friendship_request(username, accepted) {
       var csrftoken = getCookie("csrftoken");
       axios
@@ -251,6 +334,23 @@ export default {
   },
   mounted() {
     this.getFriendshipRequests();
+
+    function closeModal($el) {
+      $el.classList.remove("is-active");
+    }
+
+    // Add a click event on various child elements to close the parent modal
+    (
+      document.querySelectorAll(
+        ".modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button"
+      ) || []
+    ).forEach(($close) => {
+      const $target = $close.closest(".modal");
+
+      $close.addEventListener("click", () => {
+        closeModal($target);
+      });
+    });
   },
 };
 </script>

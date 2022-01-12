@@ -27,9 +27,6 @@ def validate_password_strength(value):
         return False
     return True
 
-
-
-
 def index(request):
     return render(request, 'index.html')
 
@@ -132,6 +129,28 @@ def get_user_info(request):
         return JsonResponse(request.user.data.user_data())
     else:
         return JsonResponse({'status': 'fail'}, status=403)
+
+@never_cache
+def remove_friend(request):
+    if not request.user.is_authenticated:
+        return JsonResponse({'status': 'fail'}, status=403)
+
+    data = json.loads(request.body)
+    username = data['username']
+
+    friend = User.objects.filter(username=username).first()
+
+    if not friend:
+        return JsonResponse({'status': 'fail','description':'friends.errors.username-does-not-exits'} , status=400)
+
+    if request.user in friend.data.friends.all():
+        friend.data.friends.remove(request.user)
+
+    if friend in request.user.data.friends.all():
+        request.user.data.friends.remove(friend)
+    
+    return JsonResponse({'status': 'success'})
+
 
 @never_cache
 def new_friendship_request(request):

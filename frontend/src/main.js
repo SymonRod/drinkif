@@ -11,6 +11,9 @@ require('@/assets/main.scss');
 
 require('@/assets/js/modal.js'); 
 
+require('../node_modules/@fortawesome/fontawesome-free/js/all.js');
+
+
 require('../node_modules/material-design-icons/iconfont/material-icons.css');
 
 createApp(App).use(i18n).use(router).use(store).use(LoadScript).mount('#app')

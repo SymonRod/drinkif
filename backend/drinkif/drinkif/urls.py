@@ -34,6 +34,8 @@ urlpatterns = [
     path('new_friendship_request', views.new_friendship_request, name='new_friendship_request'),
     path('get_friendship_requests', views.get_friendship_requests, name='get_friendship_requests'),
     path('handle_friendship_requests', views.handle_friendship_requests, name='handle_friendship_requests'),
+    path('remove_friend', views.remove_friend, name='remove_friend'),
+    
 ]
 
 if settings.ADMIN_ENABLED:
