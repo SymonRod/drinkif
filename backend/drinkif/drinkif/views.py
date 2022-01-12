@@ -129,36 +129,49 @@ def get_user_info(request):
             extendedUser.avatar_seed = ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(20))
             extendedUser.save()
 
-        return JsonResponse(request.user.extendeduser.user_data())
+        return JsonResponse(request.user.data.user_data())
     else:
         return JsonResponse({'status': 'fail'}, status=403)
 
 @never_cache
 def new_friendship_request(request):
-    if request.user.is_authenticated:
-        data = json.loads(request.body)
-        username = data['username']
-        friend = User.objects.filter(username=username).first()
-        if friend:
-            for friendship in Friendship.objects.filter(user=request.user):
-                if friendship.friend == friend:
-                    return JsonResponse({'status': 'fail', 'description': 'friendship.errors.already-friends'}, status=400)
-            if FriendshipRequest.objects.filter(sender=request.user, receiver=friend).first():
-                return JsonResponse({'status': 'fail', 'description': 'friendship.errors.already-requested'}, status=400)
-            friendshiprequest = FriendshipRequest(sender=request.user, receiver=friend)
-            friendshiprequest.save()
-            return JsonResponse({'status': 'success'})
-        else:
-            return JsonResponse({'status': 'fail', 'description': 'friendship.errors.user-does-not-exists'}, status=400)
-    else:
+
+
+    if not request.user.is_authenticated:
         return JsonResponse({'status': 'fail'}, status=403)
+
+    data = json.loads(request.body)
+    username = data['username']
+
+    sender = request.user
+    receiver = User.objects.filter(username=username).first()
+
+    if not receiver:
+        return JsonResponse({'status': 'fail', 'description': 'friendship.errors.user-does-not-exists'}, status=400)
+
+    if receiver == sender:
+        return JsonResponse({'status': 'fail'}, status=400)
+
+    if FriendshipRequest.objects.filter(sender=receiver, receiver=sender).exists():
+        return JsonResponse({'status': 'fail', 'description': 'friendship.errors.check-your-invoice'}, status=400)
+
+    if FriendshipRequest.objects.filter(sender=sender, receiver=receiver).exists():
+        return JsonResponse({'status': 'fail', 'description': 'friendship.errors.already-requested'}, status=400)
+
+    if sender not in receiver.data.friends.all():
+        friendshiprequest = FriendshipRequest(sender=sender, receiver=receiver)
+        friendshiprequest.save()
+    else:
+        return JsonResponse({'status': 'fail', 'description': 'friendship.errors.already-friends'}, status=400)
+    return JsonResponse({'status': 'success'})
+    
 
 @never_cache
 def get_friendship_requests(request):
     if request.user.is_authenticated:
         requests = []
         for request in  FriendshipRequest.objects.filter(receiver=request.user):
-            requests.append(request.sender.extendeduser.user_data())
+            requests.append(request.sender.data.user_data())
         return JsonResponse({'requests': requests})
 
 @never_cache
@@ -171,16 +184,21 @@ def handle_friendship_requests(request):
         sender = User.objects.filter(username=username).first()
         receiver = request.user
 
-        if FriendshipRequest.objects.filter(sender=sender, receiver=receiver).first():
+        friendshiprequest =  FriendshipRequest.objects.filter(sender=sender, receiver=receiver).first()
+
+        if friendshiprequest:
             if accepted:
-                friendship = Friendship(user=sender, friend=receiver)
-                friendship.save()
-                friendship = Friendship(user=receiver, friend=sender)
-                friendship.save()
-                FriendshipRequest.objects.filter(sender=sender, receiver=receiver).delete()
+
+                if sender not in receiver.data.friends.all():
+                    receiver.data.friends.add(sender)
+
+                if receiver not in sender.data.friends.all():
+                    sender.data.friends.add(receiver)
+
+                friendshiprequest.delete()
                 return JsonResponse({'status': 'success'})
             else:
-                FriendshipRequest.objects.filter(sender=sender, receiver=receiver).first().delete()
+                friendshiprequest.delete()
                 return JsonResponse({'status': 'success'})
         else:
             return JsonResponse({'status': 'fail', 'description': 'friendship.errors.no-request-found'}, status=400)
@@ -190,13 +208,15 @@ def handle_friendship_requests(request):
 def get_friends(request):
     if request.user.is_authenticated:
         friends = []
-        for friendship in Friendship.objects.filter(user=request.user):
-            if not ExtendedUser.objects.filter(user=friendship.friend).exists():
-                extendedUser = ExtendedUser(user=friendship.friend)
+        for friend in request.user.data.friends.all():
+           
+            if not ExtendedUser.objects.filter(user=friend).exists():
+                extendedUser = ExtendedUser(user=friend)
                 extendedUser.avatar_seed = ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(20))
                 extendedUser.save()
-            if friendship:
-                data = friendship.friend.extendeduser.user_data()
+           
+            if friend:
+                data = friend.data.user_data()
                 friends.append(data)
         return JsonResponse({'friends': friends})
     else:

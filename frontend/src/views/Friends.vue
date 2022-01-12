@@ -22,8 +22,8 @@
             </span>
           </p>
           <div class="control">
-            <a class="button is-primary" id="add-button">
-              <span class="material-icons" @click="sendFriendRequest">
+            <a class="button is-primary" id="add-button" @click="sendFriendRequest">
+              <span class="material-icons">
                 add_circle_outline
               </span>
             </a>
@@ -86,11 +86,11 @@
 
     <div class="has-text-white subtitle">{{ this.$t("friends.friend") }}</div>
     <div class="columns has-text-black">
-      <div class="column is-one-third">
+      <div class="column is-one-third" v-for="friend in this.$store.state.friends"
+          :key="friend.id">
         <div
           class="card has-text-black"
-          v-for="friend in this.$store.state.friends"
-          :key="friend.id"
+          
         >
           <div class="card-image">
             <!-- <figure class="image is-4by3">
