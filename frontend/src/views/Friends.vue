@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container mx-3">
     <h1 class="has-text-white title m-2 has-text-centered">
       {{ this.$t("friends.title") }}
     </h1>
@@ -101,12 +101,6 @@
       >
         <div class="card has-text-black">
           <div class="card-image">
-            <!-- <figure class="image is-4by3">
-              <img
-                :src="this.$store.state.user.avatar.url"
-                alt="Placeholder image"
-              />
-            </figure> -->
           </div>
           <div class="card-content">
             <div class="media">
@@ -126,18 +120,17 @@
             </div>
 
             <div class="content">
-              <p class="is-6 has-text-black">
+              <label class="">
                 {{ this.$t("friends.avatar-seed") }}
-              </p>
-              <input
-                type="text"
-                class="input"
-                disabled
-                :value="friend.avatar.seed"
-              />
+                <input
+                  type="text"
+                  class="input"
+                  disabled
+                  :value="friend.avatar.seed"
+                />
+              </label>
               <p>{{ this.$t("friends.description") }}</p>
-              <p>{{ friend.description }}</p>
-              <br />
+              <p>{{ friend.description == "" ? this.$t("profile.no-description") : friend.description }}</p>
               <div>
                 <p class="has-text-grey">
                   {{ this.$t("friends.since") }}
@@ -162,20 +155,20 @@
 
     <div id="modal-friends-remove" class="modal">
       <div class="modal-background"></div>
-      <div class="modal-card">
+      <div class="modal-card  mx-2">
         <header class="modal-card-head">
-          <p class="modal-card-title">{{ $t("friends-remove.title") }}</p>
+          <p class="modal-card-title">{{ $t("friends.modal.remove.title") }}</p>
           <button class="delete" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
-          {{ $t("friends-remove.text", removeFriendUsername) }}
+          {{ $t("friends.modal.remove.text", removeFriendUsername) }}
         </section>
         <footer class="modal-card-foot">
           <button class="button is-danger" @click="RemoveFriend">
-            {{ $t("friends-remove.button-agree") }}
+            {{ $t("friends.modal.remove.button-agree") }}
           </button>
           <button class="button">
-            {{ $t("friends-remove.button-deny") }}
+            {{ $t("friends.modal.remove.button-deny") }}
           </button>
         </footer>
       </div>
@@ -333,6 +326,7 @@ export default {
     },
   },
   mounted() {
+    this.$store.dispatch("getUserData");
     this.getFriendshipRequests();
 
     function closeModal($el) {

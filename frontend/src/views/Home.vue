@@ -5,9 +5,7 @@
         <div class="has-text-centered m-3 title">
           <p
             v-html="
-              this.$store.state.user != null
-                ? ''
-                : this.$t('home.need-login')
+              this.$store.state.user != null ? '' : this.$t('home.need-login')
             "
           ></p>
         </div>
@@ -16,8 +14,16 @@
             <img src="@/assets/drunk.png" alt="" />
           </figure>
         </div>
-        <div class="title has-text-centered">
-          {{ $store.state.current_phrase.phrase_text }}
+        <div class="has-text-centered" v-if="$store.state.user != null">
+          <span class="has-text-white is-size-3 has-text-weight-bold">{{
+            $store.state.current_phrase.phrase_text
+          }}</span>
+          <span class="is-size-5 has-text-grey" v-if="$store.state.current_phrase != null">
+            by
+            <span class="has-text-weight-bold">{{
+              $store.state.current_phrase.creator
+            }}</span></span
+          >
         </div>
       </div>
       <div v-if="$store.state.user != null">
@@ -26,6 +32,49 @@
             {{ $t("new-sentence") }}
           </button>
         </div>
+        <div class="has-text-centered">
+          <div class="dropdown is-hoverable">
+            <div class="dropdown-trigger">
+              <button
+                class="button"
+                aria-haspopup="true"
+                aria-controls="dropdown-menu4"
+              >
+                <span>Hover me</span>
+                <span class="icon is-small">
+                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                </span>
+              </button>
+            </div>
+            <div class="dropdown-menu has-text-left" id="dropdown-menu4" role="menu">
+              <div class="dropdown-content">
+                <div
+                  v-for="friend in this.$store.state.friends"
+                  :key="friend.id"
+                >
+                  <div class="dropdown-item has-text-black columns">
+                    <label
+                      :for="'check-sentences-' + friend.username"
+                      class="checkbox column"
+                    >
+                      <input
+                        type="checkbox"
+                        name=""
+                        :id="'check-sentences-' + friend.username"
+                      />
+                      {{ friend.username }}
+                      <hr
+                        class="dropdown-divider"
+                        v-if="this.$store.state.friends > 1"
+                      />
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <article class="message is-primary" v-if="doNotRepeat">
           <div class="message-body">
             <p

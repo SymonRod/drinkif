@@ -7,7 +7,9 @@
     "navbar": {
         "sentences": "Le tue frasi",
         "logout": "Esci",
-        "login": "Accedi"
+        "login": "Accedi",
+        "friends": "Amici",
+        "profile": "Il tuo profilo"
     },
     "home": {
         "welcome": "Benvenuto",
@@ -56,5 +58,41 @@
     },
     "sentence-edited": "Frase modificata con successo",
     "share-text": "Leggi questa frase",
-    "no-sentences-available": "Non ci sono frasi disponibili, per aggiungere vai nel menu e clicca su 'Le le tue frasi'"
+    "no-sentences-available": "Non ci sono frasi disponibili, per aggiungere vai nel menu e clicca su 'Le le tue frasi'",
+    "friends": {
+        "errors": {
+            "username-does-not-exits": "Questo username non esiste",
+            "check-your-invoice": "Controlla le tue richieste di amicizia",
+            "already-requested": "Richiesta di amicizia gia inviata",
+            "already-friends": "Sei gia amico",
+            "no-request-found": "Nessuna richiesta trovata"
+        },
+        "modal": {
+            "remove": {
+                "title": "Rimuovi amico",
+                "text": "Sei sicuro di voler rimuovere questo amico?",
+                "button-agree": "Sì, rimuovilo!",
+                "button-deny": "No, non rimuovilo!"
+            }
+        },
+        "title": "I tuoi amici",
+        "add-friend": "Aggiungi amico",
+        "requests": "Richieste di amicizia",
+        "no-request-recived": "Non hai ricevuto richieste di amicizia",
+        "friend": "I tuoi amici",
+        "avatar-seed": "Seed Avatar",
+        "description": "Descrizione",
+        "no-description": "Nessuna descrizione",
+        "since": "Da",
+        "remove": "Rimuovi amico",
+        "friend-removed": "Amico rimosso",
+        "request-sent": "Richiesta inviata"
+    },
+    "profile": {
+        "title": "Il tuo profilo",
+        "avatar-seed": "Seed Avatar",
+        "description": "Descrizione",
+        "no-description": "Nessuna descrizione",
+        "since": "Da"
+    }
 }

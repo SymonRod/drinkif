@@ -81,7 +81,7 @@ def get_phrases(request):
         data = phrases.objects.filter(creator=request.user)
         phrases_list = []
         for phrase in data:
-            temp = {'phrase_text': phrase.phrase_text, 'id': phrase.id}
+            temp = {'phrase_text': phrase.phrase_text, 'id': phrase.id, 'creator': phrase.creator.username}
             phrases_list.append(temp)
         return JsonResponse({'phrases': phrases_list})
     else:
@@ -166,22 +166,22 @@ def new_friendship_request(request):
     receiver = User.objects.filter(username=username).first()
 
     if not receiver:
-        return JsonResponse({'status': 'fail', 'description': 'friendship.errors.user-does-not-exists'}, status=400)
+        return JsonResponse({'status': 'fail', 'description': 'friends.errors.username-does-not-exists'}, status=400)
 
     if receiver == sender:
         return JsonResponse({'status': 'fail'}, status=400)
 
     if FriendshipRequest.objects.filter(sender=receiver, receiver=sender).exists():
-        return JsonResponse({'status': 'fail', 'description': 'friendship.errors.check-your-invoice'}, status=400)
+        return JsonResponse({'status': 'fail', 'description': 'friends.errors.check-your-invoice'}, status=400)
 
     if FriendshipRequest.objects.filter(sender=sender, receiver=receiver).exists():
-        return JsonResponse({'status': 'fail', 'description': 'friendship.errors.already-requested'}, status=400)
+        return JsonResponse({'status': 'fail', 'description': 'friends.errors.already-requested'}, status=400)
 
     if sender not in receiver.data.friends.all():
         friendshiprequest = FriendshipRequest(sender=sender, receiver=receiver)
         friendshiprequest.save()
     else:
-        return JsonResponse({'status': 'fail', 'description': 'friendship.errors.already-friends'}, status=400)
+        return JsonResponse({'status': 'fail', 'description': 'friends.errors.already-friends'}, status=400)
     return JsonResponse({'status': 'success'})
     
 
@@ -220,7 +220,7 @@ def handle_friendship_requests(request):
                 friendshiprequest.delete()
                 return JsonResponse({'status': 'success'})
         else:
-            return JsonResponse({'status': 'fail', 'description': 'friendship.errors.no-request-found'}, status=400)
+            return JsonResponse({'status': 'fail', 'description': 'friends.errors.no-request-found'}, status=400)
 
 
 @never_cache
