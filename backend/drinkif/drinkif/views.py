@@ -1,3 +1,4 @@
+import re
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
@@ -288,7 +289,15 @@ def get_TTS(request):
 
     return redirect(f"/static/mp3/{hash_sentence}")
 
+@never_cache
+def newseed(request):
+    if not request.user.is_authenticated:
+        return JsonResponse({'status': 'fail'}, status=403)
 
+    request.user.data.avatar_seed = ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(20))
+    request.user.data.save()
+
+    return JsonResponse({'status': 'success'})
 
     # a = input("Inserisci il testo: ")
     # a= urllib.parse.quote(a)
@@ -315,4 +324,4 @@ def gtts(request):
         tts = gTTS(text=sentence, lang='it')
         tts.save(BASE_DIR / "static/mp3" / hash_sentence)
 
-    return redirect(f"/static/mp3/{hash_sentence}")
+    return JsonResponse({'url':f'/static/mp3/{hash_sentence}'},)

@@ -14,7 +14,8 @@
     "home": {
         "welcome": "Benvenuto",
         "need-login": "Per usare questa app devi <a href='#/login'>accedere</a> o <a href='#/register'>registrarti</a>",
-        "include-friends-sentences": "Includi le frasi di:"
+        "include-friends-sentences": "Includi le frasi di:",
+        "enable-tts": "Abilita TTS"
     },
     "add-sentences": "Aggiungi frasi",
     "add-sentences-here": "Aggiungi frasi qui",
@@ -95,5 +96,6 @@
         "description": "Descrizione",
         "no-description": "Nessuna descrizione",
         "since": "Da"
-    }
+    },
+    "tts-error": "Errore TTS"
 }

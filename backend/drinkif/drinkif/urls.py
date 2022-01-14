@@ -19,6 +19,7 @@ from drinkif import views
 from drinkif import settings
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('', views.index, name='index'), 
     path('login', views.login_json, name='login'),
     path('logout', views.logout_json, name='logout'),
@@ -35,6 +36,7 @@ urlpatterns = [
     path('get_friendship_requests', views.get_friendship_requests, name='get_friendship_requests'),
     path('handle_friendship_requests', views.handle_friendship_requests, name='handle_friendship_requests'),
     path('remove_friend', views.remove_friend, name='remove_friend'),
+    path('new_seed', views.newseed, name='new_seed'),
     path('gtts', views.gtts, name='gtts'),
 ]
 if settings.ADMIN_ENABLED:
