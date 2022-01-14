@@ -34,7 +34,7 @@
           {{ $t("new-sentence") }}
         </button>
       </div>
-      <div class="columns">
+      <div class="columns" v-if="$store.state.friends.length > 0">
         <div class="column is-4 is-offset-4">
           <div class="card has-text-black">
             <p class="is-size-5 p-2 has-text-black has-text-weight-bold">
