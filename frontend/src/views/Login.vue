@@ -4,7 +4,7 @@
       <div class="card m-6 p-4">
         <h1 class="has-text-black title">{{ $t("login.title") }}</h1>
         <div class="field">
-          <p class="control has-icons-left has-icons-right">
+          <p class="control has-icons-left">
             <input
               class="input"
               type="username"
@@ -12,10 +12,7 @@
               v-model="username"
             />
             <span class="icon is-small is-left">
-              <i class="fas fa-envelope"></i>
-            </span>
-            <span class="icon is-small is-right">
-              <i class="fas fa-check"></i>
+              <i class="fas fa-envelope has-text-primary"></i>
             </span>
           </p>
         </div>
@@ -28,7 +25,7 @@
               v-model="password"
             />
             <span class="icon is-small is-left">
-              <i class="fas fa-lock"></i>
+              <i class="fas fa-lock has-text-primary"></i>
             </span>
           </p>
         </div>
@@ -64,6 +61,10 @@ export default {
   methods: {
     login() {
       let csrftoken = getCookie("csrftoken");
+
+      //add class is-loading to login-button
+      document.getElementById("login-button").classList.add("is-loading");
+
       axios
         .post(
           "/login",
@@ -72,9 +73,12 @@ export default {
         )
         .then((response) => {
           if (response.status === 200) {
-            this.$store.dispatch("getUser");
+            this.$store.dispatch("getUserData");
             this.$router.push("/");
           }
+          document
+            .getElementById("login-button")
+            .classList.remove("is-loading");
         })
         .catch((error) => {
           if (error.response.status != 500) {
@@ -88,6 +92,9 @@ export default {
               duration: 10000,
             });
           }
+          document
+            .getElementById("login-button")
+            .classList.remove("is-loading");
         });
     },
   },

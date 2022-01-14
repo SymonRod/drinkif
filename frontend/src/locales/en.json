@@ -1,0 +1,59 @@
+{
+  "navbar-title": "Drinkif",
+  "select-language": "Select language",
+  "new-sentence": "Extract new sentence",
+  "do-not-repeat": "Do not repeat",
+  "sentence-available": "There are still available <strong> {count} </strong> sentences",
+  "navbar": {
+    "sentences": "Sentences",
+    "logout": "Logout",
+    "login": "Login"
+  },
+  "home": {
+    "welcome": "Welcome",
+    "need-login": "In order to use this app you have to <a href='#/login'>login</a> or <a href='#/register'>sign-up</a>"
+  },
+  "add-sentences": "Add sentences",
+  "add-sentences-here": "Add sentences here",
+  "your-sentences": "Your sentences",
+  "add-phrases": "Add phrases",
+  "delete": "Delete",
+  "confirm-deletion": "Confirm deletion",
+  "confirm-deletion-text": "Are you sure you want to delete this sentence?",
+  "confirm-deletion-button-agree": "I am sure delete it!",
+  "confirm-deletion-button-deny": "No way!",
+  "sentence-deleted": "Sentence deleted",
+  "sentence-added": "Sentence added",
+  "password-requirements": "Password must be at least 8 characters long and contain at least one number and one letter",
+  "paginator": {
+    "previous": "Previous",
+    "next": "Next",
+    "last": "Last",
+    "first": "First",
+    "search": "Search"
+  },
+  "modal-edit": {
+    "title": "Edit sentence",
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "sign-up": {
+    "button": "Sign-up",
+    "title": "Sign-up",
+    "errors": {
+      "password-requirements": "Password must be at least 8 characters long and contain at least one number and one letter",
+      "username-taken": "Username is already taken"
+    }
+  },
+  "login": {
+    "button": "Login",
+    "title": "Login",
+    "create-account": "You don't have an account?",
+    "errors": {
+      "password-incorrect": "Password is incorrect",
+      "username-does-not-exits": "Username does not exists"
+    }
+  },
+  "sentence-edited": "Sentence edited successfully",
+  "share-text": "I shared this sentence"
+}

@@ -8,8 +8,6 @@ services:
     - "5435:5432"
     hostname: postgres
     container_name: postgres
-
-
   webserver:
     restart: always
     build:

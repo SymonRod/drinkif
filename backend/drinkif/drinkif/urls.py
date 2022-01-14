@@ -16,9 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from drinkif import views
+from drinkif import settings
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', views.index, name='index'), 
     path('login', views.login_json, name='login'),
     path('logout', views.logout_json, name='logout'),
@@ -30,4 +30,14 @@ urlpatterns = [
     path('get_user_info', views.get_user_info, name='get_user_info'),
     path('edit_phrase', views.edit_phrase, name='edit_phrase'),
     path('get_by_id', views.get_phrase_by_id, name='get_by_id'),
+    path('get_friends', views.get_friends, name='get_friends'),
+    path('new_friendship_request', views.new_friendship_request, name='new_friendship_request'),
+    path('get_friendship_requests', views.get_friendship_requests, name='get_friendship_requests'),
+    path('handle_friendship_requests', views.handle_friendship_requests, name='handle_friendship_requests'),
+    path('remove_friend', views.remove_friend, name='remove_friend'),
+    path('gtts', views.gtts, name='gtts'),
 ]
+if settings.ADMIN_ENABLED:
+    urlpatterns += [  
+        path('admin/', admin.site.urls),
+    ]

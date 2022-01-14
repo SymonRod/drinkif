@@ -62,35 +62,39 @@
     <div v-for="phrase in page" :key="phrase.id" class="">
       <div class="columns">
         <div class="column is-one-third is-offset-one-third">
-          <div class="card m-2 p-3">
+          <div class="card m-2 p-3 has-text-black">
             <div class="has-text-black columns is-flex is-vcentered m-0">
               <strong> UUID </strong> #{{ phrase.id }}
-              <span
-                class="material-icons has-text-primary"
-                @click="share(phrase.id)"
-                style="position: absolute; right: 10px; top: 5px;"
-                >share</span
-              >
+              
             </div>
-            <div class="columns">
-              <div class="column has-text-black">
+            <div class="card-content">
+              <div class="content">
                 {{ phrase.phrase_text }}
               </div>
             </div>
-            <div>
+            <div class="card-footer">
               <button
-                class="button is-danger is-outlined m-2 js-modal-trigger"
+                class="button is-danger is-outlined m-2 js-modal-trigger card-footer-item"
                 data-target="modal-confirm-delete"
                 @click="set_delete_id(phrase.id)"
               >
                 <span class="material-icons">delete</span>
               </button>
               <button
-                class="button is-primary is-outlined m-2 js-modal-trigger"
+                class="button is-primary is-outlined m-2 js-modal-trigger card-footer-item"
                 @click="set_edit_id(phrase.id)"
               >
                 <span class="material-icons" data-target="modal-edit"
                   >edit</span
+                >
+              </button>
+              <button
+                class="button is-success is-outlined m-2 card-footer-item"
+                @click="share(phrase.id)"
+                v-if="shareEnabled"
+              >
+                <span class="material-icons"
+                  >share</span
                 >
               </button>
             </div>
@@ -175,19 +179,34 @@ export default {
       phrases: "",
     };
   },
+
   computed: {
+    shareEnabled: function () {
+      return navigator.share != undefined;
+    },
+    sentences: function () {
+      var sentences = this.$store.state.phrases.filter((phrase) => {
+        if(phrase.creator == this.$store.state.user.username) {
+          return true;
+        }
+        return false;
+
+      });
+      return sentences;
+    },
+
     page: {
       get() {
         let page = [];
         if (this.search != "") {
-          page = this.$store.state.phrases.filter((phrase) => {
+          page = this.sentences.filter((phrase) => {
             let sentence = phrase.phrase_text.toLowerCase();
             let search = this.search.toLowerCase();
 
             return sentence.includes(search);
           });
         } else {
-          page = this.$store.state.phrases.slice(
+          page = this.sentences.slice(
             (this.currentPage - 1) * this.itemPerPage,
             this.currentPage * this.itemPerPage
           );
@@ -204,7 +223,7 @@ export default {
 
     lastPage() {
       this.currentPage = Math.ceil(
-        this.$store.state.phrases.length / this.itemPerPage
+        this.sentences.length / this.itemPerPage
       );
     },
 
@@ -217,7 +236,7 @@ export default {
     nextPage() {
       if (
         this.currentPage <
-        this.$store.state.phrases.length / this.itemPerPage
+        this.sentences.length / this.itemPerPage
       ) {
         this.currentPage++;
       }
@@ -261,7 +280,7 @@ export default {
       //console.log(id);
       this.edit_id = id;
 
-      this.edit_text = this.$store.state.phrases.find(
+      this.edit_text = this.sentences.find(
         (phrase) => phrase.id == id
       ).phrase_text;
 
@@ -369,7 +388,7 @@ export default {
     (document.querySelectorAll(".js-modal-trigger") || []).forEach(
       ($trigger) => {
         const modal = $trigger.dataset.target;
-        console.log("trigger dataset", $trigger.dataset);
+        //console.log("trigger dataset", $trigger.dataset);
         const $target = document.getElementById(modal);
         $trigger.addEventListener("click", () => {
           openModal($target);

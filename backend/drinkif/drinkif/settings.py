@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-&sd2v!h(_$6%&4p2!+i3&b$op(qa#ypl8lwjhu%e)3m&nceonc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['drinkif.serod.tech','127.0.0.1','localhost']
+ALLOWED_HOSTS = ['drinkif.serod.tech','127.0.0.1','localhost','192.168.1.7']
 
 CSRF_TRUSTED_ORIGINS = ['https://*.serod.tech','https://*.127.0.0.1']
 
@@ -85,6 +85,7 @@ WSGI_APPLICATION = 'drinkif.wsgi.application'
 
 if os.environ.get('environment') == "production":
     print("Production environment detected")
+    ADMIN_ENABLED: bool = False
     DATABASES = {
         'default': {
 
@@ -104,6 +105,7 @@ if os.environ.get('environment') == "production":
     }
 else:
     print("Development environment detected")
+    ADMIN_ENABLED: bool = True
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',

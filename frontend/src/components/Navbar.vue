@@ -21,6 +21,12 @@
           <div class="navbar-item" v-if="$store.state.user != null">
             <router-link to="/phrases" >{{$t('navbar.sentences')}}</router-link>
           </div>
+           <div class="navbar-item" v-if="$store.state.user != null">
+            <router-link to="/profile" >{{$t('navbar.profile')}}</router-link>
+          </div>
+          <div class="navbar-item" v-if="$store.state.user != null">
+            <router-link to="/friends" >{{$t('navbar.friends')}}</router-link>
+          </div>
           <div class="navbar-item">
             <router-link to="/login" v-if="$store.state.user == null">{{$t('navbar.login')}}</router-link>
             <a href="/logout" v-if="$store.state.user != null">{{$t('navbar.logout')}}</a>

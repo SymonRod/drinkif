@@ -4,6 +4,7 @@ import axios from 'axios'
 export default createStore({
   state: {
     user: null,
+    friends: [],
     doNotRepeat: (JSON.parse(localStorage.getItem('doNotRepeat')) == null ? false : JSON.parse(localStorage.getItem('doNotRepeat'))),
     current_phrase: (JSON.parse(localStorage.getItem('current_phrase')) == null ? { phrase_text: '', phrase_id: null } : JSON.parse(localStorage.getItem('current_phrase'))),
     history: [],
@@ -11,7 +12,6 @@ export default createStore({
     min: (JSON.parse(localStorage.getItem('min')) == null ? 0 : JSON.parse(localStorage.getItem('min'))),
     max: (JSON.parse(localStorage.getItem('max')) == null ? 100 : JSON.parse(localStorage.getItem('max'))),
     phrases: [],
-    locale: (JSON.parse(localStorage.getItem('locale')) == null ? 'en' : JSON.parse(localStorage.getItem('locale'))),
     errors: [],
   },
   mutations: {
@@ -29,7 +29,7 @@ export default createStore({
       localStorage.setItem('current_phrase', JSON.stringify(state.current_phrase));
     },
     random_phrase(state) {
-      if(state.phrases.length == 0) {
+      if (state.phrases.length == 0) {
         console.log('No phrases available')
         state.errors.push('no-sentences-available');
       } else {
@@ -77,17 +77,12 @@ export default createStore({
       }
     },
     updateDoNotRepeat(state, payload) {
-      state.doNotRepeat = payload;
-      localStorage.setItem('doNotRepeat', JSON.stringify(payload));
-      if (state.doNotRepeat) {
-        state.available = [];
-        let max = state.max;
-        let min = state.min;
-        for (let i = min; i <= max - 1; i++) {
-          state.available.push(state.phrases.at(i));
-        }
-        localStorage.setItem('available', JSON.stringify(state.available));
-      }
+      state.doNotRepeat = payload
+    },
+
+    updateAvailable(state, payload) {
+      state.available = payload
+      localStorage.setItem('available', JSON.stringify(state.available));
     },
 
     clear_errors(state) {
@@ -103,16 +98,35 @@ export default createStore({
     updatePhrases(state, payload) {
       state.phrases = payload;
     },
-
-    updateLocale(state, payload) {
-      state.locale = payload;
-      localStorage.setItem('locale', JSON.stringify(payload));
-    }
+    updateFriends(state, payload) {
+      state.friends = payload;
+    },
 
     // End Mutations 
   },
 
   actions: {
+    doNotRepeat({commit,state},value) {
+      var includeFriends = value.includeFriends
+      commit('updateDoNotRepeat', value.doNotRepeat);
+      localStorage.setItem('doNotRepeat', JSON.stringify(value));
+      if (state.doNotRepeat) {
+        var available = state.phrases.filter((phrase) => {
+          if(phrase.creator == state.user.username) {
+            return true;
+          }
+          console.log("includeFriends",includeFriends);
+          if(includeFriends[phrase.creator]) {
+            return true;
+          }
+        });
+
+        commit('updateAvailable', available);
+
+        localStorage.setItem('available', JSON.stringify(state.available));
+      }
+    },
+
     getPhrases({ commit }) {
       axios.get('/get_phrases')
         .then(response => {
@@ -129,7 +143,7 @@ export default createStore({
     random_phrase({ commit }) {
       commit('random_phrase');
     },
-    getUser({ commit }) {
+    getUserData({ commit }) {
       function getCookie(name) {
         const value = `; ${document.cookie}`;
         const parts = value.split(`; ${name}=`);
@@ -137,6 +151,7 @@ export default createStore({
       }
       let csrftoken = getCookie("csrftoken");
 
+      // Get user info
       axios
         .post(
           "/get_user_info",
@@ -145,14 +160,28 @@ export default createStore({
         )
         .then((response) => {
           if (response.status === 200) {
-            let user = {
-              username: response.data.username,
-            };
-            commit('updateUser', user);
-            this.dispatch("getPhrases", user);
+            commit('updateUser', response.data);
+            this.dispatch("getPhrases");
+
+            // Get frineds  
+            axios.post(
+                "/get_friends",
+                {},
+                { headers: { "X-CSRFToken": csrftoken } }
+              )
+              .then((response) => {
+                if (response.status === 200) {
+                  commit('updateFriends', response.data.friends);
+                }
+              })
           }
         })
-      },
+
+
+
+
+    },
+
 
   },
   modules: {
