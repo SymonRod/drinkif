@@ -2,3 +2,4 @@
 *.pyc
 *.hot-update.*
 secrets.py
+*.mp3

@@ -179,22 +179,34 @@ export default {
       phrases: "",
     };
   },
+
   computed: {
     shareEnabled: function () {
       return navigator.share != undefined;
     },
+    sentences: function () {
+      var sentences = this.$store.state.phrases.filter((phrase) => {
+        if(phrase.creator == this.$store.state.user.username) {
+          return true;
+        }
+        return false;
+
+      });
+      return sentences;
+    },
+
     page: {
       get() {
         let page = [];
         if (this.search != "") {
-          page = this.$store.state.phrases.filter((phrase) => {
+          page = this.sentences.filter((phrase) => {
             let sentence = phrase.phrase_text.toLowerCase();
             let search = this.search.toLowerCase();
 
             return sentence.includes(search);
           });
         } else {
-          page = this.$store.state.phrases.slice(
+          page = this.sentences.slice(
             (this.currentPage - 1) * this.itemPerPage,
             this.currentPage * this.itemPerPage
           );
@@ -211,7 +223,7 @@ export default {
 
     lastPage() {
       this.currentPage = Math.ceil(
-        this.$store.state.phrases.length / this.itemPerPage
+        this.sentences.length / this.itemPerPage
       );
     },
 
@@ -224,7 +236,7 @@ export default {
     nextPage() {
       if (
         this.currentPage <
-        this.$store.state.phrases.length / this.itemPerPage
+        this.sentences.length / this.itemPerPage
       ) {
         this.currentPage++;
       }
@@ -268,7 +280,7 @@ export default {
       //console.log(id);
       this.edit_id = id;
 
-      this.edit_text = this.$store.state.phrases.find(
+      this.edit_text = this.sentences.find(
         (phrase) => phrase.id == id
       ).phrase_text;
 
@@ -376,7 +388,7 @@ export default {
     (document.querySelectorAll(".js-modal-trigger") || []).forEach(
       ($trigger) => {
         const modal = $trigger.dataset.target;
-        console.log("trigger dataset", $trigger.dataset);
+        //console.log("trigger dataset", $trigger.dataset);
         const $target = document.getElementById(modal);
         $trigger.addEventListener("click", () => {
           openModal($target);

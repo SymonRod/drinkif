@@ -77,17 +77,12 @@ export default createStore({
       }
     },
     updateDoNotRepeat(state, payload) {
-      state.doNotRepeat = payload;
-      localStorage.setItem('doNotRepeat', JSON.stringify(payload));
-      if (state.doNotRepeat) {
-        state.available = [];
-        let max = state.max;
-        let min = state.min;
-        for (let i = min; i <= max - 1; i++) {
-          state.available.push(state.phrases.at(i));
-        }
-        localStorage.setItem('available', JSON.stringify(state.available));
-      }
+      state.doNotRepeat = payload
+    },
+
+    updateAvailable(state, payload) {
+      state.available = payload
+      localStorage.setItem('available', JSON.stringify(state.available));
     },
 
     clear_errors(state) {
@@ -111,6 +106,27 @@ export default createStore({
   },
 
   actions: {
+    doNotRepeat({commit,state},value) {
+      var includeFriends = value.includeFriends
+      commit('updateDoNotRepeat', value.doNotRepeat);
+      localStorage.setItem('doNotRepeat', JSON.stringify(value));
+      if (state.doNotRepeat) {
+        var available = state.phrases.filter((phrase) => {
+          if(phrase.creator == state.user.username) {
+            return true;
+          }
+          console.log("includeFriends",includeFriends);
+          if(includeFriends[phrase.creator]) {
+            return true;
+          }
+        });
+
+        commit('updateAvailable', available);
+
+        localStorage.setItem('available', JSON.stringify(state.available));
+      }
+    },
+
     getPhrases({ commit }) {
       axios.get('/get_phrases')
         .then(response => {

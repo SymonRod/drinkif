@@ -1,4 +1,3 @@
-import re
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
@@ -7,7 +6,8 @@ from django.middleware.csrf import CSRF_SESSION_KEY, get_token
 from django.views.decorators.cache import never_cache
 from django.http import JsonResponse, request
 from drinkif.models import *
-import json, os, random, string
+from drinkif.settings import BASE_DIR
+import json, os, random, string, requests, hashlib, urllib
 
 def validate_password_strength(value):
     """Validates that a password is as least 8 characters long and has at least
@@ -78,11 +78,13 @@ def register_json(request: request):
 @never_cache
 def get_phrases(request):
     if request.user.is_authenticated:
-        data = phrases.objects.filter(creator=request.user)
         phrases_list = []
-        for phrase in data:
+        friend_phrases = phrases.objects.filter(creator__in=list(request.user.data.friends.all()) + [request.user])
+
+        for phrase in friend_phrases:
             temp = {'phrase_text': phrase.phrase_text, 'id': phrase.id, 'creator': phrase.creator.username}
             phrases_list.append(temp)
+
         return JsonResponse({'phrases': phrases_list})
     else:
         return JsonResponse({'status': 'fail'}, status=403)
@@ -154,7 +156,6 @@ def remove_friend(request):
 
 @never_cache
 def new_friendship_request(request):
-
 
     if not request.user.is_authenticated:
         return JsonResponse({'status': 'fail'}, status=403)
@@ -263,3 +264,55 @@ def get_phrase_by_id(request):
     id = data['id']
     phrase = phrases.objects.get(id=id)
     return JsonResponse({'sentence':{'id': phrase.id, 'text': phrase.phrase_text}})
+
+@never_cache
+def get_TTS(request):
+    sentence = request.GET.get('sentence',False)
+
+    if not sentence:
+        return JsonResponse({'status': 'fail'}, status=400)
+
+    sentence = urllib.parse.quote(sentence)
+    hash_sentence = hashlib.md5(sentence.encode('utf-8')).hexdigest()+".mp3"
+
+    if not (os.path.isfile(os.path.join(BASE_DIR / "static/mp3" / hash_sentence))):
+
+        req = requests.get(f"https://freetts.com/Home/PlayAudio?Language=it-IT&Voice=it-IT-Standard-A&TextMessage={sentence}&type=0")
+        
+        if  req.status_code == 200:
+            id = json.loads(req.text)["id"]
+            print(f"https://freetts.com/audio/{id}")
+            mp3_req = requests.get(f"https://freetts.com/audio/{id}")
+            with open(BASE_DIR / "static/mp3" / hash_sentence, 'wb') as f:
+                f.write(mp3_req.content)
+
+    return redirect(f"/static/mp3/{hash_sentence}")
+
+
+
+    # a = input("Inserisci il testo: ")
+    # a= urllib.parse.quote(a)
+    # req = requests.get(f"https://freetts.com/Home/PlayAudio?Language=it-IT&Voice=it-IT-Standard-A&TextMessage={a}&type=0")
+    # if  req.status_code == 200:
+    #     id = json.loads(req.text)["id"]
+    #     print(id)
+    #     mp3_req = requests.get(f"https://freetts.com/audio/{id}")
+    #     with open(id, 'wb') as f:
+    #         f.write(mp3_req.content)
+
+from gtts import gTTS
+
+@never_cache
+def gtts(request):
+    sentence = request.GET.get('sentence',False)
+
+    if not sentence:
+        return JsonResponse({'status': 'fail'}, status=400)
+    
+    hash_sentence = hashlib.md5(sentence.encode('utf-8')).hexdigest()+".mp3"
+
+    if not (os.path.isfile(os.path.join(BASE_DIR / "static/mp3" / hash_sentence))):
+        tts = gTTS(text=sentence, lang='it')
+        tts.save(BASE_DIR / "static/mp3" / hash_sentence)
+
+    return redirect(f"/static/mp3/{hash_sentence}")
