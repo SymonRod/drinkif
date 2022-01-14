@@ -17,7 +17,7 @@
         <span class="has-text-white is-size-3 has-text-weight-bold">{{
           $store.state.current_phrase.phrase_text
         }}</span>
-        <span
+        <!-- <span
           class="is-size-5 has-text-grey"
           v-if="$store.state.current_phrase != null"
         >
@@ -25,7 +25,7 @@
           <span class="has-text-weight-bold">{{
             $store.state.current_phrase.creator
           }}</span></span
-        >
+        > -->
       </div>
     </div>
     <div v-if="$store.state.user != null">
@@ -57,6 +57,16 @@
           </div>
         </div>
       </div>
+      <div class="has-text-centered m-3">
+        <label for="doNotRepeat" class="has-text-white">
+          <input type="checkbox" v-model="doNotRepeat" id="doNotRepeat" />
+          {{ $t("do-not-repeat") }}
+        </label>
+        <label for="enableTTS" class="has-text-white ml-5">
+          <input type="checkbox" v-model="enableTTS" id="enableTTS" />
+          {{ $t("home.enable-tts") }}
+        </label>
+      </div>
       <div class="columns">
         <div class="column is-4 is-offset-4">
           <article class="message is-primary" v-if="doNotRepeat">
@@ -72,18 +82,13 @@
           </article>
         </div>
       </div>
-      <div class="has-text-centered m-3">
-        <label for="doNotRepeat" class="has-text-white">
-          <input type="checkbox" v-model="doNotRepeat" id="doNotRepeat" />
-          {{ $t("do-not-repeat") }}
-        </label>
-      </div>
     </div>
   </section>
 </template>
 
 <script>
 import { toast } from "bulma-toast";
+import axios from 'axios';
 
 export default {
   name: "Home",
@@ -91,13 +96,14 @@ export default {
     return {
       includeFriends: {},
       friendsSentences: {},
+      enableTTS: false,
+      audio: new Audio(),
     };
   },
 
   methods: {
     extractSentece: function () {
       this.$store.dispatch("random_phrase");
-
       if (this.sentences.length == 0) {
         toast({
           message: this.$t("no-sentences-available"),
@@ -115,7 +121,7 @@ export default {
           let index = this.$store.state.available.indexOf(
             this.$store.state.available.at(newNumber)
           );
-          this.commit("set_phrase", this.$store.state.available.at(newNumber));
+           this.$store.commit("set_phrase", this.$store.state.available.at(newNumber));
           if (index > -1) {
             this.$store.state.available.splice(index, 1);
           }
@@ -130,7 +136,27 @@ export default {
           let newNumber = Math.floor(Math.random() * (max - min + 1) + min);
           this.$store.commit("set_phrase", this.sentences.at(newNumber));
         }
+
+        
+        if(this.enableTTS) {
+          axios.get('/gtts?sentence='+encodeURIComponent(this.$store.state.current_phrase.phrase_text)).then(response => {
+            this.audio.pause();
+            this.audio.currentTime = 0;
+            this.audio.src = response.data.url;
+            this.audio.play();
+          }).catch((error) => {
+            console.log(error);
+            toast({
+              message: this.$t("tts-error"),
+              type: "is-warning",
+              position: "top-right",
+              duration: 12000,
+              dismissible: true,
+            });
+          });
+        }
       }
+
     },
   },
   mounted: function () {},
