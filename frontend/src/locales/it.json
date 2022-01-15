@@ -97,5 +97,7 @@
         "no-description": "Nessuna descrizione",
         "since": "Da"
     },
-    "tts-error": "Errore TTS"
+    "tts-error": "Errore TTS",
+    "start-game": "Inizia il gioco",
+    "stop-game": "Ferma il gioco"
 }
