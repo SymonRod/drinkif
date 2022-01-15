@@ -13,7 +13,7 @@
           <img src="@/assets/drunk.png" alt="" />
         </figure>
       </div>
-      <div class="has-text-centered" v-if="$store.state.user != null">
+      <div class="has-text-centered" v-if="$store.state.user != null && isStarted">
         <span class="has-text-white is-size-3 has-text-weight-bold">{{
           $store.state.current_phrase.phrase_text
         }}</span>
@@ -30,11 +30,14 @@
     </div>
     <div v-if="$store.state.user != null">
       <div class="has-text-centered m-3">
-        <button @click="extractSentece" class="button is-primary is-outlined">
+        <button @click="startGame" class="button is-primary" v-if="!isStarted">
+          {{ $t("start-game") }}
+        </button>
+        <button @click="extractSentece" class="button is-primary is-outlined" v-else>
           {{ $t("new-sentence") }}
         </button>
       </div>
-      <div class="columns" v-if="$store.state.friends.length > 0">
+      <div class="columns" v-if="$store.state.friends.length > 0 && !isStarted">
         <div class="column is-4 is-offset-4">
           <div class="card has-text-black">
             <p class="is-size-5 p-2 has-text-black has-text-weight-bold">
@@ -57,17 +60,17 @@
           </div>
         </div>
       </div>
-      <div class="has-text-centered m-3">
-        <label for="doNotRepeat" class="has-text-white">
+      <div class="has-text-centered m-3" v-if="isStarted">
+        <!-- <label for="doNotRepeat" class="has-text-white">
           <input type="checkbox" v-model="doNotRepeat" id="doNotRepeat" />
           {{ $t("do-not-repeat") }}
-        </label>
+        </label> -->
         <label for="enableTTS" class="has-text-white ml-5">
           <input type="checkbox" v-model="enableTTS" id="enableTTS" />
           {{ $t("home.enable-tts") }}
         </label>
       </div>
-      <div class="columns">
+      <div class="columns" v-if="isStarted">
         <div class="column is-4 is-offset-4">
           <article class="message is-primary" v-if="doNotRepeat">
             <div class="message-body">
@@ -82,6 +85,17 @@
           </article>
         </div>
       </div>
+      <div class="columns" v-if="isStarted">
+        <div class="column is-4 is-offset-4 has-text-centered has-text-white ">
+            <div class="button is-danger" @click="stopGame">
+              
+               <span class="icon is-small">
+              <i class="fas fa-hand-paper"></i>
+            </span>
+            <span>{{$t('stop-game')}}</span>
+            </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -94,6 +108,7 @@ export default {
   name: "Home",
   data() {
     return {
+      isStarted: JSON.parse(localStorage.getItem("isStarted")) == null ? false : JSON.parse(localStorage.getItem("isStarted")),
       includeFriends: {},
       friendsSentences: {},
       enableTTS: false,
@@ -102,6 +117,24 @@ export default {
   },
 
   methods: {
+    startGame: function() {
+      this.isStarted = true;
+      localStorage.setItem("isStarted", true);
+      this.$store.dispatch("doNotRepeat", {
+          doNotRepeat: true,
+          includeFriends: this.includeFriends,
+        });
+    },
+
+    stopGame: function() {
+      this.isStarted = false;
+      localStorage.setItem("isStarted", false);
+      this.$store.dispatch("doNotRepeat", {
+          doNotRepeat: false,
+          includeFriends: this.includeFriends,
+        });
+    },
+
     extractSentece: function () {
       this.$store.dispatch("random_phrase");
       if (this.sentences.length == 0) {
@@ -174,12 +207,6 @@ export default {
     doNotRepeat: {
       get() {
         return this.$store.state.doNotRepeat;
-      },
-      set(value) {
-        this.$store.dispatch("doNotRepeat", {
-          doNotRepeat: value,
-          includeFriends: this.includeFriends,
-        });
       },
     },
     min: {
