@@ -19,13 +19,16 @@ class ExtendedUser(models.Model):
                 'seed':self.avatar_seed,
                 'url': avatar_url
             },
-            'creation_date': self.user.date_joined}
+            'creation_date': self.user.date_joined,
+            'isDeveloper': self.is_developer,
+            }
         return data
 
     user = models.OneToOneField(User, on_delete=models.CASCADE,related_name='data')
     avatar_seed = models.CharField(max_length=50)
     description = models.CharField(max_length=300)
     friends = models.ManyToManyField(User, blank=True, related_name='friends')
+    is_developer = models.BooleanField(default=False)
 
     def __str__(self):
         return self.user.username

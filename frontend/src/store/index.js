@@ -15,22 +15,13 @@ export default createStore({
     errors: [],
   },
   mutations: {
-    increaseCounter(state) {
-      state.current_phrase++
-    },
-    decreaseCounter(state) {
-      state.current_phrase--
-    },
     set_phrase(state, payload) {
-      if (state.current_phrase != null) {
-        state.history.push(state.current_phrase)
-      }
       state.current_phrase = payload
       localStorage.setItem('current_phrase', JSON.stringify(state.current_phrase));
     },
     random_phrase(state) {
       if (state.phrases.length == 0) {
-        console.log('No phrases available')
+        //console.log('No phrases available')
         state.errors.push('no-sentences-available');
       } else {
         if (state.doNotRepeat) {
@@ -102,6 +93,16 @@ export default createStore({
       state.friends = payload;
     },
 
+    clearHistory(state) {
+      state.history = [];
+    },
+
+    addToHistory(state, payload) {
+      var data = { phrase_text: payload.phrase_text, id: payload.id, creator:payload.creator};
+      console.log(data)
+      state.history.push(data);
+    }
+
     // End Mutations 
   },
 
@@ -115,14 +116,12 @@ export default createStore({
           if(phrase.creator == state.user.username) {
             return true;
           }
-          console.log("includeFriends",includeFriends);
+          //console.log("includeFriends",includeFriends);
           if(includeFriends[phrase.creator]) {
             return true;
           }
         });
-
         commit('updateAvailable', available);
-
         localStorage.setItem('available', JSON.stringify(state.available));
       }
     },
