@@ -196,7 +196,7 @@ export default {
   },
   methods: {
     getHumanDate(data) {
-      console.log(data);
+      //console.log(data);
       var options = {
         weekday: "long",
         year: "numeric",

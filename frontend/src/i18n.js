@@ -32,7 +32,7 @@ var messages = {
 //   return messages
 // }
 
-console.log(messages)
+//console.log(messages)
 
 export default createI18n({
   globalInjection: true,
