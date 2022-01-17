@@ -96,7 +96,20 @@
             </div>
         </div>
       </div>
+
+      <div class="columns" v-if="$store.state.user.isDeveloper">
+        <div class="column is-4 is-offset-4 has-text-centered has-text-white ">
+            <div class="button is-success" @click="debugDownload">
+              
+               <span class="icon is-small">
+              <i class="fas fa-bug"></i>
+            </span>
+            <span>Debug</span>
+            </div>
+        </div>
+      </div>
     </div>
+  <a id="downloadAnchorElem" style="display:none"></a>
   </section>
 </template>
 
@@ -124,6 +137,9 @@ export default {
           doNotRepeat: true,
           includeFriends: this.includeFriends,
         });
+      this.$store.commit("clearHistory");
+      this.$store.commit("set_phrase",{});
+      console.log("start game");
     },
 
     stopGame: function() {
@@ -136,7 +152,6 @@ export default {
     },
 
     extractSentece: function () {
-      this.$store.dispatch("random_phrase");
       if (this.sentences.length == 0) {
         toast({
           message: this.$t("no-sentences-available"),
@@ -145,52 +160,86 @@ export default {
           duration: 12000,
           dismissible: true,
         });
-      } else {
-        if (this.$store.state.doNotRepeat) {
-          if (this.$store.state.available.length <= 0) return;
-          let min = Math.ceil(0);
-          let max = Math.floor(this.$store.state.available.length - 1);
-          let newNumber = Math.floor(Math.random() * (max - min + 1) + min);
-          let index = this.$store.state.available.indexOf(
-            this.$store.state.available.at(newNumber)
-          );
-           this.$store.commit("set_phrase", this.$store.state.available.at(newNumber));
-          if (index > -1) {
-            this.$store.state.available.splice(index, 1);
-          }
-          localStorage.setItem(
-            "available",
-            JSON.stringify(this.$store.state.available)
-          );
-        } else {
-          let min = Math.ceil(0);
-          let max = Math.floor(this.sentences.length - 1);
+        return;
+      }
 
-          let newNumber = Math.floor(Math.random() * (max - min + 1) + min);
-          this.$store.commit("set_phrase", this.sentences.at(newNumber));
-        }
+      // Checking if there are still sentences available
+      if (this.$store.state.available.length <= 0) return;
 
+      // Getting a random sentence from the available ones
+      let min = Math.ceil(0);
+      let max = Math.floor(this.$store.state.available.length - 1);
+      let newNumber = Math.floor(Math.random() * (max - min + 1) + min);
+      let index = this.$store.state.available.indexOf(
+        this.$store.state.available.at(newNumber)
+      );
+
+
+      //Setting current phrase
+      this.$store.commit("set_phrase", this.$store.state.available.at(index));
+      
+      //Adding the extracted sentence to the history
+      this.$store.commit("addToHistory", this.$store.state.available.at(index));
+
+      //Removing sentence from available
+      if (index > -1) {
+        this.$store.state.available.splice(index, 1);
+      }
+
+
+      //Saving the abailable sentences in the local storage
+      localStorage.setItem(
+        "available",
+        JSON.stringify(this.$store.state.available)
+      );
         
-        if(this.enableTTS) {
-          axios.get('/gtts?sentence='+encodeURIComponent(this.$store.state.current_phrase.phrase_text)).then(response => {
-            this.audio.pause();
-            this.audio.currentTime = 0;
-            this.audio.src = response.data.url;
-            this.audio.play();
-          }).catch((error) => {
-            console.log(error);
-            toast({
-              message: this.$t("tts-error"),
-              type: "is-warning",
-              position: "top-right",
-              duration: 12000,
-              dismissible: true,
-            });
+      
+
+
+      // If TTS is enabled, play the sentence
+      if(this.enableTTS) {
+        axios.get('/gtts?sentence='+encodeURIComponent(this.$store.state.current_phrase.phrase_text)).then(response => {
+          this.audio.pause();
+          this.audio.currentTime = 0;
+          this.audio.src = response.data.url;
+          this.audio.play();
+        }).catch((error) => {
+          console.log(error);
+          toast({
+            message: this.$t("tts-error"),
+            type: "is-warning",
+            position: "top-right",
+            duration: 12000,
+            dismissible: true,
           });
-        }
+        });
       }
 
     },
+
+
+    debugDownload() {
+    
+    console.log("Debug");
+
+    var debugData = {
+      "friends": this.$store.state.friends, 
+      "doNotRepeat": this.$store.state.doNotRepeat, 
+      "current_phrase": this.$store.state.current_phrase, 
+      "history": this.$store.state.history, 
+      "available": this.$store.state.available, 
+      "phrases": this.$store.state.phrases, 
+      "errors": this.$store.state.errors, 
+    }
+
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(debugData));
+
+    var dlAnchorElem = document.getElementById('downloadAnchorElem');
+    dlAnchorElem.setAttribute("href",     dataStr     );
+    dlAnchorElem.setAttribute("download", "debug.json");
+    dlAnchorElem.click();
+
+    }
   },
   mounted: function () {},
   computed: {
