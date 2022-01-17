@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-3">
+  <div class="container">
     <h1 class="has-text-white title m-2 has-text-centered">
       {{ this.$t("friends.title") }}
     </h1>
@@ -41,9 +41,9 @@
         <p v-if="friendRequestsReceived.length == 0" class="has-text-white">
           {{ this.$t("friends.no-request-recived") }}
         </p>
-        <div class="columns">
+        <div class="columns is-multiline">
           <div
-            class="column is-one-third"
+            class="column is-one-quarter"
             v-for="request in friendRequestsReceived"
             :key="request.id"
           >
@@ -93,7 +93,7 @@
     </div>
 
     <div class="has-text-white subtitle">{{ this.$t("friends.friend") }}</div>
-    <div class="columns has-text-black">
+    <div class="columns has-text-black is-multiline">
       <div
         class="column is-one-third"
         v-for="friend in this.$store.state.friends"
