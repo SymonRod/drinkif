@@ -321,15 +321,15 @@ export default {
       console.log("add_phrases");
       var list_phrases = this.phrases.split(/\r?\n/);
 
-      for (var i = 0; i < list_phrases.length; i++) {
-        var phrase = list_phrases[i];
-        var phrases = phrase.split(". ");
-        if (phrases.length > 1) {
-          list_phrases[i] = phrases[1];
-        } else {
-          list_phrases[i] = phrases[0];
-        }
-      }
+      //for (var i = 0; i < list_phrases.length; i++) {
+      //  var phrase = list_phrases[i];
+      //  var phrases = phrase.split(". ");
+      //  if (phrases.length > 1) {
+      //    list_phrases[i] = phrases[1];
+      //  } else {
+      //    list_phrases[i] = phrases[0];
+      //  }
+      //}
 
       let csrftoken = getCookie("csrftoken");
       axios
