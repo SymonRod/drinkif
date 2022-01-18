@@ -11,4 +11,4 @@ python3 manage.py migrate
 python3 manage.py collectstatic --noinput
 
 echo "Starting Gunicorn..."
-gunicorn drinkif.wsgi 
+gunicorn --bind 0.0.0.0:8000 drinkif.wsgi 

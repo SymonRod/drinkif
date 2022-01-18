@@ -3,7 +3,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import store from './store'
 import router from './router'
-import './registerServiceWorker'
+//import './registerServiceWorker'
 import LoadScript from "vue-plugin-load-script";
 import i18n from './i18n'
 

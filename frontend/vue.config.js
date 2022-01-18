@@ -18,18 +18,18 @@ module.exports = {
         writeToDisk: true, // Write files to disk in dev mode, so Django can serve the assets
     },
 
-    pwa: {
-        name: 'Drinkif',
-        themeColor: '#00bad3',
-        msTileColor: '#000000',
-        appleMobileWebAppCapable: 'yes',
-        appleMobileWebAppStatusBarStyle: 'black',
-        display: 'fullscreen',
-        // configure the workbox plugin
-        workboxPluginMode: 'GenerateSW',
+    // pwa: {
+    //     name: 'Drinkif',
+    //     themeColor: '#00bad3',
+    //     msTileColor: '#000000',
+    //     appleMobileWebAppCapable: 'yes',
+    //     appleMobileWebAppStatusBarStyle: 'black',
+    //     display: 'fullscreen',
+    //     // configure the workbox plugin
+    //     workboxPluginMode: 'GenerateSW',
 
         
-    },
+    // },
 
     pluginOptions: {
       i18n: {
