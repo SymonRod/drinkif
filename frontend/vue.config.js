@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
     // Should be STATIC_URL + path/to/build
-    publicPath: 'static/',
+    publicPath: '/static',
 
     // Output to a directory in STATICFILES_DIRS
     outputDir: path.resolve(__dirname, '../backend/drinkif/static'),
