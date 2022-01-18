@@ -324,4 +324,4 @@ def gtts(request):
         tts = gTTS(text=sentence, lang='it')
         tts.save(BASE_DIR / "static/mp3" / hash_sentence)
 
-    return JsonResponse({'url':f'/static/mp3/{hash_sentence}'},)
+    return JsonResponse({'url':f'/mp3/{hash_sentence}'},)

@@ -15,6 +15,7 @@ services:
       - 8011:80
     volumes:
       - ./backend:/backend
+      - ./backend/drinkif/static:/var/www/html
     environment:
       - environment=production
       - APP_NAME=drinkif
