@@ -91,7 +91,7 @@ export default {
       }).then(() => {
         this.$store.dispatch("getUserData");
       }).catch(error => {
-        console.log(error);
+        //console.log(error);
       });
     }
   },

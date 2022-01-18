@@ -28,14 +28,14 @@ export default {
     };
   },
   mounted() {
-    console.log("Share mounted");
+    //console.log("Share mounted");
     this.$route.params.id;
     axios
       .post("/api/get_by_id", {
         id: this.$route.params.id,
       })
       .then((res) => {
-        console.log(res);
+        //console.log(res);
         this.sentence = res.data.sentence;
       });
   },

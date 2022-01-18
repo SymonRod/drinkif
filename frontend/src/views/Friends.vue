@@ -196,7 +196,7 @@ export default {
   },
   methods: {
     getHumanDate(data) {
-      //console.log(data);
+      ////console.log(data);
       var options = {
         weekday: "long",
         year: "numeric",
@@ -269,7 +269,7 @@ export default {
           }
         })
         .catch((error) => {
-          console.log(error);
+          //console.log(error);
         });
     },
     getFriendshipRequests() {
@@ -286,7 +286,7 @@ export default {
           }
         })
         .catch((error) => {
-          console.log(error);
+          //console.log(error);
         });
     },
 

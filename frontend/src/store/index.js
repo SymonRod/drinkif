@@ -100,7 +100,7 @@ export default createStore({
 
     addToHistory(state, payload) {
       var data = { phrase_text: payload.phrase_text, id: payload.id, creator:payload.creator};
-      console.log(data)
+      //console.log(data)
       state.history.push(data);
     }
 
@@ -136,8 +136,8 @@ export default createStore({
           commit('updateMin', 0);
 
         })
-        .catch(error => {
-          console.log(error)
+        .catch(() => {
+          //console.log(error)
         })
     },
     random_phrase({ commit }) {
