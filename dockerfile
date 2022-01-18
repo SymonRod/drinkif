@@ -9,6 +9,6 @@ RUN chmod +x /backend/start.sh
 
 WORKDIR /backend
 
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 
 CMD [ "/backend/start.sh" ] 
