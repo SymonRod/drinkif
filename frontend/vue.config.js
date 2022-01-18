@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
     // Should be STATIC_URL + path/to/build
-    publicPath: '/',
+    publicPath: '/static/',
 
     // Output to a directory in STATICFILES_DIRS
     outputDir: path.resolve(__dirname, '../backend/drinkif/static'),
@@ -25,9 +25,10 @@ module.exports = {
         appleMobileWebAppCapable: 'yes',
         appleMobileWebAppStatusBarStyle: 'black',
         display: 'fullscreen',
-
         // configure the workbox plugin
         workboxPluginMode: 'GenerateSW',
+
+        
     },
 
     pluginOptions: {
