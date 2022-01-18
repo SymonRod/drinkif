@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export default createStore({
   state: {
-    user: null,
+    user: (JSON.parse(localStorage.getItem('user')) == null ? null : JSON.parse(localStorage.getItem('user'))),
     friends: [],
     doNotRepeat: (JSON.parse(localStorage.getItem('doNotRepeat')) == null ? false : JSON.parse(localStorage.getItem('doNotRepeat'))),
     current_phrase: (JSON.parse(localStorage.getItem('current_phrase')) == null ? { phrase_text: '', phrase_id: null } : JSON.parse(localStorage.getItem('current_phrase'))),
@@ -83,6 +83,7 @@ export default createStore({
     updateUser(state, payload) {
       if (payload != null) {
         state.user = payload;
+        localStorage.setItem('user', JSON.stringify(state.user));
       }
     },
 

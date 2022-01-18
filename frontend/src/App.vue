@@ -27,7 +27,6 @@ export default {
 
     axios.post('/api/csrf').then(() => {
       this.$store.commit('updateUser',window.user);
-      this.$store.dispatch('getPhrases');
       this.$store.dispatch('getUserData');
     });
   },
