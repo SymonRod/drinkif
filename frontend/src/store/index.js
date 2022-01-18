@@ -81,10 +81,8 @@ export default createStore({
     },
 
     updateUser(state, payload) {
-      if (payload != null) {
-        state.user = payload;
-        localStorage.setItem('user', JSON.stringify(state.user));
-      }
+      state.user = payload;
+      localStorage.setItem('user', JSON.stringify(state.user));
     },
 
     updatePhrases(state, payload) {
@@ -173,7 +171,7 @@ export default createStore({
               })
           }
         }).catch(() => {
-          this.state.user = null;
+          commit('updateUser', null);
         })
     },
   },
