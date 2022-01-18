@@ -198,7 +198,7 @@ export default {
 
       // If TTS is enabled, play the sentence
       if(this.enableTTS) {
-        axios.get('/gtts?sentence='+encodeURIComponent(this.$store.state.current_phrase.phrase_text)).then(response => {
+        axios.get('/api/gtts?sentence='+encodeURIComponent(this.$store.state.current_phrase.phrase_text)).then(response => {
           this.audio.pause();
           this.audio.currentTime = 0;
           this.audio.src = response.data.url;

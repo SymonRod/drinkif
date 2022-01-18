@@ -25,7 +25,7 @@ export default {
       console.log('locale local storage',this.$i18n.locale);
     }
 
-    axios.post('csrf').then(() => {
+    axios.post('/api/csrf').then(() => {
       this.$store.commit('updateUser',window.user);
       this.$store.dispatch('getPhrases');
       this.$store.dispatch('getUserData');

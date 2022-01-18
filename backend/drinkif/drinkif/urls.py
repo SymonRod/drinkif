@@ -21,7 +21,6 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
-    path('api/admin/', admin.site.urls),
     path('api/login', views.login_json, name='login'),
     path('api/logout', views.logout_json, name='logout'),
     path('api/register', views.register_json, name='register'),
@@ -40,6 +39,12 @@ urlpatterns = [
     path('api/new_seed', views.newseed, name='new_seed'),
     path('api/gtts', views.gtts, name='gtts'),
 ]
+
+if not settings.PROD:
+    urlpatterns+=[
+        path('', views.index, name='index'), 
+    ]
+
 if settings.ADMIN_ENABLED:
     urlpatterns += [  
         path('api/admin/', admin.site.urls),

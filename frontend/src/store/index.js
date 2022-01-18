@@ -127,7 +127,7 @@ export default createStore({
     },
 
     getPhrases({ commit }) {
-      axios.get('/get_phrases')
+      axios.get('/api/get_phrases')
         .then(response => {
           //console.log(response.data.phrases);
           commit('updatePhrases', response.data.phrases);
@@ -151,9 +151,7 @@ export default createStore({
       let csrftoken = getCookie("csrftoken");
 
       // Get user info
-      axios
-        .post(
-          "/get_user_info",
+      axios.post("/api/get_user_info",
           {},
           { headers: { "X-CSRFToken": csrftoken } }
         )
@@ -163,8 +161,7 @@ export default createStore({
             this.dispatch("getPhrases");
 
             // Get frineds  
-            axios.post(
-                "/get_friends",
+            axios.post("/api/get_friends",
                 {},
                 { headers: { "X-CSRFToken": csrftoken } }
               )

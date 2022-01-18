@@ -31,7 +31,7 @@ export default {
     console.log("Share mounted");
     this.$route.params.id;
     axios
-      .post("get_by_id", {
+      .post("/api/get_by_id", {
         id: this.$route.params.id,
       })
       .then((res) => {

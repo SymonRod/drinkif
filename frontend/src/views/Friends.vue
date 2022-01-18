@@ -212,7 +212,7 @@ export default {
 
       axios
         .post(
-          "/remove_friend",
+          "/api/remove_friend",
           { username: this.removeFriendUsername },
           { headers: { "X-CSRFToken": csrftoken } }
         )
@@ -255,7 +255,7 @@ export default {
       var csrftoken = getCookie("csrftoken");
       axios
         .post(
-          "/handle_friendship_requests",
+          "/api/handle_friendship_requests",
           {
             username: username,
             accepted: accepted,
@@ -276,7 +276,7 @@ export default {
       var csrftoken = getCookie("csrftoken");
       axios
         .post(
-          "/get_friendship_requests",
+          "/api/get_friendship_requests",
           {},
           { headers: { "X-CSRFToken": csrftoken } }
         )
@@ -295,7 +295,7 @@ export default {
       var csrftoken = getCookie("csrftoken");
       axios
         .post(
-          "/new_friendship_request",
+          "/api/new_friendship_request",
           { username: this.searchFriend },
           { headers: { "X-CSRFToken": csrftoken } }
         )

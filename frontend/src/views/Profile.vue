@@ -84,7 +84,7 @@ export default {
   methods: {
     newAvatarSeed: function() {
       var cookie = getCookie("csrftoken");
-      Axios.post('/new_seed',{},{
+      Axios.post('/api/new_seed',{},{
         headers: {
           'X-CSRFToken': cookie
         }

@@ -65,7 +65,7 @@ export default {
             .classList.add("is-loading");
       axios
         .post(
-          "/register",
+          "/api/register",
           { username: this.username, password: this.password },
           { headers: { "X-CSRFToken": csrftoken } }
         )

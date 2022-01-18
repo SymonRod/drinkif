@@ -246,7 +246,7 @@ export default {
       let csrftoken = getCookie("csrftoken");
       axios
         .post(
-          `/delete_phrase`,
+          `/api/delete_phrase`,
           { id: this.delete_id },
           { headers: { "X-CSRFToken": csrftoken } }
         )
@@ -295,7 +295,7 @@ export default {
       let csrftoken = getCookie("csrftoken");
       axios
         .post(
-          `/edit_phrase`,
+          `/api/edit_phrase`,
           {
             id: this.edit_id,
             text: this.edit_text,
@@ -334,7 +334,7 @@ export default {
       let csrftoken = getCookie("csrftoken");
       axios
         .post(
-          "/add_phrases",
+          "/api/add_phrases",
           { phrases: list_phrases },
           { headers: { "X-CSRFToken": csrftoken } }
         )
