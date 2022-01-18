@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from drinkif import views
 from drinkif import settings
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -43,3 +45,5 @@ if settings.ADMIN_ENABLED:
     urlpatterns += [  
         path('admin/', admin.site.urls),
     ]
+
+urlpatterns += staticfiles_urlpatterns()
