@@ -139,7 +139,7 @@ export default {
         });
       this.$store.commit("clearHistory");
       this.$store.commit("set_phrase",{});
-      console.log("start game");
+      //console.log("start game");
     },
 
     stopGame: function() {
@@ -198,13 +198,13 @@ export default {
 
       // If TTS is enabled, play the sentence
       if(this.enableTTS) {
-        axios.get('/gtts?sentence='+encodeURIComponent(this.$store.state.current_phrase.phrase_text)).then(response => {
+        axios.get('/api/gtts?sentence='+encodeURIComponent(this.$store.state.current_phrase.phrase_text)).then(response => {
           this.audio.pause();
           this.audio.currentTime = 0;
           this.audio.src = response.data.url;
           this.audio.play();
         }).catch((error) => {
-          console.log(error);
+          //console.log(error);
           toast({
             message: this.$t("tts-error"),
             type: "is-warning",
@@ -220,7 +220,7 @@ export default {
 
     debugDownload() {
     
-    console.log("Debug");
+    //console.log("Debug");
 
     var debugData = {
       "friends": this.$store.state.friends, 

@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export default createStore({
   state: {
-    user: null,
+    user: (JSON.parse(localStorage.getItem('user')) == null ? null : JSON.parse(localStorage.getItem('user'))),
     friends: [],
     doNotRepeat: (JSON.parse(localStorage.getItem('doNotRepeat')) == null ? false : JSON.parse(localStorage.getItem('doNotRepeat'))),
     current_phrase: (JSON.parse(localStorage.getItem('current_phrase')) == null ? { phrase_text: '', phrase_id: null } : JSON.parse(localStorage.getItem('current_phrase'))),
@@ -81,9 +81,8 @@ export default createStore({
     },
 
     updateUser(state, payload) {
-      if (payload != null) {
-        state.user = payload;
-      }
+      state.user = payload;
+      localStorage.setItem('user', JSON.stringify(state.user));
     },
 
     updatePhrases(state, payload) {
@@ -99,7 +98,7 @@ export default createStore({
 
     addToHistory(state, payload) {
       var data = { phrase_text: payload.phrase_text, id: payload.id, creator:payload.creator};
-      console.log(data)
+      //console.log(data)
       state.history.push(data);
     }
 
@@ -127,7 +126,7 @@ export default createStore({
     },
 
     getPhrases({ commit }) {
-      axios.get('/get_phrases')
+      axios.get('/api/get_phrases')
         .then(response => {
           //console.log(response.data.phrases);
           commit('updatePhrases', response.data.phrases);
@@ -135,8 +134,8 @@ export default createStore({
           commit('updateMin', 0);
 
         })
-        .catch(error => {
-          console.log(error)
+        .catch(() => {
+          //console.log(error)
         })
     },
     random_phrase({ commit }) {
@@ -151,9 +150,7 @@ export default createStore({
       let csrftoken = getCookie("csrftoken");
 
       // Get user info
-      axios
-        .post(
-          "/get_user_info",
+      axios.post("/api/get_user_info",
           {},
           { headers: { "X-CSRFToken": csrftoken } }
         )
@@ -163,8 +160,7 @@ export default createStore({
             this.dispatch("getPhrases");
 
             // Get frineds  
-            axios.post(
-                "/get_friends",
+            axios.post("/api/get_friends",
                 {},
                 { headers: { "X-CSRFToken": csrftoken } }
               )
@@ -174,14 +170,10 @@ export default createStore({
                 }
               })
           }
+        }).catch(() => {
+          commit('updateUser', null);
         })
-
-
-
-
     },
-
-
   },
   modules: {
   },

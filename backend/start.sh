@@ -2,13 +2,17 @@
 
 cd /backend/drinkif/
 
-ls -lah
-
-pwd
-
 python3 manage.py migrate
 
-python3 manage.py collectstatic --noinput
+
+service nginx status
+service nginx start
+service nginx status
+
+echo "Version 1.1"
+
+pip3 install -r /backend/requirements.txt
+
 
 echo "Starting Gunicorn..."
 gunicorn --bind 0.0.0.0:8000 drinkif.wsgi 

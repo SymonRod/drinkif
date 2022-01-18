@@ -67,7 +67,7 @@ export default {
 
       axios
         .post(
-          "/login",
+          "/api/login",
           { username: this.username, password: this.password },
           { headers: { "X-CSRFToken": csrftoken } }
         )

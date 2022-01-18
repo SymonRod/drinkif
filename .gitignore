@@ -1,2 +1,9 @@
 db/
 secrets.py
+**/__pycache__/
+backend/drinkif/drinkif/__pycache__/*
+backend/drinkif/drinkif/__pycache__/models.cpython-38.pyc
+backend/drinkif/drinkif/__pycache__/settings.cpython-38.pyc
+backend/drinkif/drinkif/__pycache__/urls.cpython-38.pyc
+backend/drinkif/drinkif/__pycache__/views.cpython-38.pyc
+backend/drinkif/drinkif/__pycache__/wsgi.cpython-38.pyc

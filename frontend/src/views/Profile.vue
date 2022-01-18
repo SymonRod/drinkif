@@ -84,14 +84,14 @@ export default {
   methods: {
     newAvatarSeed: function() {
       var cookie = getCookie("csrftoken");
-      Axios.post('/new_seed',{},{
+      Axios.post('/api/new_seed',{},{
         headers: {
           'X-CSRFToken': cookie
         }
       }).then(() => {
         this.$store.dispatch("getUserData");
       }).catch(error => {
-        console.log(error);
+        //console.log(error);
       });
     }
   },

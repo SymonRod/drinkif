@@ -246,7 +246,7 @@ export default {
       let csrftoken = getCookie("csrftoken");
       axios
         .post(
-          `/delete_phrase`,
+          `/api/delete_phrase`,
           { id: this.delete_id },
           { headers: { "X-CSRFToken": csrftoken } }
         )
@@ -262,11 +262,11 @@ export default {
           });
         })
         .catch((error) => {
-          console.log(error);
+          //console.log(error);
         });
     },
     set_delete_id(id) {
-      //console.log(id);
+      ////console.log(id);
       this.delete_id = id;
 
       function openModal($el) {
@@ -277,7 +277,7 @@ export default {
     },
 
     set_edit_id(id) {
-      //console.log(id);
+      ////console.log(id);
       this.edit_id = id;
 
       this.edit_text = this.sentences.find(
@@ -295,7 +295,7 @@ export default {
       let csrftoken = getCookie("csrftoken");
       axios
         .post(
-          `/edit_phrase`,
+          `/api/edit_phrase`,
           {
             id: this.edit_id,
             text: this.edit_text,
@@ -313,12 +313,12 @@ export default {
           });
         })
         .catch((error) => {
-          console.log(error);
+          //console.log(error);
         });
     },
 
     add_phrases() {
-      console.log("add_phrases");
+      //console.log("add_phrases");
       var list_phrases = this.phrases.split(/\r?\n/);
 
       //for (var i = 0; i < list_phrases.length; i++) {
@@ -334,7 +334,7 @@ export default {
       let csrftoken = getCookie("csrftoken");
       axios
         .post(
-          "/add_phrases",
+          "/api/add_phrases",
           { phrases: list_phrases },
           { headers: { "X-CSRFToken": csrftoken } }
         )
@@ -388,7 +388,7 @@ export default {
     (document.querySelectorAll(".js-modal-trigger") || []).forEach(
       ($trigger) => {
         const modal = $trigger.dataset.target;
-        //console.log("trigger dataset", $trigger.dataset);
+        ////console.log("trigger dataset", $trigger.dataset);
         const $target = document.getElementById(modal);
         $trigger.addEventListener("click", () => {
           openModal($target);

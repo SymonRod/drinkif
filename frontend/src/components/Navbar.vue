@@ -29,7 +29,7 @@
           </div>
           <div class="navbar-item">
             <router-link to="/login" v-if="$store.state.user == null">{{$t('navbar.login')}}</router-link>
-            <a href="/logout" v-if="$store.state.user != null">{{$t('navbar.logout')}}</a>
+            <a href="/api/logout" v-if="$store.state.user != null">{{$t('navbar.logout')}}</a>
           </div>
         </div>
       </div>

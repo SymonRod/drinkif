@@ -19,15 +19,14 @@ export default {
     
     if (localStorage.getItem('locale') == null) {
       localStorage.setItem('locale',locale);
-      console.log('locale local storage null',this.$i18n.locale);
+      //console.log('locale local storage null',this.$i18n.locale);
     } else{
       locale = localStorage.getItem('locale')
-      console.log('locale local storage',this.$i18n.locale);
+      //console.log('locale local storage',this.$i18n.locale);
     }
 
-    axios.post('csrf').then(() => {
+    axios.post('/api/csrf').then(() => {
       this.$store.commit('updateUser',window.user);
-      this.$store.dispatch('getPhrases');
       this.$store.dispatch('getUserData');
     });
   },
