@@ -1,0 +1,15 @@
+server {
+        listen 80;
+
+        server_name drinkif.serod.tech;
+
+        client_max_body_size 20m;
+
+        location /api {
+            proxy_pass http://127.0.0.0.1:8000;
+        }
+
+        location / {
+            root /backend/drinkif/static;
+        }
+}

@@ -1,7 +1,9 @@
-FROM python:latest
+FROM ubuntu:20.04
 
-RUN pip install django
-RUN pip install psycopg2
+RUN apt update
+RUN apt install -y python3 python3-pip nginx
+
+COPY backend/nginx/ dest
 
 COPY ./backend /backend
 

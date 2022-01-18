@@ -1,9 +1,19 @@
 
 const path = require('path');
 
+if(process.env.NODE_ENV === 'production') {
+  var publicPath = '/';
+} else {
+  var publicPath = '/static/';
+}
+
+
 module.exports = {
     // Should be STATIC_URL + path/to/build
-    publicPath: '/static/',
+
+    
+    publicPath: publicPath,
+
 
     // Output to a directory in STATICFILES_DIRS
     outputDir: path.resolve(__dirname, '../backend/drinkif/static'),
