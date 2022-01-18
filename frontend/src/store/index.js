@@ -172,14 +172,10 @@ export default createStore({
                 }
               })
           }
+        }).catch(() => {
+          this.state.user = null;
         })
-
-
-
-
     },
-
-
   },
   modules: {
   },
