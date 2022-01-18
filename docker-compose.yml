@@ -1,19 +1,18 @@
 version: '3.3'
 services:
   postgres:
-    image: postgres:latest
+    image: postgres
     volumes:
       - ./db:/var/lib/postgresql/data
     ports:
     - "5435:5432"
     hostname: postgres
-    container_name: postgres
   webserver:
     restart: always
     build:
       context: ./
     ports:
-      - 8111:8000
+      - 8011:80
     volumes:
       - ./backend:/backend
     environment:
