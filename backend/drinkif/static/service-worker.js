@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/static/precache-manifest.2cfb7aacdb1133a7a540ee895731a291.js"
+  "/precache-manifest.abd5c252c8cdb08ce6ce86ed0c873639.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "drinkif"});

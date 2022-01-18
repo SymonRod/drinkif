@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
     // Should be STATIC_URL + path/to/build
-    publicPath: '/static',
+    publicPath: '/',
 
     // Output to a directory in STATICFILES_DIRS
     outputDir: path.resolve(__dirname, '../backend/drinkif/static'),
@@ -28,12 +28,6 @@ module.exports = {
 
         // configure the workbox plugin
         workboxPluginMode: 'GenerateSW',
-        // workboxPluginMode: 'InjectManifest',
-        // workboxOptions: {
-        //     // swSrc is required in InjectManifest mode.
-        //   swSrc: 'src/registerServiceWorker.js',
-        //     // ...other Workbox options...
-        // }
     },
 
     pluginOptions: {
