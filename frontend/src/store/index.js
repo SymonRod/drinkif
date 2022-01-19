@@ -125,6 +125,16 @@ export default createStore({
       }
     },
 
+    getFriends({commit}) {
+      // Get frineds  
+      axios.get("/api/get_friends")
+        .then((response) => {
+          if (response.status === 200) {
+            commit('updateFriends', response.data.friends);
+          }
+        });
+    },
+
     getPhrases({ commit }) {
       axios.get('/api/get_phrases')
         .then(response => {
@@ -142,36 +152,18 @@ export default createStore({
       commit('random_phrase');
     },
     getUserData({ commit }) {
-      function getCookie(name) {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-      }
-      let csrftoken = getCookie("csrftoken");
-
       // Get user info
-      axios.post("/api/get_user_info",
-          {},
-          { headers: { "X-CSRFToken": csrftoken } }
-        )
+      axios.get("/api/get_user_info")
         .then((response) => {
           if (response.status === 200) {
             commit('updateUser', response.data);
             this.dispatch("getPhrases");
-
-            // Get frineds  
-            axios.post("/api/get_friends",
-                {},
-                { headers: { "X-CSRFToken": csrftoken } }
-              )
-              .then((response) => {
-                if (response.status === 200) {
-                  commit('updateFriends', response.data.friends);
-                }
-              })
+            this.dispatch("getFriends");
           }
-        }).catch(() => {
-          commit('updateUser', null);
+        }).catch((error) => {
+          if(error.response.status == 403) {
+            commit('updateUser', null);
+          }
         })
     },
   },

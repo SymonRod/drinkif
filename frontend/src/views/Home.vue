@@ -10,7 +10,7 @@
       </div>
       <div class="has-text-centered m-3">
         <figure alt="Drunk" class="image is-128x128 is-inline-block">
-          <img src="@/assets/drunk.png" alt="" />
+          <img src="@/assets/drunk_256.png" alt="" />
         </figure>
       </div>
       <div class="has-text-centered" v-if="$store.state.user != null && isStarted">
@@ -203,7 +203,7 @@ export default {
           this.audio.currentTime = 0;
           this.audio.src = response.data.url;
           this.audio.play();
-        }).catch((error) => {
+        }).catch(() => {
           //console.log(error);
           toast({
             message: this.$t("tts-error"),

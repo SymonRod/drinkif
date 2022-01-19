@@ -15,4 +15,4 @@ pip3 install -r /backend/requirements.txt
 
 
 echo "Starting Gunicorn..."
-gunicorn --bind 0.0.0.0:8000 drinkif.wsgi 
+gunicorn --workers=4 --bind 0.0.0.0:8000 drinkif.wsgi 

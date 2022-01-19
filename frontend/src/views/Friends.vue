@@ -268,7 +268,7 @@ export default {
             this.$store.dispatch("getUserData");
           }
         })
-        .catch((error) => {
+        .catch(() => {
           //console.log(error);
         });
     },
@@ -285,7 +285,7 @@ export default {
             this.friendRequestsReceived = response.data.requests;
           }
         })
-        .catch((error) => {
+        .catch(() => {
           //console.log(error);
         });
     },

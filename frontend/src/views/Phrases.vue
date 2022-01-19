@@ -261,7 +261,7 @@ export default {
             position: "top-right",
           });
         })
-        .catch((error) => {
+        .catch(() => {
           //console.log(error);
         });
     },
@@ -312,7 +312,7 @@ export default {
             position: "top-right",
           });
         })
-        .catch((error) => {
+        .catch(() => {
           //console.log(error);
         });
     },
