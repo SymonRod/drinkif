@@ -48,7 +48,7 @@ if not settings.PROD:
 
 if settings.ADMIN_ENABLED:
     urlpatterns += [  
-        path('api/admin/', admin.site.urls),
+        path('admin/', admin.site.urls),
     ]
 
 urlpatterns += staticfiles_urlpatterns()

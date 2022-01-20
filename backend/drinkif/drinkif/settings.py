@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'drinkif.wsgi.application'
 if os.environ.get('environment') == "production":
     print("Production environment detected")
     PROD = True
-    ADMIN_ENABLED: bool = False
+    ADMIN_ENABLED: bool = True
     DATABASES = {
         'default': {
 
