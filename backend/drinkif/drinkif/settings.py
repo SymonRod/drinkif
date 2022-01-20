@@ -36,7 +36,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['drinkif.serod.tech','127.0.0.1','localhost','192.168.1.7']
 
-CSRF_TRUSTED_ORIGINS = ['https://*.serod.tech','https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://*.serod.tech','https://*.127.0.0.1','http://*.127.0.0.1:8011']
 
 CORS_ALLOW_CREDENTIALS = True
 

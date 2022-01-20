@@ -11,9 +11,8 @@ if(process.env.NODE_ENV === 'production') {
 module.exports = {
     // Should be STATIC_URL + path/to/build
 
-    
+  
     publicPath: publicPath,
-
 
     // Output to a directory in STATICFILES_DIRS
     outputDir: path.resolve(__dirname, '../backend/drinkif/static'),

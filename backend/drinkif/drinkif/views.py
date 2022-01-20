@@ -78,7 +78,7 @@ def register_json(request: request):
 def get_phrases(request):
     if request.user.is_authenticated:
         phrases_list = []
-        friend_phrases = phrases.objects.filter(creator__in=list(request.user.data.friends.all()) + [request.user])
+        friend_phrases = phrases.objects.filter(creator__in=list(request.user.data.friends.all()) + [request.user]).order_by('id')
 
         for phrase in friend_phrases:
             temp = phrase.by_user(request.user)
