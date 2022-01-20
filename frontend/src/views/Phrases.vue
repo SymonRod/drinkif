@@ -65,7 +65,6 @@
           <div class="card m-2 p-3 has-text-black">
             <div class="has-text-black columns is-flex is-vcentered m-0">
               <strong> UUID </strong> #{{ phrase.id }}
-              
             </div>
             <div class="card-content">
               <div class="content">
@@ -93,9 +92,23 @@
                 @click="share(phrase.id)"
                 v-if="shareEnabled"
               >
-                <span class="material-icons"
-                  >share</span
-                >
+                <span class="material-icons">share</span>
+              </button>
+              <button
+                class="button is-success m-2 card-footer-item"
+                v-if="phrase.public"
+                :id="phrase.id + '_sentence_public'"
+                @click="set_visibility(phrase.id, false, $event)"
+              >
+                <i class="fas fa-globe-europe"></i>
+              </button>
+              <button
+                class="button is-warning m-2 card-footer-item"
+                v-else
+                :id="phrase.id + '_sentence_private'"
+                @click="set_visibility(phrase.id, true, $event)"
+              >
+                <i class="fas fa-lock"></i>
               </button>
             </div>
           </div>
@@ -179,19 +192,22 @@ export default {
       phrases: "",
     };
   },
-
   computed: {
     shareEnabled: function () {
       return navigator.share != undefined;
     },
     sentences: function () {
-      var sentences = this.$store.state.phrases.filter((phrase) => {
-        if(phrase.creator == this.$store.state.user.username) {
-          return true;
-        }
-        return false;
-
-      });
+      var sentences;
+      try {
+        sentences = this.$store.state.phrases.filter((phrase) => {
+          if (phrase.creator == this.$store.state.user.username) {
+            return true;
+          }
+          return false;
+        });
+      } catch (error) {
+        sentences = [];
+      }
       return sentences;
     },
 
@@ -217,14 +233,20 @@ export default {
     },
   },
   methods: {
+    set_visibility(id, visibility, trigger) {
+      this.$store.dispatch("setSentenceVisibility", {
+        id: id,
+        visibility: visibility,
+        trigger: trigger.target,
+      });
+    },
+
     firstPage() {
       this.currentPage = 1;
     },
 
     lastPage() {
-      this.currentPage = Math.ceil(
-        this.sentences.length / this.itemPerPage
-      );
+      this.currentPage = Math.ceil(this.sentences.length / this.itemPerPage);
     },
 
     previousPage() {
@@ -234,10 +256,7 @@ export default {
     },
 
     nextPage() {
-      if (
-        this.currentPage <
-        this.sentences.length / this.itemPerPage
-      ) {
+      if (this.currentPage < this.sentences.length / this.itemPerPage) {
         this.currentPage++;
       }
     },
@@ -355,18 +374,23 @@ export default {
     },
     share(id) {
       var getUrl = window.location;
-      var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+      var baseUrl =
+        getUrl.protocol +
+        "//" +
+        getUrl.host +
+        "/" +
+        getUrl.pathname.split("/")[1];
       navigator.share({
-        title: 'DrinkIf',
-        text: this.$t('share-text'),
-        url: baseUrl + '#/share/' + id,
-      })
-    }
+        title: "DrinkIf",
+        text: this.$t("share-text"),
+        url: baseUrl + "#/share/" + id,
+      });
+    },
   },
 
   mounted() {
-    if(this.$store.state.user == null) {
-      this.$router.push('/');
+    if (this.$store.state.user == null) {
+      this.$router.push("/");
     }
 
     // Functions to open and close a modal

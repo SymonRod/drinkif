@@ -1,4 +1,3 @@
-import re
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
@@ -51,7 +50,6 @@ def login_json(request):
         return JsonResponse({'status': 'fail','description':'login.errors.password-incorrect'} , status=403)
 
 @never_cache
-
 def logout_json(request):
     logout(request)
     return redirect('/')
@@ -83,9 +81,9 @@ def get_phrases(request):
         friend_phrases = phrases.objects.filter(creator__in=list(request.user.data.friends.all()) + [request.user])
 
         for phrase in friend_phrases:
-            temp = {'phrase_text': phrase.phrase_text, 'id': phrase.id, 'creator': phrase.creator.username}
-            phrases_list.append(temp)
-
+            temp = phrase.by_user(request.user)
+            if temp:
+                phrases_list.append(temp)
         return JsonResponse({'phrases': phrases_list})
     else:
         return JsonResponse({'status': 'fail'}, status=403)
@@ -113,6 +111,18 @@ def delete_phrase(request):
             return JsonResponse({'status': 'success'})
     else:
         return JsonResponse({'status': 'fail'}, status=403)
+
+@never_cache
+def change_sentence_visibility(request):
+    if request.user.is_authenticated:
+        data = json.loads(request.body)
+        id = data['id']
+        visibility = data['visibility']
+        phrase = phrases.objects.get(id=id)
+        if phrase.creator == request.user:
+            phrase.public = visibility
+            phrase.save()
+            return JsonResponse({'status': 'success','description':'sentences.visibility-changed'})
 
 @csrf_exempt
 def get_csrf(request):
