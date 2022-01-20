@@ -87,7 +87,7 @@ export default createStore({
 
     updatePhrases(state, payload) {
       state.phrases = payload;
-      localStorage.setItem('sentences', JSON.stringify(state.user));
+      localStorage.setItem('sentences', JSON.stringify(state.phrases));
     },
     updateFriends(state, payload) {
       state.friends = payload;
