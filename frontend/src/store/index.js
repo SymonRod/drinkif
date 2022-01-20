@@ -11,7 +11,7 @@ export default createStore({
     available: (JSON.parse(localStorage.getItem('available')) == null ? [] : JSON.parse(localStorage.getItem('available'))),
     min: (JSON.parse(localStorage.getItem('min')) == null ? 0 : JSON.parse(localStorage.getItem('min'))),
     max: (JSON.parse(localStorage.getItem('max')) == null ? 100 : JSON.parse(localStorage.getItem('max'))),
-    phrases: [],
+    phrases: (JSON.parse(localStorage.getItem('sentences')) == null ? [] : JSON.parse(localStorage.getItem('sentences'))),
     errors: [],
   },
   mutations: {
@@ -87,6 +87,7 @@ export default createStore({
 
     updatePhrases(state, payload) {
       state.phrases = payload;
+      localStorage.setItem('sentences', JSON.stringify(state.user));
     },
     updateFriends(state, payload) {
       state.friends = payload;
@@ -110,8 +111,12 @@ export default createStore({
       var includeFriends = value.includeFriends
       commit('updateDoNotRepeat', value.doNotRepeat);
       localStorage.setItem('doNotRepeat', JSON.stringify(value));
+
+
       if (state.doNotRepeat) {
         var available = state.phrases.filter((phrase) => {
+          if(!phrase.public) return false;
+
           if(phrase.creator == state.user.username) {
             return true;
           }
@@ -131,6 +136,40 @@ export default createStore({
         .then((response) => {
           if (response.status === 200) {
             commit('updateFriends', response.data.friends);
+          }
+        });
+    },
+
+    setSentenceVisibility({commit,state},value) {
+
+      var id = value.id;
+      var visibility = value.visibility;
+      var trigger = value.trigger;
+
+      trigger.classList.add('is-loading');
+
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(";").shift();
+      }
+
+      var csrftoken = getCookie('csrftoken');
+
+      axios.post("/api/change_sentence_visibility", 
+        {id:id,visibility:visibility},
+        {headers: { "X-CSRFToken": csrftoken }}
+      )
+        .then((response) => {
+          trigger.classList.remove('is-loading');
+          if (response.status === 200) {
+            var senteces = state.phrases;
+            senteces.forEach((sentence) => {
+              if(sentence.id==id) {
+                sentence.public = visibility;
+              }
+            });
+            commit('updatePhrases', senteces);
           }
         });
     },

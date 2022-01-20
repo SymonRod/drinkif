@@ -27,6 +27,7 @@ urlpatterns = [
     path('api/get_phrases', views.get_phrases, name='get_phrases'),
     path('api/add_phrases', views.add_phrases, name='add_phrases'),
     path('api/delete_phrase', views.delete_phrase, name='delete_phrase'),
+    path('api/change_sentence_visibility', views.change_sentence_visibility, name='change_sentence_visibility'),
     path('api/csrf', views.get_csrf, name='api-csrf'),
     path('api/get_user_info', views.get_user_info, name='get_user_info'),
     path('api/edit_phrase', views.edit_phrase, name='edit_phrase'),
