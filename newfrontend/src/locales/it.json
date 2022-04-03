@@ -1,0 +1,103 @@
+{
+    "navbar-title": "Bevise",
+    "select-language": "Cambia lingua",
+    "new-sentence": "Estrai frase",
+    "do-not-repeat": "Non ripetere",
+    "sentence-available": "Sono ancora disponibili <strong> {count} </strong> frasi",
+    "navbar": {
+        "sentences": "Le tue frasi",
+        "logout": "Esci",
+        "login": "Accedi",
+        "friends": "Amici",
+        "profile": "Il tuo profilo"
+    },
+    "home": {
+        "welcome": "Benvenuto",
+        "need-login": "Per usare questa app devi <a href='#/login'>accedere</a> o <a href='#/register'>registrarti</a>",
+        "include-friends-sentences": "Includi le frasi di:",
+        "enable-tts": "Abilita TTS"
+    },
+    "add-sentences": "Aggiungi frasi",
+    "add-sentences-here": "Aggiungi frasi qui",
+    "your-sentences": "Le tue frasi",
+    "add-phrases": "Aggiungi frasi",
+    "delete": "Elimina",
+    "confirm-deletion": "Conferma eliminazione",
+    "confirm-deletion-text": "Sei sicuro di voler eliminare questa frase?",
+    "confirm-deletion-button-agree": "Sono sicuro eliminala!",
+    "confirm-deletion-button-deny": "Nope!",
+    "sentence-deleted": "Frase eliminata",
+    "sentence-added": "Frase aggiunta",
+    "password-requirements": "La password deve contenere almeno 8 caratteri, una lettera maiuscola, una lettera minuscola e un numero",
+    "paginator": {
+        "previous": "Prec.",
+        "next": "Succ.",
+        "first": "Prima",
+        "last": "Ultima",
+        "search": "Cerca"
+    },
+    "modal-edit": {
+        "title": "Modifica frase",
+        "save": "Salva",
+        "cancel": "Annulla"
+    },
+    "sign-up": {
+        "button": "Registrati",
+        "title": "Registrati",
+        "errors": {
+            "password-requirements": "La password deve contenere almeno 8 caratteri, una lettera maiuscola, una lettera minuscola e un numero",
+            "username-taken": "Questo username è già in uso"
+        }
+    },
+    "login": {
+        "button": "Accedi",
+        "title": "Accedi",
+        "create-account": "Non hai un account?",
+        "errors": {
+            "password-incorrect": "La password è sbagliata",
+            "username-does-not-exits": "Questo username non esiste"
+        }
+    },
+    "sentence-edited": "Frase modificata con successo",
+    "share-text": "Leggi questa frase",
+    "no-sentences-available": "Non ci sono frasi disponibili, per aggiungere vai nel menu e clicca su 'Le le tue frasi'",
+    "friends": {
+        "errors": {
+            "username-does-not-exits": "Questo username non esiste",
+            "check-your-invoice": "Controlla le tue richieste di amicizia",
+            "already-requested": "Richiesta di amicizia gia inviata",
+            "already-friends": "Sei gia amico",
+            "no-request-found": "Nessuna richiesta trovata"
+        },
+        "modal": {
+            "remove": {
+                "title": "Rimuovi amico",
+                "text": "Sei sicuro di voler rimuovere questo amico?",
+                "button-agree": "Sì, rimuovilo!",
+                "button-deny": "No, non rimuovilo!"
+            }
+        },
+        "title": "I tuoi amici",
+        "add-friend": "Aggiungi amico",
+        "requests": "Richieste di amicizia",
+        "no-request-recived": "Non hai ricevuto richieste di amicizia",
+        "friend": "I tuoi amici",
+        "avatar-seed": "Seed Avatar",
+        "description": "Descrizione",
+        "no-description": "Nessuna descrizione",
+        "since": "Da",
+        "remove": "Rimuovi amico",
+        "friend-removed": "Amico rimosso",
+        "request-sent": "Richiesta inviata"
+    },
+    "profile": {
+        "title": "Il tuo profilo",
+        "avatar-seed": "Seed Avatar",
+        "description": "Descrizione",
+        "no-description": "Nessuna descrizione",
+        "since": "Da"
+    },
+    "tts-error": "Errore TTS",
+    "start-game": "Inizia il gioco",
+    "stop-game": "Ferma il gioco"
+}

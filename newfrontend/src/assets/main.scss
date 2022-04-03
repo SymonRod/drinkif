@@ -1,0 +1,30 @@
+// Customizations Here (Optional)
+
+@charset "utf-8";
+
+// Make the font of all the text Montserrat
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+
+
+$family-sans-serif: "Montserrat", sans-serif;
+
+// Set your brand colors
+$light-blue: #00bad3; 
+$custom-grey-dark: #4A4A4A;
+$custom-grey-light: #919191;
+
+
+// Update Bulma's global variables
+$grey-dark: $custom-grey-dark;
+$grey-light: $custom-grey-light;
+$primary: $light-blue; 
+$link: $light-blue;
+$text: white;
+$link-hover: lighten($light-blue, 10%);
+
+// Update some of Bulma's component variables
+$body-background-color: $custom-grey-dark;
+$body-color: $custom-grey-dark;
+
+// Bulma Import
+@import '~bulma';

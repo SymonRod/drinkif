@@ -9,15 +9,9 @@
     "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\""
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.4",
-    "bulma": "^0.9.3",
-    "bulma-toast": "^2.4.1",
-    "bulma.js": "^0.0.1",
     "core-js": "^3.6.5",
-    "favicons": "^6.2.2",
     "material-design-icons": "^3.0.1",
     "vue": "^3.0.0",
-    "vue-2-bulma-pagination": "^0.0.8",
     "vue-i18n": "^9.1.0",
     "vue-plugin-load-script": "^2.1.0",
     "vue-pwa-asset-generator": "^1.6.1",
@@ -27,7 +21,6 @@
   },
   "devDependencies": {
     "@intlify/vue-i18n-loader": "^3.0.0",
-    "@vizuaalog/bulmajs": "^0.12.1",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "^4.5.15",
@@ -38,9 +31,6 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0",
-    "node-sass": "^6.0.1",
-    "sass": "^1.46.0",
-    "sass-loader": "^10.2.0",
     "vue-cli-plugin-axios": "0.0.4",
     "vue-cli-plugin-i18n": "~2.3.1"
   },
