@@ -7,3 +7,8 @@ backend/drinkif/drinkif/__pycache__/settings.cpython-38.pyc
 backend/drinkif/drinkif/__pycache__/urls.cpython-38.pyc
 backend/drinkif/drinkif/__pycache__/views.cpython-38.pyc
 backend/drinkif/drinkif/__pycache__/wsgi.cpython-38.pyc
+
+**/node_modules
+nuxt-frontend/node_modules
+nuxt-frontend/.nuxt
+nuxt-frontend/.vite
