@@ -11,5 +11,9 @@ export default defineNuxtConfig({
     define: {
       'process.env.DEBUG': false,
     },
-  }
+  },
+  modules: ['@nuxtjs/axios'],
+  axios: {
+    proxyHeaders: false,
+  },
 })

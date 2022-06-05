@@ -10,7 +10,9 @@
     "nuxt": "^3.0.0-rc.3"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
     "@pinia/nuxt": "^0.1.9",
+    "axios": "^0.27.2",
     "mdi": "^2.2.43",
     "pinia": "^2.0.14",
     "sass": "^1.52.2",
