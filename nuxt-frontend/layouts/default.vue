@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue'
+import { useAuthStore } from '~/store/authStore'
 
+const store = useAuthStore()
 const drawer = ref(false)
 
 </script>
