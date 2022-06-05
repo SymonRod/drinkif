@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./*"],
+      "@/*": ["./*"],
+      "~~/*": ["./*"],
+      "@@/*": ["./*"]
+    }
+  },
+  "types": [
+    "@pinia/nuxt"
+  ],
+  "exclude": ["node_modules", ".nuxt", "dist"]
+}
