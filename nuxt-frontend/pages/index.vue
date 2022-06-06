@@ -1,18 +1,14 @@
 <script setup>
 import { ref, computed } from 'vue'
-const counter = ref(0)
+import { useStore } from '../store'
 
-const increment = () => {
-  counter.value++
-}
-
-
+const store = useStore()
 
 
 </script>
 
 <template>
   <v-container>
-    <v-btn class="bg-primary" @click="increment">{{ counter }}</v-btn>
+    <v-btn class="bg-primary" @click="store.counter++">{{ store.counter }}</v-btn>
   </v-container>
 </template>
