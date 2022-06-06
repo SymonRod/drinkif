@@ -3,3 +3,4 @@ gtts
 gunicorn
 psycopg2
 django
+django-cors-headers 

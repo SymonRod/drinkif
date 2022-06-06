@@ -1,5 +1,8 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import { useAuthStore } from '../store/authStore'
+
+const authStore = useAuthStore()
 
 var drawer = ref(false)
 </script>
@@ -10,6 +13,8 @@ var drawer = ref(false)
     <v-btn v-for="route in $router.getRoutes()" :key="route.name" :to="route.path">
       {{ route.name }}
     </v-btn>
+    <v-spacer />
+      <v-btn @click="authStore.login" color="primary">Login</v-btn>
   </v-app-bar>
 
   <v-navigation-drawer v-model="drawer">

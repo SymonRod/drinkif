@@ -1,9 +1,13 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useAuthStore } from '~/store/authStore'
 
-const store = useAuthStore()
+const authStore = useAuthStore()
 const drawer = ref(false)
+
+onMounted(() => {
+  authStore.getToken()
+})
 
 </script>
 
@@ -11,7 +15,7 @@ const drawer = ref(false)
   <!-- App.vue -->
 
   <v-app>
-    <nav-bar></nav-bar>
+    <NavBar></NavBar>
     <v-main>
       <v-container>
         <slot />
