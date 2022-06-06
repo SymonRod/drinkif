@@ -1,0 +1,3251 @@
+[
+    {
+        "model": "drinkif.phrases",
+        "pk": 5,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "shot di gruppo ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 6,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bacia la persona alla tua sinistra o dalle uno schiaffo ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 7,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "obbligo o verità, se rinunci bevi ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 8,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "shot misterioso a chi viene scelto",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 9,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "il gruppo ti fa una domanda",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 10,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "crea una regola, chiunque la infrange beve ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 11,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "distribuisci 3 shot, che siano per più persone o una persona sola ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 12,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "se hai un paio di tette, bevi ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 13,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "se hai un cazzo, bevi ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 14,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevono tutte le persone che posseggono un cane",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 15,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevono tutte le persone che posseggono un gatto",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 16,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevono tutte le persone che posseggono un android",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 17,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevono tutte le persone che posseggono un iphone ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 18,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "beve chi ha il telefono più scarico ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 19,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "beve chi ha il telefono più carico ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 20,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "se hai un tatuaggio, bevi ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 21,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "se hai un piercing, bevi",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 22,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "se porti gli orecchini, bevi ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 23,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "se porti gli occhiali, bevi ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 24,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "beve il più giovane ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 25,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "beve il più anziano ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 26,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "beve il più alto ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 27,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "beve il più basso ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 28,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "pausa acqua, bevine un bicchiere ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 29,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "fate una foto di gruppo ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 30,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevete tutti ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 31,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se oggi non hai mangiato verdure ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 32,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "se siete vestiti tutti di nero, bevete ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 33,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "se possiedi un paio di Crocs, bevi ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 34,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "controllate il colore delle vostre mutande, i doppioni bevono",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 35,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "scambiatevi tutti le magliette ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 36,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "chi ha il compleanno che si avvicina di più ad oggi beve ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 37,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "scegli un compagno con cui bere e poi scambiatevi il bicchiere ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 38,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "la persona che ha il bicchiere più pieno beve",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 40,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "hai mai ricevuto o fatto una sega con i piedi? se si, bevi ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 41,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "se hai mai pensato di legare qualcuno per poi farci sesso, bevi ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 42,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "se hai la patente, bevi ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 43,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se non ti piace il tuo lavoro",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 44,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai speso più di 100 euro su un gioco ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 45,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se ti sei mai misurato il cazzo con un righello ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 46,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se vorresti cambiare la tua attuale macchina ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 47,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se il tuo colore preferito è il giallo ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 48,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai pensato di fare un incesto (i cugini valgono)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 50,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se ti scoperesti una lesbica ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 51,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se i tuoi amici ti chiamano mich ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 52,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se al momento indossi dei calzini ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 53,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai bevuto della grappa fatta in casa ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 54,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se nessuno ti chiama mai con il tuo nome vero ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 55,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se ti scoperesti una ragazza/ragazzo che ti odia ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 56,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai pensato di rubare dei soldi ad un tuo amico/amica ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 60,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se odi i francesi ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 61,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se non sei mai stato in una relazione di 4 anni",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 62,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se sei mai stato in un parco avventura ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 63,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai sfasciato poltrone ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 64,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai sfasciato zanzariere ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 65,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se sei aracnofobico",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 66,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se chiami Rudolph, Rufus ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 67,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se non sei mai stato in vacanza in Sardegna ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 68,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se stai indossando una maglia nera  ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 70,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se ti scoperesti mich ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 71,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se ti scoperesti giolbi ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 72,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se ti scoperesti rod",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 73,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se ti scoperesti tami ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 74,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se ti scoperesti jaco",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 75,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai meno di una quarta di tette ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 76,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai la barba ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 77,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai i capelli ricci ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 78,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai i calzini a strisce ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 80,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se ti si è attaccata una cicca ai pantaloni e successivamente al sedile della macchina",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 81,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se assomigli a Toretto ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 82,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se sei mai uscito di casa di nascosto dalla finestra ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 83,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai dei segreti da mantenere, puttanella misteriosa ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 84,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai avuto un occhio nero ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 85,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai inviato una foto in déshabillé a qualcuno ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 86,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se qualcuno ti ha mai sgamato mentre facevi sesso ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 87,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai riso così forte da pisciarti addosso ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 88,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se ascolti nightcore",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 89,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se indossi una cintura ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 90,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se ti piacciono i meme earrape ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 91,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "gara > chi ha il cazzo più corto beve ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 92,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai guidato un’audi ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 93,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai una pupilla sminchiata ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 94,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se abiti fuori da Aosta",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 95,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai fatto allusioni sessuali con lo stesso sesso ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 96,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se a Pinerolo hai grattato tutto il camper contro il guard rail ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 97,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai aiutato jacopo a sboccare ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 98,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se sei mai andato in giro senza mutande ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 99,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se sei mai stato con una calabrese ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 100,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se vorresti scoparti Marco ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 101,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai rubato una crush ad un tuo amico/a",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 102,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se ti sei buttata sull’angolo del tavolino nel salotto di Rod ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 104,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se ti sei mai addormentato al cinema ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 105,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai rubato qualcosa da un ristorante ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 106,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai usato lo spazzolino di qualcun’altro, bevi doppio se l’hai usato all’insaputa del proprietario ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 107,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevete se vi siete mai svegliati con un occhio nero senza sapere minimamente da dove cazzo venisse ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 108,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai aiutato mich a sboccare ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 109,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se ti sei mai tagliato i capelli da solo ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 110,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai ballato in un ascensore ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 111,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se sei figlio unico ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 112,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai partecipato ad una rissa ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 113,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai ballato su un tavolo ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 114,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se stai indossando dei jeans ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 115,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai speso più di €400 per qualcosa ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 116,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se ti piace il moscato ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 117,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se stai indossando dei pantaloncini ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 118,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai nascosto qualcosa di rotto ai tuoi genitori ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 119,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai lavorato con qualcuno che proprio non riuscivi a sopportare ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 120,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai i calzini negri",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 121,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai bestemmiato di fronte ad un bambino ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 122,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se sei mai stato in crociera ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 123,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se ti hanno mai messo dei punti ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 124,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se ti sei spappolato la gamba andando in moto ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 125,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai fatto morire le tue piantine ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 126,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai indossato i tacchi di Tamy",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 127,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai portato l’apparecchio ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 128,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai cambiato una gomma ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 129,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se sei mai svenuto ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 131,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai copiato in una verifica, bevi il doppio se ti hanno sgamato ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 132,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se sei mai andato a lavoro/a scuola in hangover ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 135,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "beve la persona alla tua sinistra ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 137,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi tanti sorsi quante Alexa hai in casa",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 138,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai pisciato in mare, bevi doppio se il tuo cazzo è stato ripreso dalle 2 GoPro del tuo gruppo di amici \n",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 139,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai il foglio rosa ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 140,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai dato fuoco a qualcosa ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 141,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai usato il bagno del sesso opposto perché per il tuo c’era troppa coda ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 142,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai scopato",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 144,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se ascolti Il Pagante ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 145,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se sai fare i succhiotti ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 146,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se giochi a Pokémon Go o War Thunder 🤓",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 147,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se sei mai andato in palestra ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 148,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai i calzini di colore diverso ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 149,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se sei nato in italia ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 150,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se lanci i controller al muro ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 151,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se sei ossessionata da Pokemon go (e sappi che sei una sfigata😌) ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 152,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai intasato il cesso di qualcuno ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 153,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai gli occhi azzurri ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 154,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai le mutande bianche e vergognati ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 155,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "bevi se hai mai giocato a DnD (sfigato del cazzo)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 156,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai origini diverse dal paese in cui ti trovi",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 157,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "carta, sasso, forbice > perdi, bevi",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 158,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se ti cringi con la parola “cringe”",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 159,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se al momento hai le gambe accavallate",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 160,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevono quelli nati nello stesso mese",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 161,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevete il doppio per i prossimi due turni",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 162,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai il telefono nella tasca destra",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 163,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se oggi ti sei svegliato",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 165,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se ti mangi le unghie",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 168,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se oggi hai ascoltato musica",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 169,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se sei nato in estate",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 170,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "beve chi ha visto Game of Thrones",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 171,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se odi il tuo capo",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 172,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai avuto pensieri erotici sullo stesso sesso",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 173,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai lo smalto sulle unghie",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 174,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se possiedi uno strumento musicale (bevi doppio se non lo sai suonare)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 175,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi per ogni fratello/sorella che hai",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 176,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se i tuoi ti hanno mai beccato a masturbarti, bevi doppio se ti hanno sgamato entrambi i genitori",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 178,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai indossato biancheria intima appartenente al sesso opposto",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 181,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se sei un cringeman per eccellenza",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 183,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai dei tatuaggi",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 184,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se sei nato in inverno",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 186,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se sei andato in palestra nelle ultime 24 ore",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 187,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai finito la saga di Game of Thrones",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 188,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se al momento indossi una t-shirt",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 189,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se la palestra è diventata la tua tappa fissa giornaliera",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 190,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai finito AHS",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 191,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se al momento hai della lacca/cera nei capelli",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 192,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se oggi hai guardato un porno",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 193,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se utilizzi le offerte del Mc Donald’s",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 194,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se fai volare i droni (se li fai volare negli alberi bevi doppio)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 196,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai il cazzo tagliato",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 199,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai un profilo su Disney+ che hai scroccato a Tamy",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 200,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se utilizzi assiduamente la parola “cringe”",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 201,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai perso le valigie in aeroporto",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 203,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai un abbonamento a Netflix",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 205,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai rubato dei cartelli stradali, incivile del cazzo",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 206,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai comprato delle sigarette per conto di un minorenne",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 207,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se sei un coglione che drifta nei parcheggi ghiacciati (pieni, tra l'altro)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 208,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se sei mai andato in moto senza casco",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 209,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai accettato da bere da sconosciuti ai palchetti",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 210,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai preso a pugni il vetro della porta della tua camera fino a romperlo",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 211,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se sei mai stato truccato da Tamara",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 212,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai scambiato una cassetta di offerte per bambini malati per una spazzatura e sei stato poi rimproverato da un’impiegata del Mc Donald’s",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 213,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai indossato il reggiseno di Tamy",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 214,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se sei una bestia appartenente agli inferi a cui piace l’avocado",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 215,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai rotto il bracciolo di un cinema e 2 anni dopo si sono ricordati di te",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 216,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "chiunque ha un preservativo con sè, beve",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 217,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se prendi le forbici senza chiedere",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 218,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai comprato un vinile di Michael Jackson anche se non hai un giradischi, fottuto genio degli acquisti",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 220,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se porti le lenti a contatto",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 221,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se nella tua galleria hai tue foto in déshabillé",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 222,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "chi ha il bicchiere più vuoto si faccia versare un po’ di alcol dagli altri (fino al bordo, non fare il mollone)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 223,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai fatto sesso in macchina",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 224,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai un monopattino elettrico, bevi doppio se ti hanno investito mente lo usavi ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 225,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai vomitato per alcool",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 226,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai rubato dei soldi ad un amico",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 227,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai stappato una bottiglia sciabolando",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 228,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se “per sbaglio” hai comprato un vibratore su Internet",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 229,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai sboccato nella macchina di qualcuno",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 230,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai sprecato il tuo talento musicale per suonare “faccetta nera” sulla marimba di Corinne",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 231,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se sei un fumatore",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 232,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "quelli che hanno fatto un viaggio insieme, bevono",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 233,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai ricevuto o dato sesso anale",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 234,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai trasformato il McDonald’s nella tua nuova religione quando si esce in gruppo",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 235,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "beve chi ha meno tatuaggi/piercing nel gruppo",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 236,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai finito Naruto",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 237,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se oggi hai mangiato un big mc",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 238,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se ti caghi addosso e urli mentre guardiamo gli horror",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 239,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "beve chi si conosce da 5 anni o più",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 240,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai inventato sto gioco di merda",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 241,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai i baffetti",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 242,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "chi ha il bicchiere più pieno lo finisce",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 243,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai fatto una sega in cambio di alcol e poi vergognati intensamente",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 244,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "la persona che viene scelta fa 10 flessioni o 10 addominali, altrimenti beve a fondino",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 245,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se stai indossando una felpa rosa",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 246,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai  i capelli legati in un codino",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 247,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se non hai i capelli legati in un codino",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 248,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se quando si gioca a Monopoly vuoi solo fare la banca perché sei una sega ai giochi da tavolo",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 249,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se giochi a Doom",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 250,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai un MacBook e segui le lezioni di Domenico Chiodo",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 251,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se ti scoperesti la prof di antropologia culturale di Tamy",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 252,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se ti sei commosso all’Expo fino a piangere come una fontana",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 253,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi per ogni drone che hai perso o bruciato",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 254,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se guidi come un disagiato",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 255,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se pensavi si potesse sorpassare in doppia linea",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 256,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se ti sei mai fatto bannare da un server di Minecraft",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 257,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se giochi a Magic",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 258,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai un Roomba che ti mangia i caricabatterie e i lacci delle scarpe ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 259,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se stai vibando in questo momento (cit Mich)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 260,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se non hai la macchina",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 261,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se oggi ti sei segato",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 262,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se sputi le caramelle nei capelli delle tue amiche (bocia)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 263,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se ti hanno mai confuso per una commessa",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 264,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai fatto un buono per la palestra che non hai mai usato",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 265,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se ti piace Mi$$ Keta",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 266,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se i tuoi amici ti hanno dato per disperso tra le spiagge di Funtanameiga",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 267,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se è toccato a te svuotare la cisterna del piscio del camper",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 268,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se non sai bere l’acqua in macchina",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 269,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se il tuo carro armato di telefono si è rotto (\"resiste cadute di 1m\" cit)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 270,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se guidi una macchina rossa",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 272,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi per ogni tatuaggio o piercing che hai (gli orecchini valgono, stronza bevi)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 273,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "chi viene scelto, beve, ma dal bicchiere di un altro",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 275,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se tuo padre ti fa recitare i rosari durante i lunghi viaggi in macchina",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 277,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se oggi hai mangiato Mc (raga siamo obesi)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 278,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se prendi le rotonde al contrario",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 279,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai convissuto con il tuo animale domestico per più di 8 anni",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 280,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "Bevi se rompi il cazzo per bere il long island (e sei un coglione) ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 283,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "(人 •͈ᴗ•͈) bevete tutti stronzi (人 •͈ᴗ•͈)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 284,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "(人 •͈ᴗ•͈) bevete tutti stronzi (人 •͈ᴗ•͈)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 285,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "(人 •͈ᴗ•͈) bevete tutti stronzi (人 •͈ᴗ•͈)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 286,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "Bevi se non ti piace il \"Cosmopolitan\" ma lo hai pagato troppo e quindi devi berlo (questa frase è stata scritta da un ubriaco quindi sorry per la pessima grammatica) LOL",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 301,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "(人 •͈ᴗ•͈) bevete tutti stronzi (人 •͈ᴗ•͈)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 302,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "(人 •͈ᴗ•͈) bevete tutti stronzi (人 •͈ᴗ•͈)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 303,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "(人 •͈ᴗ•͈) bevete tutti stronzi (人 •͈ᴗ•͈)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 304,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "(人 •͈ᴗ•͈) bevete tutti stronzi (人 •͈ᴗ•͈)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 305,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "(人 •͈ᴗ•͈) bevete tutti stronzi (人 •͈ᴗ•͈)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 306,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "(人 •͈ᴗ•͈) bevete tutti stronzi (人 •͈ᴗ•͈)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 307,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "(人 •͈ᴗ•͈) bevete tutti stronzi (人 •͈ᴗ•͈)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 308,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai bestemmiato giocando a Wii Sports Resort",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 309,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai ricevuto una foto di un cazzo in chat, bevi doppio se l’hai mai inviata",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 310,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se possiedi una stampante 3D",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 312,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se una sera i tuoi amici ti hanno detto di abbassare il volume della musica mentre eri collassato su una panchina e hai scorreggiato nel misero tentativo di rialzarti, fallendo miseramente",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 314,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai rovesciato l’intera bottiglia di vodka sul monopoly di Rod",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 315,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai lasciato le chiavi della macchina nel quadro dell’accensione mentre eri al supermercato, bevi doppio se ti è successo 2 volte 🤡🤡🤡",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 320,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se sei mai stato investito, bevi doppio se hai mai investito qualcuno ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 321,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "il gruppo sceglie una persona che deve finire il proprio bicchiere",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 322,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "saké al riso? salvi. bevete doppio se vi piace quello alla prugna",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 323,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se possiedi un sex toy",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 324,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai sboccato l'anima nel cesso di Rod",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 325,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai pulito una grondaia",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 326,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "fai vedere al gruppo l'ultima foto/video che hai nella galleria o bevi a fondino",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 327,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai un piccione giallo in casa",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 328,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai sboccato al Carrefour",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 329,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "Bevi se pensavi che quelli con il cazzo non circonciso non se lo lavano tirando giù il cappuccio 🧢",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 330,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "Bevi se venderesti l'anima al diavolo per il sake alla prugna 😈",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 331,
+        "fields": {
+            "creator": 6,
+            "phrase_text": "Bevi se chiami i tavolini: comò",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 332,
+        "fields": {
+            "creator": 6,
+            "phrase_text": "Bevi se ti sei appena bagnata bevendo",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 333,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "Bevi se sei riuscito a bere uno shottino senza mani, bevi doppio se te lo sei versato addosso 😬😬",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 334,
+        "fields": {
+            "creator": 8,
+            "phrase_text": "Bevi se sei scoppiato a ridere fino alle lacrime durante la lezione sull'olocausto",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 335,
+        "fields": {
+            "creator": 8,
+            "phrase_text": "Bevi tanti sorsi quante telecamere hai in casa",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 336,
+        "fields": {
+            "creator": 8,
+            "phrase_text": "Bevi se il cane ti sveglia quando stai per scopare in sogno",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 337,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "Bevi se il tuo nome inzia con t e finisce con amara o inzia con j e finisce con acopo o inzia con g e finisce con ilbert o inizia con a e finisce con ndrea",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 338,
+        "fields": {
+            "creator": 4,
+            "phrase_text": "Bevi se ti fai sempre scarrozzare in giro 🤡",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 339,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "Bevi se ti fai sempre scarrozzare in giro 🤡",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 340,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "Bevi se ogni volta che vai cagare invii 20 post di instagram sul gruppo 💩💩",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 341,
+        "fields": {
+            "creator": 8,
+            "phrase_text": "Bevi tanti sorsi quante sono le persone che ti hanno beccato a scopare o a masturbarti. La persona che beve più sorsi, fa 5 flessioni e 5 addominali e per ognuna urla il nome del partner con cui è stato beccato.",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 342,
+        "fields": {
+            "creator": 8,
+            "phrase_text": "Guerra dei pollici, le due persone scelte si bendano e giocano alla guerra dei pollici, chi vince riempie il cocktail del perdente (Finiscilo a culo)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 345,
+        "fields": {
+            "creator": 8,
+            "phrase_text": "Nuova regola, le persone che hanno una R all'interno del proprio cognome bevono il doppio per il prossimo turno.",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 347,
+        "fields": {
+            "creator": 8,
+            "phrase_text": "The floor is lava! 3,2,1 Stop! I perdenti si fanno riempire il bicchiere e lo finiscono a culo.",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 348,
+        "fields": {
+            "creator": 8,
+            "phrase_text": "Formate due squadre. Tutti i partecipanti si sfidano a braccio di ferro, il gruppo dei perdenti si scambia la maglietta. Se è presente, si scambia anche il reggiseno e la persona estratta lo deve indossare fino alla fine del gioco. ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 349,
+        "fields": {
+            "creator": 8,
+            "phrase_text": "Pensate un numero da 1 a 3. Tutti assieme dite il numero nello stesso momento. I doppioni bevono.",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 350,
+        "fields": {
+            "creator": 8,
+            "phrase_text": "Nuova regole, chi ha presente una O nel cognome beve a fondino.",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 351,
+        "fields": {
+            "creator": 8,
+            "phrase_text": "bevi se hai visto una live porno. bevi doppio se ti ci sei masturbato. finisci il bicchiere se vi ci hai preso parte.",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 353,
+        "fields": {
+            "creator": 8,
+            "phrase_text": "Chi mostra la foto più cringe diventa il Re del Cringe della serata e può decidere una regola che vale per tutta la serata.",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 354,
+        "fields": {
+            "creator": 8,
+            "phrase_text": "Bevete a fondino ed estraete una persona. Questa sceglie una canzone e il gruppo organizza un karaoke. Il cantante deve cantare e il gruppo ride di lui. Se si rifiuta, rivolgetevi a lui come Piccola Pussy per tutta la serata.",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 355,
+        "fields": {
+            "creator": 8,
+            "phrase_text": "Serata moscia? Se la serata è più moscia del tuo cazzo, allora cambia gioco e vattene a fanculo.",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 356,
+        "fields": {
+            "creator": 8,
+            "phrase_text": "Estraete una persona ed importate un timer di 1 minuto. Il giocatore starta dicendo una parola, la persona alla sua sinistra deve dirne un'altra che inizia con l'ultima lettera della parola detta in precedenza. Chi non riesce a passare la parola prima dello scadere del tempo, beve a fondino.",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 357,
+        "fields": {
+            "creator": 8,
+            "phrase_text": "bevi se nella tua vita hai detto almeno una una Negro di merda. Oh cazzo, devo bere anche io. Preparami un bicchiere, donna. ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 359,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "beve chi è andato a pulire la macchina di Rod a mezzanotte ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 360,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se oggi ti sei svegliato dopo le 7",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 361,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "ragazzi > bevete se avete mai utilizzato la vostra cintura come una sottospecie di manette improvvisate con una ragazza. ragazze > bevete doppio se qualche ragazzo le ha mai usate su di voi ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 362,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se vuoi strozzare Nicole quando tira fuori i suoi pessimi gusti musicali ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 363,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se nelle ultime 24h hai toccato una tastiera (computer o portatile) ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 364,
+        "fields": {
+            "creator": 5,
+            "phrase_text": "AHAAH TEST GO BRRR 🤖🤖🤖🤖🤖",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 365,
+        "fields": {
+            "creator": 8,
+            "phrase_text": "La persona estratta mostra una propria foto in déshabillé a tutto il gruppo oppure fa 50 addominali",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 367,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "linguistico? sei salvo. ISIT? bevi doppio",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 368,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se oggi ti sei fatto la barba ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 369,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se non chiami mai il tuo animale domestico col suo vero nome ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 370,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se ti sei buttata sull’angolo del tavolino nel salotto di Rod",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 371,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai sboccato per alcool",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 372,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se nella tua macchina hai un Arbre Magique (cringe porcoddio)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 373,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai usato lo spazzolino di qualcun’altro, bevi doppio se l’hai usato all’insaputa del proprietario",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 374,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai riso così forte da pisciarti addosso",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 375,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se quando si deve dormire nel divano-letto ti becchi sempre il lato con la sbarra di metallo che ti preme sotto la schiena (poveri stronzi insonni, che dio vi benedica)",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 376,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se quando i carabinieri ti hanno chiesto \"dove vivi?\" tu hai risposto \"Matteo\", ed eri pure convinto ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 377,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se ti si è attaccata una cicca ai pantaloni e successivamente al sedile della macchina",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 378,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "le persone che hanno una R all'interno del proprio cognome bevono il doppio per il prossimo turno",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 380,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se sai fare i succhiotti ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 381,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se sei mai svenuto",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 382,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai bevuto della grappa fatta in casa",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 383,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "beve chi ha il telefono più carico",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 384,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "beve chi ha il telefono più scarico",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 385,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai cambiato una gomma",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 386,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai aiutato Jacopo a sboccare",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 387,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "scegli un compagno, scambiatevi il bicchiere per 2 turni ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 388,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se qualcuno ti ha mai sgamato mentre facevi sesso ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 389,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai aiutato Mich a sboccare ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 390,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai portato l'apparecchio ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 391,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "controllate il colore delle vostre mutande, i doppioni bevono ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 392,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai avuto un occhio nero ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 393,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai fatto morire le tue piantine",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 394,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se ti piacciono i meme earrape ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 395,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai pisciato in mare, bevi doppio se il tuo cazzo è stato ripreso dalle 2 GoPro del tuo gruppo di amici ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 396,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai fatto sesso in macchina",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 397,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se fai parte di quelli che hanno sboccato l'anima nel cesso di rod ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 398,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai intasato il cesso di qualcuno ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 399,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "fate una foto di gruppo",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 400,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "crea una regola, chiunque la infrange beve ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 401,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevete se dopo una serata vi siete svegliati con un occhio nero senza sapere minimamente da dove cazzo venisse ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 402,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai sempre delle caramelle/cicche nello zaino",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 403,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "Bevi se prendi gli incroci al contrario 🚫🎪🤡",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 404,
+        "fields": {
+            "creator": 3,
+            "phrase_text": "Bevi se la polizia ti ha visto con il cane in macchina sul posto del passeggero 🐶👮",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 405,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se tua madre ti menava con la cucchiarella o con il battipanni ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 406,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai una pupilla sminchiata ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 407,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se per le stradine di Pinerolo hai grattato il camper contro il guard rail ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.phrases",
+        "pk": 408,
+        "fields": {
+            "creator": 9,
+            "phrase_text": "bevi se hai mai fatto colazione al mc in after ",
+            "public": true
+        }
+    },
+    {
+        "model": "drinkif.extendeduser",
+        "pk": 1,
+        "fields": {
+            "user": 3,
+            "avatar_seed": "a3ps9g1wmujxm5z8oak1",
+            "description": "",
+            "is_developer": false,
+            "friends": [
+                4,
+                6,
+                7,
+                8,
+                9,
+                11,
+                12
+            ]
+        }
+    },
+    {
+        "model": "drinkif.extendeduser",
+        "pk": 2,
+        "fields": {
+            "user": 4,
+            "avatar_seed": "gk3ppf45qyogf9cs0x9x",
+            "description": "",
+            "is_developer": false,
+            "friends": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "drinkif.extendeduser",
+        "pk": 3,
+        "fields": {
+            "user": 9,
+            "avatar_seed": "gnkbwp97tnsgjlqvvzsy",
+            "description": "",
+            "is_developer": false,
+            "friends": [
+                3,
+                6,
+                7,
+                8
+            ]
+        }
+    },
+    {
+        "model": "drinkif.extendeduser",
+        "pk": 4,
+        "fields": {
+            "user": 8,
+            "avatar_seed": "6ohzvzsq9kjxbof3gg4h",
+            "description": "",
+            "is_developer": false,
+            "friends": [
+                3,
+                6,
+                7,
+                9
+            ]
+        }
+    },
+    {
+        "model": "drinkif.extendeduser",
+        "pk": 5,
+        "fields": {
+            "user": 6,
+            "avatar_seed": "pndr5a37nyvac2grwh6q",
+            "description": "",
+            "is_developer": false,
+            "friends": [
+                3,
+                7,
+                8,
+                9
+            ]
+        }
+    },
+    {
+        "model": "drinkif.extendeduser",
+        "pk": 6,
+        "fields": {
+            "user": 10,
+            "avatar_seed": "t1dzmmv0nr303bsumrcb",
+            "description": "",
+            "is_developer": false,
+            "friends": []
+        }
+    },
+    {
+        "model": "drinkif.extendeduser",
+        "pk": 7,
+        "fields": {
+            "user": 7,
+            "avatar_seed": "nt6wm4u0a3z22508v6pz",
+            "description": "",
+            "is_developer": false,
+            "friends": [
+                3,
+                6,
+                8,
+                9
+            ]
+        }
+    },
+    {
+        "model": "drinkif.extendeduser",
+        "pk": 8,
+        "fields": {
+            "user": 5,
+            "avatar_seed": "wa3a5ipy6zfjff5w41ks",
+            "description": "",
+            "is_developer": false,
+            "friends": []
+        }
+    },
+    {
+        "model": "drinkif.extendeduser",
+        "pk": 9,
+        "fields": {
+            "user": 11,
+            "avatar_seed": "j7t9h1d7e9q1t9hhnoez",
+            "description": "",
+            "is_developer": false,
+            "friends": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "drinkif.extendeduser",
+        "pk": 10,
+        "fields": {
+            "user": 12,
+            "avatar_seed": "hb6hdsfs5e5bl8vu676k",
+            "description": "",
+            "is_developer": false,
+            "friends": [
+                3
+            ]
+        }
+    }
+]

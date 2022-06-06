@@ -13,7 +13,10 @@
           <img src="@/assets/drunk_256.png" alt="" />
         </figure>
       </div>
-      <div class="has-text-centered" v-if="$store.state.user != null && isStarted">
+      <div
+        class="has-text-centered"
+        v-if="$store.state.user != null && isStarted"
+      >
         <span class="has-text-white is-size-3 has-text-weight-bold">{{
           $store.state.current_phrase.phrase_text
         }}</span>
@@ -33,9 +36,34 @@
         <button @click="startGame" class="button is-primary" v-if="!isStarted">
           {{ $t("start-game") }}
         </button>
-        <button @click="extractSentece" class="button is-primary is-outlined" v-else>
+        <button
+          @click="extractSentece"
+          class="button is-primary is-outlined"
+          v-else
+        >
           {{ $t("new-sentence") }}
         </button>
+        <div class="field is-horizontal column is-4 is-offset-4" v-if="!isStarted">
+          <div class="field-label is-normal">
+            <label class="label has-text-white">
+             {{ $t("max-sentence") }}
+            </label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control">
+                <input
+                  class="input"
+                  type="email"
+                  :placeholder="$t('max-sentence')"
+                  v-model="maxSentence"
+                />
+              </p>
+            </div>
+          </div>
+          &nbsp;
+          <button class="button" @click="maxSentence = howManySentences">Max</button>
+        </div>
       </div>
       <div class="columns" v-if="$store.state.friends.length > 0 && !isStarted">
         <div class="column is-4 is-offset-4">
@@ -86,42 +114,43 @@
         </div>
       </div>
       <div class="columns" v-if="isStarted">
-        <div class="column is-4 is-offset-4 has-text-centered has-text-white ">
-            <div class="button is-danger" @click="stopGame">
-              
-               <span class="icon is-small">
+        <div class="column is-4 is-offset-4 has-text-centered has-text-white">
+          <div class="button is-danger" @click="stopGame">
+            <span class="icon is-small">
               <i class="fas fa-hand-paper"></i>
             </span>
-            <span>{{$t('stop-game')}}</span>
-            </div>
+            <span>{{ $t("stop-game") }}</span>
+          </div>
         </div>
       </div>
 
       <div class="columns" v-if="$store.state.user.isDeveloper">
-        <div class="column is-4 is-offset-4 has-text-centered has-text-white ">
-            <div class="button is-success" @click="debugDownload">
-              
-               <span class="icon is-small">
+        <div class="column is-4 is-offset-4 has-text-centered has-text-white">
+          <div class="button is-success" @click="debugDownload">
+            <span class="icon is-small">
               <i class="fas fa-bug"></i>
             </span>
             <span>Debug</span>
-            </div>
+          </div>
         </div>
       </div>
     </div>
-  <a id="downloadAnchorElem" style="display:none"></a>
+    <a id="downloadAnchorElem" style="display: none"></a>
   </section>
 </template>
 
 <script>
 import { toast } from "bulma-toast";
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   name: "Home",
   data() {
     return {
-      isStarted: JSON.parse(localStorage.getItem("isStarted")) == null ? false : JSON.parse(localStorage.getItem("isStarted")),
+      isStarted:
+        JSON.parse(localStorage.getItem("isStarted")) == null
+          ? false
+          : JSON.parse(localStorage.getItem("isStarted")),
       includeFriends: {},
       friendsSentences: {},
       enableTTS: false,
@@ -130,25 +159,25 @@ export default {
   },
 
   methods: {
-    startGame: function() {
+    startGame: function () {
       this.isStarted = true;
       localStorage.setItem("isStarted", true);
       this.$store.dispatch("doNotRepeat", {
-          doNotRepeat: true,
-          includeFriends: this.includeFriends,
-        });
+        doNotRepeat: true,
+        includeFriends: this.includeFriends,
+      });
       this.$store.commit("clearHistory");
-      this.$store.commit("set_phrase",{});
+      this.$store.commit("set_phrase", {});
       //console.log("start game");
     },
 
-    stopGame: function() {
+    stopGame: function () {
       this.isStarted = false;
       localStorage.setItem("isStarted", false);
       this.$store.dispatch("doNotRepeat", {
-          doNotRepeat: false,
-          includeFriends: this.includeFriends,
-        });
+        doNotRepeat: false,
+        includeFriends: this.includeFriends,
+      });
     },
 
     extractSentece: function () {
@@ -174,10 +203,9 @@ export default {
         this.$store.state.available.at(newNumber)
       );
 
-
       //Setting current phrase
       this.$store.commit("set_phrase", this.$store.state.available.at(index));
-      
+
       //Adding the extracted sentence to the history
       this.$store.commit("addToHistory", this.$store.state.available.at(index));
 
@@ -186,63 +214,79 @@ export default {
         this.$store.state.available.splice(index, 1);
       }
 
-
       //Saving the abailable sentences in the local storage
       localStorage.setItem(
         "available",
         JSON.stringify(this.$store.state.available)
       );
-        
-      
-
 
       // If TTS is enabled, play the sentence
-      if(this.enableTTS) {
-        axios.get('/api/gtts?sentence='+encodeURIComponent(this.$store.state.current_phrase.phrase_text)).then(response => {
-          this.audio.pause();
-          this.audio.currentTime = 0;
-          this.audio.src = response.data.url;
-          this.audio.play();
-        }).catch(() => {
-          //console.log(error);
-          toast({
-            message: this.$t("tts-error"),
-            type: "is-warning",
-            position: "top-right",
-            duration: 12000,
-            dismissible: true,
+      if (this.enableTTS) {
+        axios
+          .get(
+            "/api/gtts?sentence=" +
+              encodeURIComponent(this.$store.state.current_phrase.phrase_text)
+          )
+          .then((response) => {
+            this.audio.pause();
+            this.audio.currentTime = 0;
+            this.audio.src = response.data.url;
+            this.audio.play();
+          })
+          .catch(() => {
+            //console.log(error);
+            toast({
+              message: this.$t("tts-error"),
+              type: "is-warning",
+              position: "top-right",
+              duration: 12000,
+              dismissible: true,
+            });
           });
-        });
       }
-
     },
 
-
     debugDownload() {
-    
-    //console.log("Debug");
+      //console.log("Debug");
 
-    var debugData = {
-      "friends": this.$store.state.friends, 
-      "doNotRepeat": this.$store.state.doNotRepeat, 
-      "current_phrase": this.$store.state.current_phrase, 
-      "history": this.$store.state.history, 
-      "available": this.$store.state.available, 
-      "phrases": this.$store.state.phrases, 
-      "errors": this.$store.state.errors, 
-    }
+      var debugData = {
+        friends: this.$store.state.friends,
+        doNotRepeat: this.$store.state.doNotRepeat,
+        current_phrase: this.$store.state.current_phrase,
+        history: this.$store.state.history,
+        available: this.$store.state.available,
+        phrases: this.$store.state.phrases,
+        errors: this.$store.state.errors,
+      };
 
-    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(debugData));
+      var dataStr =
+        "data:text/json;charset=utf-8," +
+        encodeURIComponent(JSON.stringify(debugData));
 
-    var dlAnchorElem = document.getElementById('downloadAnchorElem');
-    dlAnchorElem.setAttribute("href",     dataStr     );
-    dlAnchorElem.setAttribute("download", "debug.json");
-    dlAnchorElem.click();
-
-    }
+      var dlAnchorElem = document.getElementById("downloadAnchorElem");
+      dlAnchorElem.setAttribute("href", dataStr);
+      dlAnchorElem.setAttribute("download", "debug.json");
+      dlAnchorElem.click();
+    },
   },
   mounted: function () {},
   computed: {
+
+    howManySentences: function () {
+      return this.$store.state.available.filter((sentence) => {
+        return sentence.public;
+      }).length;
+    },
+
+    maxSentence:{
+      get() {
+        return this.$store.state.maxSentence;
+      },
+      set(value) {
+        this.$store.commit("set_maxSentence", value);
+      }
+    },
+
     sentences() {
       return this.$store.state.phrases.filter((phrase) => {
         if (phrase.creator == this.$store.state.user.username) {

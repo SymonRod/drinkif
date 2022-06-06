@@ -13,8 +13,13 @@ export default createStore({
     max: (JSON.parse(localStorage.getItem('max')) == null ? 100 : JSON.parse(localStorage.getItem('max'))),
     phrases: (JSON.parse(localStorage.getItem('sentences')) == null ? [] : JSON.parse(localStorage.getItem('sentences'))),
     errors: [],
+    maxSentence: 0,
   },
   mutations: {
+    set_maxSentence(state, maxSentence) {
+      state.maxSentence = maxSentence
+    },
+
     set_phrase(state, payload) {
       state.current_phrase = payload
       localStorage.setItem('current_phrase', JSON.stringify(state.current_phrase));
